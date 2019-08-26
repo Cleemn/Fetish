@@ -1,0 +1,32 @@
+<h3>Your conversation with <%= @user.email.capitalize %> :</h3>
+
+<div class="container">
+  <div class="row">
+    <div class="col-8 offset-2">
+      <% if @messages != [] %>
+      <ul>
+        <% @messages.each do |message| %>
+          <% if message.user == @myself %>
+            <li class="right-orange-user">
+          <% else %>
+            <li class="left-grey-user">
+          <% end %>
+          <h6><%= message.user.email.capitalize %></h6>
+          <p><%= message.content %></p>
+        </li>
+        <% end %>
+      </ul>
+      <% else %>
+          <p>Débutez votre conversation avec <%= @user.email.capitalize %></p>
+      <% end %>
+
+      <div class="formulaire">
+        <%= render "messages/form" %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Apres ajouter quand le truc a ete lu -->
+<!-- mettre de jolis avatars pour la conv -->
