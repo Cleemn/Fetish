@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class UserFeticheTest < ActiveSupport::TestCase
+class UserFetishTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

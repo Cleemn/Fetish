@@ -6,4 +6,9 @@ Rails.application.routes.draw do
   resources :messages, only: [:index, :create]
   # ce sera a nester dans matches une fois qu'on aura matches
 
+
+  resources :users do
+    get "random",
+    on: :collection
+  end
 end

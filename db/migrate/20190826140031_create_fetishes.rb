@@ -1,6 +1,6 @@
-class CreateFetiches < ActiveRecord::Migration[5.2]
+class CreateFetishes < ActiveRecord::Migration[5.2]
   def change
-    create_table :fetiches do |t|
+    create_table :fetishes do |t|
       t.string :name
       t.string :description
       t.string :image
