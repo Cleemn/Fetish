@@ -1,0 +1,44 @@
+.col-8 {
+  overflow: hidden;
+  background: white;
+  // box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  padding: 30px;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+
+.left-grey-user {
+  background-color: grey;
+  color: white;
+  font-weight: bold;
+  margin-right: 320px;
+}
+
+.right-orange-user {
+  background-color: #ffc5a1;
+  color: white;
+  text-align: right;
+  font-weight: bold;
+  margin-left: 320px;
+}
+
+ul {
+  list-style: none;
+}
+
+li {
+  list-style: none;
+  border-radius: 15px;
+}
+
+p {
+  padding: 10px;
+}
+
+// h8 {
+//   font-size: 10px;
+//   font-size: 10px;
+//   display: block;
+//   margin-left: auto;
+//   margin-right: auto;
+// }
