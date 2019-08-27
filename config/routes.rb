@@ -7,10 +7,11 @@ Rails.application.routes.draw do
     patch "accept"
     put "decline"
     resources :messages, only: [:index, :create]
+  end
 
   resources :users do
     get "random",
     on: :collection
-
+    resources :criteria, only: [:new, :create, :update]
   end
 end
