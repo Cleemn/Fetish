@@ -1,0 +1,50 @@
+<div>
+  <% if @criterium.nil? %>
+    <div class="container text-center p-5 m-5">
+      <%= link_to "Back to dashboard", dashboard_path, class:"btn btn-outline-danger" %>
+      <h3 class="m-4">Vous n'avez pas anecore ajouté de critères.</h3>
+      <h4 class="m-4">On y va ?</h4>
+      <%= link_to "Ajouter mes critères", new_user_criterium_path, class:"btn-home" %>
+    </div>
+  <% else %>
+  <div class="container">
+    <%= link_to "Back to dashboard", dashboard_path, class:"btn btn-outline-danger" %>
+    <div class="row d-flex align-items-center">
+      <div class="contenu col-12 col-lg-6">
+        <div class="card-product">
+          <% if @criterium.gender == "homme" %>
+            <img src="https://previews.123rf.com/images/martialred/martialred1605/martialred160500002/56300924-ic%C3%B4ne-homme-ou-salle-de-bains-signe-de-toilettes-des-hommes-plat-pour-les-applications-et-les-sites-web.jpg" class="p-3">
+          <% elsif @criterium.gender == "femme" %>
+            <img src="https://cdn.icon-icons.com/icons2/510/PNG/512/woman_icon-icons.com_49954.png" alt="" class="p-3">
+          <% else  %>
+            <img src="https://image.flaticon.com/icons/png/512/10/10002.png" alt="" class="p-3">
+          <% end %>
+          <div class="card-product-infos">
+            <h2>
+              Je suis intéressé(e) par
+              <% if @criterium.gender == "homme" %>
+                les <%= @criterium.gender %>s
+              <% elsif @criterium.gender == "femme" %>
+                les <%= @criterium.gender %>s
+              <% else  %>
+                <%= @criterium.gender %>
+              <% end %>
+              qui habitent près de <%= @criterium.localisation %> et qui ont <%= @criterium.age %> ans.
+            </h2>
+          </div>
+        </div>
+      </div>
+      <div class="contenu col-12 col-lg-6">
+        <h2 class="form-title">Modifier mes critères</h2>
+        <%= simple_form_for [@user, @criterium] do |f| %>
+          <%= f.input :gender, collection: ["homme", "femme", "les hommes et les femmes"] %>
+          <%= f.input :age, collection: 18..60 %>
+          <%= f.input :localisation %>
+          <div class="d-flex justify-content-center">
+            <%= f.submit "Mettre à jour mes critères", class: "btn-home m-4"%>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>
