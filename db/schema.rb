@@ -9,8 +9,7 @@
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
 # It's strongly recommended that you check this file into your version control system.
-
-ActiveRecord::Schema.define(version: 2019_08_26_143125) do
+ActiveRecord::Schema.define(version: 2019_08_27_084142) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +22,16 @@ ActiveRecord::Schema.define(version: 2019_08_26_143125) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_criteria_on_user_id"
+  end
+
+
+  create_table "matches", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_1_id"
+    t.bigint "user_2_id"
+    t.index ["user_1_id"], name: "index_matches_on_user_1_id"
+    t.index ["user_2_id"], name: "index_matches_on_user_2_id"
   end
 
   create_table "fetishes", force: :cascade do |t|
