@@ -1,14 +1,14 @@
 <div class="container">
   <div class="row">
     <div class="col-4 offset-4">
-      <h1 class="form-title">Add some criteria</h1>
+      <h2 class="form-title">Ajouter mes critères</h2>
 
       <%= simple_form_for [@user, @criterium] do |f| %>
-        <%= f.input :gender %>
-        <%= f.input :age, collection: 18..60, input_html: { multiple: true } %>
+        <%= f.input :gender, collection: ["homme", "femme", "les hommes et les femmes"] %>
+        <%= f.input :age, collection: 18..60 %>
         <%= f.input :localisation %>
         <div class="d-flex justify-content-center">
-          <%= f.submit "Mettre à jour mes critères", class: "btn btn-flat form-green"%>
+          <%= f.submit "Mettre à jour mes critères", class: "btn-home m-4"%>
         </div>
       <% end %>
     </div>
