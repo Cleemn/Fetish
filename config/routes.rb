@@ -3,9 +3,11 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  resources :messages, only: [:index, :create]
-  # ce sera a nester dans matches une fois qu'on aura matches
-
+  resources :matches, only: [:show] do
+    patch "accept"
+    put "decline"
+    resources :messages, only: [:index, :create]
+  end
 
   resources :users do
     get "random",
