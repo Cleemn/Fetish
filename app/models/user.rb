@@ -4,4 +4,6 @@ class User < ApplicationRecord
   has_many :messages
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+  has_many :user_fetishes
+  has_many :fetishes, through: :user_fetishes
 end
