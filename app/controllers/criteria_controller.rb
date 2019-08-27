@@ -13,6 +13,7 @@ class CriteriaController < ApplicationController
   end
 
   def create
+    @user = User.find(params[:user_id])
     @criterium = Criterium.new(criterium_params)
     @criterium.user = current_user
     if @criterium.save
