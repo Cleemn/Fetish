@@ -9,11 +9,15 @@ class UsersController < ApplicationController
   end
 
   def random
-    # @user_random = []
-    # @user_random = User.where(fetishes: current_user.fetishes).order("RANDOM()").first
-    @user = User.order("RANDOM()").first
-   # @user = User.where"#{current_user.fetishes} LIKE ?", "%#{@fetishes}%".order("RANDOM()").first
-    #SELECT * FROM User WHERE (`current_user.fetishes`='0' AND lat='0') ORDER BY RAND() LIMIT 1
+    @user = User
+      .includes(:fetishes)
+      .where(fetishes: current_user.fetishes)
+      .where.not(id: current_user.id)
+      .order("RANDOM()")
+      .first
+
+    @match = Match.new(user_1_id: @user.id, user_2_id: current_user.id)
+    @match.save!
   end
 
   def dashboard
