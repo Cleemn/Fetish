@@ -14,5 +14,6 @@ Rails.application.routes.draw do
     get "random",
     on: :collection
     resources :criteria, only: [:index, :new, :create, :edit, :update]
+    resources :user_fetishes, only: [:index, :new, :create, :edit, :update]
   end
 end

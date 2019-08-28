@@ -6,9 +6,12 @@
     <%= link_to "Mes critères", user_criteria_path(@user), class:"tab-underlined-active px-3" %>
   </li>
   <li>
-    <a href="#" class="tab-underlined px-2">Mes fétiches</a>
+    <%= link_to "Mes fétiches", user_user_fetishes_path(@user), class:"tab-underlined-active px-3" %>
   </li>
   <li>
     <a href="#" class="tab-underlined px-2">Ma messagerie</a>
+  </li>
+  <li>
+    <a href="#" class="tab-underlined px-2">Mes matches</a>
   </li>
 </ul>
