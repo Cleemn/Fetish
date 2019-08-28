@@ -9,7 +9,8 @@
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
 # It's strongly recommended that you check this file into your version control system.
-ActiveRecord::Schema.define(version: 2019_08_27_084142) do
+
+ActiveRecord::Schema.define(version: 2019_08_27_182212) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +25,13 @@ ActiveRecord::Schema.define(version: 2019_08_27_084142) do
     t.index ["user_id"], name: "index_criteria_on_user_id"
   end
 
+  create_table "fetishes", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.string "image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "matches", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -34,26 +42,20 @@ ActiveRecord::Schema.define(version: 2019_08_27_084142) do
     t.index ["user_2_id"], name: "index_matches_on_user_2_id"
   end
 
-  create_table "fetishes", force: :cascade do |t|
-    t.string "name"
-    t.string "description"
-    t.string "image"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "messages", force: :cascade do |t|
     t.datetime "read_at"
     t.bigint "user_id"
     t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "match_id"
+    t.index ["match_id"], name: "index_messages_on_match_id"
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
   create_table "user_fetishes", force: :cascade do |t|
-    t.string "fetish_id"
-    t.string "user_id"
+    t.integer "fetish_id"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -79,5 +81,6 @@ ActiveRecord::Schema.define(version: 2019_08_27_084142) do
   end
 
   add_foreign_key "criteria", "users"
+  add_foreign_key "messages", "matches"
   add_foreign_key "messages", "users"
 end

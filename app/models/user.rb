@@ -6,7 +6,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :user_fetishes
   has_many :fetishes, through: :user_fetishes
-
+  has_many :criteria
   acts_as_votable
   acts_as_voter
 

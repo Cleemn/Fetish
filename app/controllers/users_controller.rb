@@ -1,19 +1,25 @@
 class UsersController < ApplicationController
-  def random
-    @user = User.order("RANDOM()").first
-    # @user = User.where"#{current_user.fetishes} LIKE ?", "%#{@fetishes}%".order("RANDOM()").first
-  end
 
-  def show_test
-    @user = User.find(params[:user_id])
-  end
-
-  def admin
-    @user = User.find(current_user.id)
+  def index
     @users = User.all
-    @matches = Match.all
   end
 
+  def show
+    @user = User.find(params[:id])
+  end
+
+  def random
+   @user = User
+      .includes(:fetishes)
+      .where(fetishes: current_user.fetishes)
+      .where.not(id: current_user.id)
+      .order("RANDOM()")
+      .first
+
+    @match = Match.new(user_1_id: @user.id, user_2_id: current_user.id)
+    @match.save!
+  end
+  
   def accept
     # see like
     @user = User.find(params[:user_id])
@@ -26,7 +32,6 @@ class UsersController < ApplicationController
       @match.user_2_id = @user
       @match.save
     end
-    raise
     redirect_to user_show_test_path(@user)
   end
 
@@ -38,11 +43,19 @@ class UsersController < ApplicationController
     redirect_to user_show_test_path(@user)
   end
 
+  #def user_params
+   # params.require(:id).permit(:user_id)
+  #end
+
+  def dashboard
+    @user = current_user
+    @criteria = current_user.criteria
+  end
+
   private
 
   def user_params
-    params.require(:id).permit(:user_id)
+    params.require(:user).permit(:email, :encrypted_password, :user_name, :gender, :birth_date, :avatar, :description)
   end
 
 end
-#SELECT * FROM User WHERE (`current_user.fetishes`='0' AND lat='0') ORDER BY RAND() LIMIT 1

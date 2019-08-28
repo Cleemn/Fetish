@@ -1,31 +1,28 @@
-<% if @myself == @owner %>
-  <h3>Your conversation with <%= @client.email.capitalize %> :</h3>
-<% else %>
-  <h3>Your conversation with <%= @owner.email.capitalize %> :</h3>
-<% end %>
 <div class="container">
   <div class="row">
     <div class="col-8 offset-2">
+      <h3>Your conversation with <%= @user.email.capitalize %> :</h3>
       <% if @messages != [] %>
-      <!-- afficher ce qui s'ecrit quand il y a quelque chose -->
       <ul>
         <% @messages.each do |message| %>
+        <div class="small-box">
           <% if message.user == @myself %>
-            <li class="left-green-user">
+                    <h8 class="d-flex justify-content-center small mb-1">
+            <%= message.created_at.strftime("%b %-d %Y, %H:%M") %>
+        <!-- else, si message cree il y a moins d'un jour :hh, mm -->
+        <!-- if/else si ce sont des messages qui de la meme personne qui se suivent, ne pas afficher le temps entretemps -->
+            </h8>
+            <li class="right-orange-user">
           <% else %>
-            <li class="right-blue-user">
+            <li class="left-grey-user">
           <% end %>
-          <h6><%= message.user.email.capitalize %></h6>
           <p><%= message.content %></p>
         </li>
+        </div>
         <% end %>
       </ul>
       <% else %>
-        <% if @myself == @owner %>
-          <p>Débutez votre conversation avec <%= @client.email.capitalize %></p>
-        <% else %>
-          <p>Débutez votre conversation avec <%= @owner.email.capitalize %></p>
-        <% end %>
+          <p>Débutez votre conversation avec <%= @user.email.capitalize %></p>
       <% end %>
 
       <div class="formulaire">
@@ -35,5 +32,7 @@
   </div>
 </div>
 
-<!-- Apres ajouter quand le truc a ete lu -->
 <!-- mettre de jolis avatars pour la conv -->
+<!-- mettre le capitalize apres -->
+<!-- afficher si ca a ete lu -->
+<!-- bloquer la taille de l'historique de discussion , pour que ca scrolle -->
