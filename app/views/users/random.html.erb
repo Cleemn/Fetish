@@ -1,5 +1,15 @@
+
 <div class="container">
-  <h3><%=@user.user_name%></h3>
-  <p><%=@user.description%></p>
-  <img src="<%=@user.avatar%>" alt="">
+  <div class="card-trip">
+    <h2><%=@user.user_name%></h2>
+    <img class="displayed" src="<%=@user.avatar%>" />
+    <div class="card-trip-infos">
+        <p><%=@user.description%></p>
+    </div>
+    <div class="choice">
+       <button class="btn btn-no"><%= link_to "No", random_users_path, method: :patch %></button>
+      <button class="btn btn-ok"><%= link_to "Ok", random_users_path,  method: :patch %></button>
+    </div>
+  </div>
 </div>
+
