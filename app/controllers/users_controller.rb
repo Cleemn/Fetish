@@ -1,20 +1,26 @@
 class UsersController < ApplicationController
-
-
   def show
    @user = current_user
   end
 
+
   def random
-   @user = User
+    @user = User
       .includes(:fetishes)
       .where(fetishes: current_user.fetishes)
       .where.not(id: current_user.id)
+      .where.not(id: current_user.find_voted_items)
       .order("RANDOM()")
       .first
+    # @match = Match.new(user_1_id: @user.id, user_2_id: current_user.id)
+    # @match.save!
 
-    @match = Match.new(user_1_id: @user.id, user_2_id: current_user.id)
-    @match.save!
+     #.where(gender: current_user.criterium.gender)
+  end
+
+  def criteria_validation(age, localisation, gender)
+
+
   end
 
   def accept
