@@ -4,9 +4,9 @@ Rails.application.routes.draw do
   get "dashboard", to: "users#dashboard"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  resources :matches, only: [:show] do
-    put "accepted"
-    patch "declined"
+  resources :matches, only: [:show, :index] do
+    patch "accept"
+    put "decline"
     resources :messages, only: [:index, :create]
   end
 
