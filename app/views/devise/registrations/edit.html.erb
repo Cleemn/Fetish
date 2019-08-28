@@ -13,8 +13,8 @@
           <% end %>
           <%= f.input :user_name, required: true %>
           <%= f.input :description %>
-          <%= f.input :birth_date %>
-          <%= f.input :gender %>
+          <%= f.input :birth_date, as: :string, input_html: {class:"date"} %>
+          <%= f.input :gender, collection: ["homme", "femme"] %>
           <%= f.input :localisation %>
           <%= f.input :password,
                       hint: "Leave it blank if you don't want to change it",

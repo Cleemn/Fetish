@@ -19,7 +19,7 @@ class UsersController < ApplicationController
     @match = Match.new(user_1_id: @user.id, user_2_id: current_user.id)
     @match.save!
   end
-  
+
   def accept
     # see like
     @user = User.find(params[:user_id])
@@ -49,7 +49,8 @@ class UsersController < ApplicationController
 
   def dashboard
     @user = current_user
-    @criteria = current_user.criteria
+    @criterium = current_user.criteria.first
+    @user_fetishes = current_user.user_fetishes
   end
 
   private
