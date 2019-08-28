@@ -6,12 +6,12 @@
       <li>
         <%= match.user_1.avatar %>
         <h3 class="match-message-notification">
-          <%= link_to match.user_1.email.capitalize, match_messages_path(:match_id) %>
+          <%= link_to match.user_1.email.capitalize, match_messages_path(match) %>
         </h3>
       <% else %>
         <%= match.user_2.avatar %>
         <h3 class="match-message-notification">
-          <%= link_to match.user_2.email.capitalize, match_messages_path(:match_id) %>
+          <%= link_to match.user_2.email.capitalize, match_messages_path(match) %>
         </h3>
         <!-- il faudra voir l'avatar des autres -->
         <!-- les notifications sur l'avatar -->

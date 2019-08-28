@@ -5,9 +5,6 @@ class MessagesController < ApplicationController
     @messages = Message.all
     @message = Message.new
     @match = Match.find(params[:match_id])
-    # j'ai de nouveau cette erreur
-    # ActiveRecord::RecordNotFound in MessagesController#index
-    # Couldn't find Match with 'id'=match_id
     @myself = current_user
     if @match.user_1 != current_user
       @user = @match.user_1
