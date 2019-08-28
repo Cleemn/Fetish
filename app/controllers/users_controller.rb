@@ -1,11 +1,8 @@
 class UsersController < ApplicationController
 
-  def index
-    @users = User.all
-  end
 
   def show
-    @user = User.find(params[:id])
+   @user = current_user
   end
 
   def random
@@ -19,7 +16,7 @@ class UsersController < ApplicationController
     @match = Match.new(user_1_id: @user.id, user_2_id: current_user.id)
     @match.save!
   end
-  
+
   def accept
     # see like
     @user = User.find(params[:user_id])
@@ -32,7 +29,7 @@ class UsersController < ApplicationController
       @match.user_2_id = @user
       @match.save
     end
-    redirect_to user_show_test_path(@user)
+      redirect_to random_path
   end
 
   def decline
@@ -40,7 +37,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:user_id])
     @user.disliked_by(current_user)
     @user.save
-    redirect_to user_show_test_path(@user)
+    redirect_to random_path
   end
 
   #def user_params
