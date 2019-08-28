@@ -31,12 +31,12 @@ bbw = Fetish.create(name: "BBW", description:"Big Beautifull Women", image:"http
 cuir = Fetish.create(name: "Cuir", description:"Cuir Moustache", image:"https://www.podoorthese.fr/wp-content/uploads/sites/1251/2016/08/logo-podo-orth%C3%A8se-du-centre.png")
 
 
-UserFetish.new(fetish_id: 1, user_id:1)
-UserFetish.new(fetish_id: 2, user_id:1)
-UserFetish.new(fetish_id: 3, user_id:1)
-UserFetish.new(fetish_id: 1, user_id:2)
-UserFetish.new(fetish_id: 4, user_id:2)
-UserFetish.new(fetish_id: 1, user_id:3)
-UserFetish.new(fetish_id: 3, user_id:3)
+UserFetish.create(fetish_id: 1, user_id:1)
+UserFetish.create(fetish_id: 2, user_id:1)
+UserFetish.create(fetish_id: 3, user_id:1)
+UserFetish.create(fetish_id: 1, user_id:2)
+UserFetish.create(fetish_id: 4, user_id:2)
+UserFetish.create(fetish_id: 1, user_id:3)
+UserFetish.create(fetish_id: 3, user_id:3)
 
 puts 'Finished!'
