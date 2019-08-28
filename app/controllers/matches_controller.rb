@@ -3,6 +3,7 @@ class MatchesController < ApplicationController
     @matches = Match.all
   end
 
+
   def new
     @match = Match.new
 
@@ -10,6 +11,14 @@ class MatchesController < ApplicationController
     # quel id ici?
     @match.user = @user
   end
+
+
+  # def new
+  #   @match = Match.new
+  #   @user = User.find(params[:id])
+  #   # quel id ici?
+  #   @match.user = @user
+  # end
 
 
   def show

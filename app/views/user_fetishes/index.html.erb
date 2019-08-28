@@ -1,0 +1,17 @@
+<div>
+  <% if @user_fetish == [] %>
+    <div class="container text-center p-5 m-5">
+      <%= link_to "Back to dashboard", dashboard_path, class:"btn btn-outline-danger" %>
+      <h3 class="m-4">Vous n'avez pas anecore ajouté de fétiches.</h3>
+      <h4 class="m-4">On y va ?</h4>
+      <%= link_to "Ajouter mes fétiches", new_user_user_fetish_path, class:"btn-home" %>
+    </div>
+  <% elsif @user_fetish %>
+    <div class="container">
+      <% @user.user_fetishes.each do |user_fetish| %>
+        <%= user_fetish.fetish.name %>
+        <%= image_tag user_fetish.fetish.image, width: 100, height: 100, crop: :fill %>
+      <% end %>
+    </div>
+  <% end %>
+</div>
