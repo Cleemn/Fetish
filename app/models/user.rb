@@ -14,4 +14,8 @@ class User < ApplicationRecord
   def matches
     Match.where("user_1_id = :user_id OR user_2_id = :user_id", user_id: self.id)
   end
+
+  def compute_age(user)
+    age = Date.today - user.birth_date
+  end
 end
