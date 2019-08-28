@@ -1,5 +1,5 @@
 class Fetish < ApplicationRecord
-  # FETISHES = %w(Pieds Mains Uniformes Cuir BBW)
+  FETISHES = %w(Pieds Mains Uniformes Cuir BBW)
 
   has_many :user_fetishes
   has_many :users, through: :user_fetishes

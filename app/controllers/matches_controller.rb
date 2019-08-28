@@ -3,10 +3,25 @@ class MatchesController < ApplicationController
     @matches = Match.all
   end
 
+
   def new
     @match = Match.new
     @user = User.find(params[:user_id])
     @match.user = @user
+  end
+
+
+  # def new
+  #   @match = Match.new
+  #   @user = User.find(params[:id])
+  #   # quel id ici?
+  #   @match.user = @user
+  # end
+
+
+  def show
+    @match = Match.find(params[:id])
+    @user = User.find(@booking.article_id)
   end
 
   def create
@@ -29,6 +44,20 @@ class MatchesController < ApplicationController
   def show
     @match = Match.find(params[:match_id])
     @user = User.find(:match_id)
+  end
+
+  def accepted
+    @match = Match.find(params[:match_id])
+    # @match.status = "accepted"
+    # @match.save
+    # redirect_to dashboard_path WHERE ? Ou m'envoie le fait de dire oui
+  end
+
+  def declined
+    @match = Match.find(params[:match_id])
+    # @match.status = "declined"
+    # @match.save
+    # redirect_to dashboard_path WHERE ? Ou m'envoie ce refus ?
   end
 
   private
