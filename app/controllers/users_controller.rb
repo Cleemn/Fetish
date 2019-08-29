@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+
   def show
    @user = current_user
   end
@@ -6,12 +7,23 @@ class UsersController < ApplicationController
 
   def random
     @user = User
-      .includes(:fetishes)
-      .where(fetishes: current_user.fetishes)
-      .where.not(id: current_user.id)
-      .where.not(id: current_user.find_voted_items)
-      .order("RANDOM()")
-      .first
+    .joins(:user_fetishes)
+    .joins(:fetishes)
+    .where(fetishes: { name: current_user.fetishes.pluck(:name)})
+    .where.not(id: current_user.id)
+    .where.not(id: current_user.find_voted_items)
+    .order("RANDOM()")
+    .uniq
+    .first
+    # @user = User
+    #   .joins(:user_fetishes)
+    #   .joins(:fetishes)
+    #   .where(fetishes: current_user.user_fetishes)
+    #
+    #   .where.not(id: current_user.find_voted_items)
+    #
+    #   .first
+    #   raise
     # @match = Match.new(user_1_id: @user.id, user_2_id: current_user.id)
     # @match.save!
 

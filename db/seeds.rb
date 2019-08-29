@@ -11,7 +11,7 @@ puts 'destruction de la base précédente'
 User.destroy_all
 Fetish.destroy_all
 UserFetish.destroy_all
-Criteria.destroy_all
+Criterium.destroy_all
 puts 'Creating 10 fake users...'
 
 #USERS
@@ -55,19 +55,14 @@ cuir = Fetish.create(name: "Cuir", description:"Cuir Moustache", image:"https://
 UserFetish.create(fetish_id: 1, user_id:1)
 UserFetish.create(fetish_id: 2, user_id:1)
 UserFetish.create(fetish_id: 3, user_id:1)
+UserFetish.create(fetish_id: 4, user_id:1)
 UserFetish.create(fetish_id: 1, user_id:2)
-UserFetish.create(fetish_id: 4, user_id:2)
-UserFetish.create(fetish_id: 1, user_id:3)
-UserFetish.create(fetish_id: 3, user_id:3)
-UserFetish.create(fetish_id: 1, user_id:4)
-UserFetish.create(fetish_id: 1, user_id:5)
-UserFetish.create(fetish_id: 2, user_id:6)
-UserFetish.create(fetish_id: 1, user_id:7)
-UserFetish.create(fetish_id: 2, user_id:8)
+UserFetish.create(fetish_id: 2, user_id:3)
+UserFetish.create(fetish_id: 3, user_id:4)
+UserFetish.create(fetish_id: 4, user_id:5)
+UserFetish.create(fetish_id: 4, user_id:6)
+UserFetish.create(fetish_id: 5, user_id:8)
 
-#CRITERIA
-Criteria.create(user_id: 1, gender: "Homme", age: "27", localisation: "75000")
-Criteria.create(user_id: 4, gender: "Femme", age: "27", localisation: "75000")
 
 
 puts 'Finished!'
