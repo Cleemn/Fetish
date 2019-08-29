@@ -7,6 +7,9 @@ class MessagesController < ApplicationController
   # end
   def index
     @message = Message.new
+    if @match.nil?
+      redirect_to dashboard_path
+    else
     @match = Match.find(params[:match_id])
     @user_matches = current_user.matches
     @messages = @match.messages
@@ -22,6 +25,7 @@ class MessagesController < ApplicationController
       new_notif.save
     end
     @matches = Match.where(user_1_id: current_user.id).or(Match.where(user_2_id: current_user.id))
+  end
   end
 
   def create
