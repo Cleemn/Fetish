@@ -4,7 +4,6 @@ class UsersController < ApplicationController
    @user = current_user
   end
 
-
   def random
     @user = User
     .joins(:user_fetishes)

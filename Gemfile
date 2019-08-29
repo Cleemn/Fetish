@@ -17,6 +17,7 @@ gem 'uglifier'
 gem 'webpacker'
 gem 'faker'
 gem 'acts_as_votable', '~> 0.12.0'
+gem 'geocoder'
 
 gem 'sidekiq'
 gem 'sidekiq-failures', '~> 1.0'
