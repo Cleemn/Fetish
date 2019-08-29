@@ -79,7 +79,7 @@ end
 User.first(20).each do |user|
   criterium = Criterium.create(
     user_id: user.id,
-    gender: "femme",
+    gender: "Femme",
     age: rand(18..60),
     localisation: "Paris",
     )
@@ -89,7 +89,7 @@ end
 User.last(20).each do |user|
   criterium = Criterium.create(
     user_id: user.id,
-    gender: "homme",
+    gender: "Homme",
     age: rand(18..60),
     localisation: "Paris",
     )
