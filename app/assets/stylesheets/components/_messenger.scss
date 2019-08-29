@@ -22,8 +22,27 @@
   margin-left: 320px;
 }
 
+// .container  {
+//   width: 95%;
+// }
+
+.message-index {
+  height: calc(100vh - 176px);
+  overflow: scroll;
+  background: red;
+  .match-list {
+    width: 20%;
+    background-color: blue;
+  }
+  .messages {
+    width: 80%;
+    background: red;
+  }
+}
+
 ul {
   list-style: none;
+  padding-inline-start: 0px;
 }
 
 li {
@@ -35,10 +54,34 @@ p {
   padding: 10px;
 }
 
-// h8 {
-//   font-size: 10px;
-//   font-size: 10px;
-//   display: block;
-//   margin-left: auto;
-//   margin-right: auto;
-// }
+a {
+  text-decoration: none;
+  color: white;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.my-chat {
+  padding: 30px;
+}
+
+.my-matches {
+  padding: 30px;
+  text-align: left;
+}
+
+.match-message-notification {
+  display: flex;
+}
+
+.notif {
+  background-color: pink;
+  border-radius: 30px;
+  font-size: 16px;
+  padding: 0px;
+  text-align: center;
+  height: 20px;
+  width: 20px;
+}

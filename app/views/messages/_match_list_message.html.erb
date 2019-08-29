@@ -1,5 +1,5 @@
 <div class="my-matches">
-<%= image_tag "cheum.png" %>
+<%#= image_tag "cheum.png" %>
 <!-- icone et lien pour Find a Fetisher -->
   <% @matches.each do |match| %>
   <% mess = match.messages.where.not(user_id: current_user.id) %>
@@ -7,20 +7,24 @@
     <% if match.user_1 != current_user %>
       <li>
         <%#= image_tag match.user_1.avatar, class:"avatar" %>
-        <h3 class="match-message-notification">
+        <div class="match-message-notification">
           <%= link_to match.user_1.email.capitalize, match_messages_path(match) %>
           <% if mess.where(newnotification: true).count > 0 %>
-            <%= mess.where(newnotification: true).count %>
+            <div class="notif">
+              <%= link_to mess.where(newnotification: true).count, match_messages_path(match)  %>
+            </div>
           <% end %>
-        </h3>
+        </div>
       <% else %>
         <%#= image_tag match.user_2.avatar, class:"avatar" %>
-        <h3 class="match-message-notification">
+        <div class="match-message-notification">
           <%= link_to match.user_2.email.capitalize, match_messages_path(match) %>
           <% if mess.where(newnotification: true).count > 0 %>
-            <%= mess.where(newnotification: true).count %>
+            <div class="notif">
+              <%= link_to mess.where(newnotification: true).count, match_messages_path(match)  %>
+            </div>
           <% end %>
-        </h3>
+        </div>
         <!-- il faudra voir l'avatar des autres -->
         <!-- les notifications sur l'avatar -->
       </li>
@@ -29,8 +33,4 @@
   <% end %>
 </div>
 
-<!-- transformer ce fichier en partiale -->
 
-<!-- if notifs < 1 ne pas les faire apparaitre -->
-<!-- ici la notif ne s'affiche pas tant qu'il ny en a pas de nouvelles,
-en revanche, si j'ai lu le message, elle passe a 0 s'affiche -->

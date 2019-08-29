@@ -1,4 +1,4 @@
-<%= simple_form_for [@match, @message] do |f| %>
+<%= simple_form_for [@match, @message], remote: true do |f| %>
   <%= f.input :content, label: false, placeholder: "Ecrivez votre message ici" %>
   <%= f.submit "Envoyer", class: "btn btn-primary" %>
 <% end %>
