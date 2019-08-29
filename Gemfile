@@ -15,6 +15,11 @@ gem 'sassc-rails'
 gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
+gem 'faker'
+gem 'acts_as_votable', '~> 0.12.0'
+
+gem 'sidekiq'
+gem 'sidekiq-failures', '~> 1.0'
 
 group :development do
   gem 'web-console', '>= 3.3.0'

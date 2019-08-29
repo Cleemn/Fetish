@@ -1,3 +1,19 @@
-<div>
-  <span><%=  @user.id%></span>
+
+<div class="container">
+  <div class="card-trip">
+    <% if @user == nil %>
+      <h2>Aucun utilisateur ne correspond à votre recherche. Modifiez vos critères et/ou rééssayez ultérieurement</h2>
+    <% else %>
+      <h2><%=@user.user_name%></h2>
+      <img class="displayed" src="<%=@user.avatar%>" />
+      <div class="card-trip-infos">
+          <p><%=@user.description%></p>
+      </div>
+      <div class="choice">
+         <button class="btn btn-no"><%= link_to "No",user_decline_path(user_id: @user.id), method: :patch %></button>
+        <button class="btn btn-ok"><%= link_to "Ok", user_accept_path(user_id: @user.id),  method: :patch %></button>
+      </div>
+     <% end %>
+  </div>
 </div>
+
