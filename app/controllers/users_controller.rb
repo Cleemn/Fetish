@@ -28,7 +28,6 @@ class UsersController < ApplicationController
     # @match.save!
 
      #.where(gender: current_user.criterium.gender)
-     #
   end
 
   def accept
@@ -60,7 +59,8 @@ class UsersController < ApplicationController
 
   def dashboard
     @user = current_user
-    @criteria = current_user.criteria
+    @criterium = current_user.criteria.first
+    @user_fetishes = current_user.user_fetishes
   end
 
   private

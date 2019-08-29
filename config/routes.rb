@@ -21,6 +21,6 @@ Rails.application.routes.draw do
     patch "accept"
     patch "decline"
     resources :criteria, only: [:index, :new, :create, :edit, :update]
-    resources :user_fetishes, only: [:index, :new, :create, :edit, :update]
+    resources :user_fetishes, only: [:index, :new, :create, :destroy]
   end
 end
