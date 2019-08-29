@@ -1,17 +1,29 @@
 class MessagesController < ApplicationController
   # before_action :set_message, only: [:index]
+  # def checked
+  #   @match = Match.find(params[:match_id])
+  #   @new_notifications = @match.messages.where(newnotification: true)
+
+  # end
 
   def index
-    @messages = Message.all
     @message = Message.new
     @match = Match.find(params[:match_id])
+    @user_matches = current_user.matches
+    @messages = @match.messages
     @myself = current_user
-    if @match.user_1 != current_user
-      @user = @match.user_1
-    else
-      @user = @match.user_2
+      if @match.user_1 != current_user
+        @user = @match.user_1
+      else
+        @user = @match.user_2
+      end
+    @new_notifications = @messages.where.not(user_id: current_user.id)
+    @new_notifications.each do |new_notif|
+      new_notif.newnotification = false
+      new_notif.save
     end
   end
+  # reinverser true false
 
   def create
     @message = Message.new
@@ -34,10 +46,4 @@ class MessagesController < ApplicationController
   def message_params
     params.require(:message).permit(:content, :match_id)
   end
-
-  # def set_message
-  #   @match = Match.find(params[:match_id])
-  # end
 end
-
-#  a regler avec les pundits : la actuellement je peux m'incruster dans les conversations des autres

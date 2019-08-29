@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 2019_08_28_132410) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "match_id"
+    t.boolean "newnotification", default: true
     t.index ["match_id"], name: "index_messages_on_match_id"
     t.index ["user_id"], name: "index_messages_on_user_id"
   end

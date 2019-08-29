@@ -1,7 +1,8 @@
 class MatchesController < ApplicationController
   def index
-    @matches = Match.all
+    @matches = Match.where(user_1_id: current_user.id).or(Match.where(user_2_id: current_user.id))
   end
+  # puis-je tej cette methode? ainsi que route, action controller
 
 
   def new
@@ -39,12 +40,23 @@ class MatchesController < ApplicationController
     else
       render :new
     end
+
   end
 
-  def show
-    @match = Match.find(params[:match_id])
-    @user = User.find(:match_id)
-  end
+  # def show
+  #   @match = Match.find(params[:match_id])
+  #   @user = User.find(:match_id)
+  #   raise
+  # end
+
+  # def checked
+  #   @match =
+  #   @new_notifications = @match.messages.where(newnotification: true)
+  #   @new_notifications.each do |new_notif|
+  #     new_notif.newnotification = false
+  #     new_notif.save
+  #   end
+  # end
 
   def accepted
     @match = Match.find(params[:match_id])
