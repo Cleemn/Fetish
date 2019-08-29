@@ -1,25 +1,29 @@
 
-<div class="container">
+<div class="container random">
   <div class="card-trip random">
     <% if @user == nil %>
-      <h6>Aucun utilisateur ne correspond à votre recherche. Modifiez vos critères et/ou rééssayez ultérieurement</h6>
+    <div class="lonely">
+      <h6>Aucun utilisateur ne correspond à votre recherche... 😢 </h6>
+      <%= image_tag "lonely.jpg" %>
+      <h6>Modifiez vos critères ou rééssayez prochainement.</h6>
+      </div>
     <% else %>
       <div class="d-flex">
           <div class="avatar-square">
-            <%= image_tag @user.fetishes.where(fetishes: { name: current_user.fetishes.pluck(:name)}).first[:image], width: 25, height: 50 %>
-            <% if  @user.fetishes.count - 1 == 0 %>
+            <%= image_tag @user.fetishes.where(fetishes: { name: current_user.fetishes.pluck(:name)}).order("RANDOM()").first[:image], width: 25, height: 50,  data: {toggle: "tooltip", placement: "top"}, title: @user.fetishes.where(fetishes: { name: current_user.fetishes.pluck(:name)}).order("RANDOM()").first[:name]%>
+            <% if (@user.fetishes.count - 1) == 0 %>
               <p></p>
-              <% elsif @user.fetishes.count - 1  == 1 %>
-               <small><%= @user.fetishes.count %> autre fetiche </small>
-               <% else %>
-               <small><%= @user.fetishes.count %> autres fetiches </small>
-               <% end %>
+            <% elsif (@user.fetishes.count -1)  == 1 %>
+               <small><%= @user.fetishes.count -1 %> autre fetiche </small>
+            <% else %>
+               <small><%= @user.fetishes.count -1 %> autres fetiches </small>
+            <% end %>
           </div>
-          <div>
+          <div class="container">
             <h2><%=@user.user_name%></h2>
             <img class="displayed" src="<%=@user.avatar%>" />
             <div class="card-trip-infos">
-              <p><%=@user.description%></p>
+              <p class="user_description"><%=@user.description%></p>
             </div>
             <div class="choice">
               <button class="btn btn-no"><%= link_to "No",user_decline_path(user_id: @user.id), method: :patch %></button>
