@@ -11,10 +11,14 @@ class UsersController < ApplicationController
     .joins(:fetishes)
     .where(fetishes: { name: current_user.fetishes.pluck(:name)})
     .where.not(id: current_user.id)
-    .where.not(id: current_user.find_voted_items)
     .order("RANDOM()")
     .uniq
     .first
+
+
+     #.where.not(id: current_user.find_voted_items)
+
+
     # @user = User
     #   .joins(:user_fetishes)
     #   .joins(:fetishes)
