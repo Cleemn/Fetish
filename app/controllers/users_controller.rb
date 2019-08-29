@@ -38,8 +38,8 @@ class UsersController < ApplicationController
     # Match ? / Si la personne likee a elle aussi like
     if @user.liked? current_user
       @match = Match.new
-      @match.user_1_id = current_user
-      @match.user_2_id = @user
+      @match.user_1 = current_user
+      @match.user_2 = @user
       @match.save
     end
       redirect_to random_path
