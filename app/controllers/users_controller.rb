@@ -59,7 +59,7 @@ class UsersController < ApplicationController
 
   def dashboard
     @user = current_user
-    @criterium = current_user.criteria.first
+    @criterium = current_user.criterium
     @user_fetishes = current_user.user_fetishes
   end
 

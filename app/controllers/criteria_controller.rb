@@ -3,7 +3,7 @@ class CriteriaController < ApplicationController
 
   def index
     @user = current_user
-    @criterium = @user.criteria.first
+    @criterium = @user.criterium
   end
 
   def new
