@@ -4,8 +4,13 @@
       <h1>Une envie, un fétiche ?</h1>
       <h2>Rencontrez les bonnes personnes...</h2>
     </div>
+
+    <% if user_signed_in? %>
     <div class="mt-5">
-      <%= link_to "Sign up", new_user_registration_path, class:"btn-home" %>
+        <%= link_to "Rechercher un profil", random_path, class:"btn-home" %>
+    <% else %>
+         <%= link_to "Sign up", new_user_registration_path, class:"btn-home" %>
+    <% end %>
     </div>
   </div>
 </div>

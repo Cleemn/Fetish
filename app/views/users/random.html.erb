@@ -1,19 +1,34 @@
 
 <div class="container">
-  <div class="card-trip">
+  <div class="card-trip random">
     <% if @user == nil %>
-      <h2>Aucun utilisateur ne correspond à votre recherche. Modifiez vos critères et/ou rééssayez ultérieurement</h2>
+      <h6>Aucun utilisateur ne correspond à votre recherche. Modifiez vos critères et/ou rééssayez ultérieurement</h6>
     <% else %>
-      <h2><%=@user.user_name%></h2>
-      <img class="displayed" src="<%=@user.avatar%>" />
-      <div class="card-trip-infos">
-          <p><%=@user.description%></p>
-      </div>
-      <div class="choice">
-         <button class="btn btn-no"><%= link_to "No",user_decline_path(user_id: @user.id), method: :patch %></button>
-        <button class="btn btn-ok"><%= link_to "Ok", user_accept_path(user_id: @user.id),  method: :patch %></button>
-      </div>
-     <% end %>
+      <div class="d-flex">
+          <div class="avatar-square">
+            <%= image_tag @user.fetishes.where(fetishes: { name: current_user.fetishes.pluck(:name)}).first[:image], width: 25, height: 50 %>
+            <% if  @user.fetishes.count - 1 == 0 %>
+              <p></p>
+              <% elsif @user.fetishes.count - 1  == 1 %>
+               <small><%= @user.fetishes.count %> autre fetiche </small>
+               <% else %>
+               <small><%= @user.fetishes.count %> autres fetiches </small>
+               <% end %>
+          </div>
+          <div>
+            <h2><%=@user.user_name%></h2>
+            <img class="displayed" src="<%=@user.avatar%>" />
+            <div class="card-trip-infos">
+              <p><%=@user.description%></p>
+            </div>
+            <div class="choice">
+              <button class="btn btn-no"><%= link_to "No",user_decline_path(user_id: @user.id), method: :patch %></button>
+              <button class="btn btn-ok"><%= link_to "Ok", user_accept_path(user_id: @user.id),  method: :patch %></button>
+            </div>
+          </div>
+          <div class="ajustement">  </div>
+    </div>
+    <% end %>
   </div>
 </div>
 
