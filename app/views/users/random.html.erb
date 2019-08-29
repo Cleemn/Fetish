@@ -10,8 +10,8 @@
           <p><%=@user.description%></p>
       </div>
       <div class="choice">
-         <button class="btn btn-no"><%= link_to "No", match_declined_path(match_id: @match.id), method: :patch %></button>
-        <button class="btn btn-ok"><%= link_to "Ok", match_accepted_path(match_id: @match.id),  method: :put %></button>
+         <button class="btn btn-no"><%= link_to "No",user_decline_path(user_id: @user.id), method: :patch %></button>
+        <button class="btn btn-ok"><%= link_to "Ok", user_accept_path(user_id: @user.id),  method: :patch %></button>
       </div>
      <% end %>
   </div>

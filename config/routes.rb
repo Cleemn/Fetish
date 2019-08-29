@@ -9,8 +9,10 @@ Rails.application.routes.draw do
     resources :messages, only: [:index, :create]
   end
 
+ get "random", to: "users#random"
+
   resources :users do
-    get "random"
+
     patch "accept"
     patch "decline"
     resources :criteria, only: [:index, :new, :create, :edit, :update]
