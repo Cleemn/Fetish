@@ -1,37 +1,15 @@
 <div class="container">
-  <div class="row">
-    <div class="col-8 offset-2">
-      <h3>Your conversation with <%= @user.email.capitalize %> :</h3>
-      <% if @messages != [] %>
-      <ul>
-        <% @messages.each do |message| %>
-        <div class="small-box">
-          <% if message.user == @myself %>
-                    <h8 class="d-flex justify-content-center small mb-1">
-            <%= message.created_at.strftime("%b %-d %Y, %H:%M") %>
-        <!-- else, si message cree il y a moins d'un jour :hh, mm -->
-        <!-- if/else si ce sont des messages qui de la meme personne qui se suivent, ne pas afficher le temps entretemps -->
-            </h8>
-            <li class="right-orange-user">
-          <% else %>
-            <li class="left-grey-user">
-          <% end %>
-          <p><%= message.content %></p>
-        </li>
-        </div>
-        <% end %>
-      </ul>
-      <% else %>
-          <p>Débutez votre conversation avec <%= @user.email.capitalize %></p>
-      <% end %>
-
-      <div class="formulaire">
-        <%= render "messages/form" %>
-      </div>
+  <div class="d-flex message-index">
+    <div class="match-list">
+      <%= render "match_list_message" %>
+    </div>
+    <div class="messages">
+      <%= render "message_index" %>
     </div>
   </div>
 </div>
+<div id="connect-action-cable" data-match-id="<%= @match.id %>"></div>
+
 
 <!-- mettre de jolis avatars pour la conv -->
-<!-- afficher si ca a ete lu -->
 <!-- bloquer la taille de l'historique de discussion , pour que ca scrolle -->

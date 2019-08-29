@@ -5,7 +5,6 @@ class MessagesController < ApplicationController
   #   @new_notifications = @match.messages.where(newnotification: true)
 
   # end
-
   def index
     @message = Message.new
     @match = Match.find(params[:match_id])
@@ -22,8 +21,8 @@ class MessagesController < ApplicationController
       new_notif.newnotification = false
       new_notif.save
     end
+    @matches = Match.where(user_1_id: current_user.id).or(Match.where(user_2_id: current_user.id))
   end
-  # reinverser true false
 
   def create
     @message = Message.new

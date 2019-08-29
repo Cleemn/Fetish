@@ -1,0 +1,15 @@
+<div class="small-box">
+  <% if message.user == user %>
+    <h8 class="d-flex justify-content-center small mb-1">
+      <%= message.created_at.strftime("%b %-d %Y, %H:%M") %>
+    <!-- else, si message cree il y a moins d'un jour :hh, mm -->
+    <!-- genre daytime.now - daytime.message -->
+    <!-- if/else si ce sont des messages qui de la meme personne qui se suivent, ne pas afficher le temps entretemps -->
+    </h8>
+    <li class="right-orange-user">
+  <% else %>
+    <li class="left-grey-user">
+  <% end %>
+  <p><%= message.content %></p>
+    </li>
+</div>
