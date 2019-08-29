@@ -8,6 +8,7 @@ const initActionCable = () => {
         // select messages list
         const MyChatListId = document.getElementById('my-chat-list');
         MyChatListId.insertAdjacentHTML("beforeend", data.message_partial);
+        document.getElementById('message_content').value = "";
         // scrollLastMessageIntoView();
         // insert new message at the end of the list
         // console.log(data.message_partial)
