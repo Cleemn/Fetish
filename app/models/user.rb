@@ -13,6 +13,10 @@ class User < ApplicationRecord
   acts_as_voter
   validates :user_name, presence: true, uniqueness: true
 
+  geocoded_by :localisation
+  after_validation :geocode, if: :will_save_change_to_localisation?
+  # address ou localisation?
+
   def matches
     Match.where("user_1_id = :user_id OR user_2_id = :user_id", user_id: self.id)
   end
