@@ -65,20 +65,20 @@ sthenolagnie = Fetish.create(name: "Sthénolagnie", description:"Sthénolagnie",
 zentai = Fetish.create(name: "Zentai", description:"Zentai", image:"zentai.jpg")
 
 #USER_FETISH
-
-40.times do
+ids = Fetish.all.ids
+User.all.each do |user|
   user_fetish = UserFetish.create(
-    user_id: rand(1..40),
-    fetish_id: rand(1..18),
+    user_id: user.id,
+    fetish_id: ids.sample,
   )
   user_fetish.save!
 end
 
 #USER_CRITERIA
 
-20.times do
+User.first(20).each do |user|
   criterium = Criterium.create(
-    user_id: rand(1..20),
+    user_id: user.id,
     gender: "femme",
     age: rand(18..60),
     localisation: "Paris",
@@ -86,15 +86,17 @@ end
   criterium.save!
 end
 
-20.times do
+User.last(20).each do |user|
   criterium = Criterium.create(
-    user_id: rand(21..40),
+    user_id: user.id,
     gender: "homme",
     age: rand(18..60),
     localisation: "Paris",
     )
   criterium.save!
 end
+
+
 
 
 
