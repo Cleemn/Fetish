@@ -18,11 +18,6 @@ class UsersController < ApplicationController
      #.where(gender: current_user.criterium.gender)
   end
 
-  def criteria_validation(age, localisation, gender)
-
-
-  end
-
   def accept
     # see like
     @user = User.find(params[:user_id])
@@ -52,7 +47,8 @@ class UsersController < ApplicationController
 
   def dashboard
     @user = current_user
-    @criteria = current_user.criteria
+    @criterium = current_user.criteria.first
+    @user_fetishes = current_user.user_fetishes
   end
 
   private
