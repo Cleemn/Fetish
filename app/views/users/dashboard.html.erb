@@ -21,7 +21,11 @@
     <div class="col-5 offset-1 pl-4">
       <div class="user-infos ">
       <div class="title d-flex align-items-center border-bottom py-2">
-        <%= image_tag @user.avatar, width: 100, height:100, crop: :fill %>
+        <% if @user.avatar.present? %>
+          <%= image_tag @user.avatar, width: 100, height:100, crop: :fill %>
+        <% else %>
+          <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://kitt.lewagon.com/placeholder/users/ssaunier" />
+        <% end %>
         <h4><%= @user.user_name %> - <%= ((Time.zone.now - @user.birth_date.to_time) / 1.year.seconds).floor %> ans</h4>
       </div>
       <div class="content border-bottom py-2">
