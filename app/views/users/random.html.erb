@@ -21,7 +21,7 @@
           </div>
           <div class="container">
             <h2><%=@user.user_name%></h2>
-            <img class="displayed" src="<%=@user.avatar%>" />
+            <%= image_tag @user.avatar %>
             <div class="card-trip-infos">
               <p class="user_description"><%=@user.description%></p>
             </div>
