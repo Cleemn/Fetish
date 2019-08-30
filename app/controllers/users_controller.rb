@@ -18,9 +18,6 @@ class UsersController < ApplicationController
     .first
 
 
-     #
-
-
     # @user = User
     #   .joins(:user_fetishes)
     #   .joins(:fetishes)
