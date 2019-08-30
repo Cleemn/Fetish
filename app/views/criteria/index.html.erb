@@ -12,22 +12,18 @@
     <div class="row d-flex align-items-center">
       <div class="contenu col-12 col-lg-6">
         <div class="card-product">
-          <% if @criterium.gender == "homme" %>
+          <% if @criterium.gender == "Homme" %>
             <img src="https://previews.123rf.com/images/martialred/martialred1605/martialred160500002/56300924-ic%C3%B4ne-homme-ou-salle-de-bains-signe-de-toilettes-des-hommes-plat-pour-les-applications-et-les-sites-web.jpg" class="p-3">
-          <% elsif @criterium.gender == "femme" %>
+          <% elsif @criterium.gender == "Femme" %>
             <img src="https://cdn.icon-icons.com/icons2/510/PNG/512/woman_icon-icons.com_49954.png" alt="" class="p-3">
-          <% else  %>
-            <img src="https://image.flaticon.com/icons/png/512/10/10002.png" alt="" class="p-3">
           <% end %>
           <div class="card-product-infos">
             <h2>
               Je suis intéressé(e) par
-              <% if @criterium.gender == "homme" %>
+              <% if @criterium.gender == "Homme" %>
                 les <%= @criterium.gender %>s
-              <% elsif @criterium.gender == "femme" %>
+              <% elsif @criterium.gender == "Femme" %>
                 les <%= @criterium.gender %>s
-              <% else  %>
-                <%= @criterium.gender %>
               <% end %>
               qui habitent près de <%= @criterium.localisation %> et qui ont <%= @criterium.age %> ans.
             </h2>
