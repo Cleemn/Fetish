@@ -11,7 +11,9 @@
           <%= link_to match.user_1.email.capitalize, match_messages_path(match) %>
           <% if mess.where(newnotification: true).count > 0 %>
             <div class="notif">
-              <%= link_to mess.where(newnotification: true).count, match_messages_path(match)  %>
+              <span class="notif-number">
+                <%= link_to mess.where(newnotification: true).count, match_messages_path(match)  %>
+              </span>
             </div>
           <% end %>
         </div>
@@ -21,7 +23,9 @@
           <%= link_to match.user_2.email.capitalize, match_messages_path(match) %>
           <% if mess.where(newnotification: true).count > 0 %>
             <div class="notif">
-              <%= link_to mess.where(newnotification: true).count, match_messages_path(match)  %>
+              <span class="notif-number">
+                <%= link_to mess.where(newnotification: true).count, match_messages_path(match)  %>
+              </span>
             </div>
           <% end %>
         </div>
