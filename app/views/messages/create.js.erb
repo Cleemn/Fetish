@@ -1,0 +1,16 @@
+function refreshForm(innerHTML) {
+  const newMessageForm = document.getElementById('new_message');
+  newMessageForm.outerHTML = innerHTML;
+}
+
+function addMessage(messageHTML) {
+  const messages = document.getElementById('my-chat-list');
+  messages.insertAdjacentHTML('beforeend', messageHTML);
+}
+
+<% if @message.errors.any? %>
+  refreshForm('<%= j render "messages/form", match: @match, message: @message %>');
+<% else %>
+  addMessage('<%= j render "messages/message_content", message: @message, user: current_user %>');
+  refreshForm('<%= j render "messages/form", match: @match, message: Message.new %>');
+<% end %>
