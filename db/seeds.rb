@@ -152,7 +152,7 @@ User.first(12).each do |user|
   criterium = Criterium.create(
     user_id: user.id,
     gender: "Femme",
-    age: 36,
+    age: 27,
     localisation: "Paris",
     )
   criterium.save!
