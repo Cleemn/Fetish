@@ -9,11 +9,7 @@
     <%= link_to "Mes fétiches", user_user_fetishes_path(@user), class:"tab-underlined-active px-3" %>
   </li>
   <li>
-    <% if current_user.matches == [] %>
-    <%= link_to "Ma messagerie", dashboard_path, class: "nav-link" %>
-    <% else %>
-    <%= link_to "Ma messagerie", match_messages_path(current_user.messages), class: "nav-link" %>
-    <% end %>
+    <%= link_to "Ma messagerie", matches_path, class: "nav-link" %>
   </li>
 </ul>
 
