@@ -80,12 +80,12 @@ sthenolagnie = Fetish.create(name: "Sthénolagnie", description:"Sthénolagnie",
 zentai = Fetish.create(name: "Zentai", description:"Zentai", image:"zentai.jpg")
 
 
-UserFetish.create(user_id: 87, fetish_id: 55)
-UserFetish.create(user_id: 87, fetish_id: 56)
-UserFetish.create(user_id: 87, fetish_id: 57)
-UserFetish.create(user_id: 87, fetish_id: 58)
-UserFetish.create(user_id: 87, fetish_id: 59)
-UserFetish.create(user_id: 87, fetish_id: 60)
+UserFetish.create(user_id: 99, fetish_id: 55)
+UserFetish.create(user_id: 99, fetish_id: 56)
+UserFetish.create(user_id: 99, fetish_id: 57)
+UserFetish.create(user_id: 99, fetish_id: 58)
+UserFetish.create(user_id: 99, fetish_id: 59)
+UserFetish.create(user_id: 99, fetish_id: 60)
 
 UserFetish.create(user_id: 88, fetish_id: 61)
 UserFetish.create(user_id: 88, fetish_id: 56)

@@ -11,7 +11,8 @@ class User < ApplicationRecord
 
   acts_as_votable
   acts_as_voter
-  validates :user_name, :birth_date, presence: true, uniqueness: true
+  validates :user_name, presence: true, uniqueness: true
+  validates :birth_date, presence: true
 
   geocoded_by :localisation
   after_validation :geocode, if: :will_save_change_to_localisation?
