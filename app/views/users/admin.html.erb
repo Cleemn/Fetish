@@ -1,0 +1,29 @@
+<h1><%= @user.id  %> <%= @user.user_name  %></h1>
+
+<h1>Users likes & Matches</h1>
+
+<h2>Les likes, dislikes </h2>
+<ul>
+<% @users.each do |user|  %>
+  <p></p>
+  <li><%= user.user_name %></li>
+    <p>a eu les likes de :
+    <% user.get_likes.each do |like| %>
+    <%= like.voter_id %> <%= User.find(like.voter_id).user_name %>
+    <% end  %>
+    </p>
+    <p>a eu les dislikes de :
+    <% user.get_dislikes.each do |like| %>
+    <%= like.voter_id %>  <%= User.find(like.voter_id).user_name %>
+    <% end  %>
+    </p>
+<% end %>
+</ul>
+
+<h2>les matches </h2>
+
+<ul>
+  <% @matches.each do |match|  %>
+  <li><%= match.user_1_id %> <%= User.find(match.user_1_id).user_name %> -- <%= match.user_2_id %> <%= User.find(match.user_2_id).user_name %>   </li>
+  <% end %>
+</ul>
