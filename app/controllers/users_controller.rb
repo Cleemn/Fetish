@@ -11,13 +11,11 @@ class UsersController < ApplicationController
     .where(fetishes: { name: current_user.fetishes.pluck(:name)})
     .where(gender: current_user.criterium.gender.capitalize)
     .where(localisation: current_user.criterium.localisation.capitalize)
+    .where.not(id: current_user.find_voted_items)
     .where.not(id: current_user.id)
     .order("RANDOM()")
     .uniq
     .first
-
-
-     #    .where.not(id: current_user.find_voted_items)
 
 
     # @user = User

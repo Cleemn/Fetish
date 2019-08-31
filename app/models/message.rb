@@ -11,7 +11,8 @@ class Message < ApplicationRecord
       message_partial: ApplicationController.renderer.render(
         partial: "messages/message_content",
         locals: { message: self, user: user.id }
-      )
+      ),
+      message_user_id: user.id
     })
   end
 end

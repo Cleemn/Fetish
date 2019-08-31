@@ -3,7 +3,7 @@
     <div class="col-4 offset-4">
       <h2 class="form-title">Ajouter mes critères</h2>
       <%= simple_form_for [@user, @criterium] do |f| %>
-        <%= f.input :gender, collection: ["homme", "femme", "les hommes et les femmes"] %>
+        <%= f.input :gender, collection: ["Homme", "Femme"] %>
         <%= f.input :age, collection: 18..60 %>
         <%= f.input :localisation %>
         <div class="d-flex justify-content-center">

@@ -3,12 +3,12 @@
     <div class="match-list">
       <%= render "match_list_message" %>
     </div>
-    <div class="messages">
+    <div class="messages border-left">
       <%= render "message_index" %>
     </div>
   </div>
 </div>
-<div id="connect-action-cable" data-match-id="<%= @match.id %>"></div>
+<div id="connect-action-cable" data-match-id="<%= @match.id %>" data-current-user-id="<%= current_user.id %>"></div>
 
 
 <!-- mettre de jolis avatars pour la conv -->

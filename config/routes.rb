@@ -23,4 +23,6 @@ Rails.application.routes.draw do
     resources :criteria, only: [:index, :new, :create, :edit, :update]
     resources :user_fetishes, only: [:index, :new, :create, :destroy]
   end
+
+  mount ActionCable.server => "/cable"
 end
