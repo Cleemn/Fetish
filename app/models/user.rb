@@ -25,4 +25,12 @@ class User < ApplicationRecord
   def compute_age(user)
     age = Date.today - user.birth_date
   end
+
+  def match_as_u1
+    Match.where(user_1_id: self.id)
+  end
+
+  def match_as_u2
+    Match.where(user_2_id: self.id)
+  end
 end

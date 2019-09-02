@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_29_184033) do
+
+ActiveRecord::Schema.define(version: 2019_09_02_141120) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,6 +40,8 @@ ActiveRecord::Schema.define(version: 2019_08_29_184033) do
     t.bigint "user_1_id"
     t.bigint "user_2_id"
     t.integer "ended_by"
+    t.boolean "checked_by_u1", default: false
+    t.boolean "checked_by_u2", default: false
     t.index ["user_1_id"], name: "index_matches_on_user_1_id"
     t.index ["user_2_id"], name: "index_matches_on_user_2_id"
   end
@@ -51,6 +54,7 @@ ActiveRecord::Schema.define(version: 2019_08_29_184033) do
     t.datetime "updated_at", null: false
     t.bigint "match_id"
     t.boolean "newnotification", default: true
+    t.string "picture"
     t.index ["match_id"], name: "index_messages_on_match_id"
     t.index ["user_id"], name: "index_messages_on_user_id"
   end

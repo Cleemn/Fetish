@@ -1,0 +1,5 @@
+<% if @is_match == true %>
+  $("#match-modal").modal()
+<% else %>
+  window.location.replace("<%= random_path %>")
+<% end %>

@@ -1,28 +1,24 @@
 class MatchesController < ApplicationController
   def index
+    # @matches = Match
+    # .where(user_1_id: current_user.id).or(Match.where(user_2_id: current_user.id))
+    # .where(ended_by: nil)
+    my_match_as_u1 = current_user.match_as_u1
+    my_match_as_u1.each do |m|
+      m.update(checked_by_u1: true)
+    end
+
+    my_match_as_u2 = current_user.match_as_u2
+    my_match_as_u2.each do |m|
+      m.update(checked_by_u2: true)
+    end
     @matches = Match.where(user_1_id: current_user.id).or(Match.where(user_2_id: current_user.id))
   end
-  # puis-je tej cette methode? ainsi que route, action controller
-
 
   def new
     @match = Match.new
     @user = User.find(params[:user_id])
     @match.user = @user
-  end
-
-
-  # def new
-  #   @match = Match.new
-  #   @user = User.find(params[:id])
-  #   # quel id ici?
-  #   @match.user = @user
-  # end
-
-
-  def show
-    @match = Match.find(params[:id])
-    @user = User.find(@booking.article_id)
   end
 
   def create
@@ -40,23 +36,13 @@ class MatchesController < ApplicationController
     else
       render :new
     end
-
   end
 
-  # def show
-  #   @match = Match.find(params[:match_id])
-  #   @user = User.find(:match_id)
-  #   raise
-  # end
-
-  # def checked
-  #   @match =
-  #   @new_notifications = @match.messages.where(newnotification: true)
-  #   @new_notifications.each do |new_notif|
-  #     new_notif.newnotification = false
-  #     new_notif.save
-  #   end
-  # end
+  def end
+    @match = Match.find(params[:match_id])
+    @match.ended_by = current_user.id
+    @match.save!
+  end
 
   def accepted
     @match = Match.find(params[:match_id])

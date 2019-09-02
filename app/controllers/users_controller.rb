@@ -11,11 +11,12 @@ class UsersController < ApplicationController
     .where(fetishes: { name: current_user.fetishes.pluck(:name)})
     .where(gender: current_user.criterium.gender.capitalize)
     .where(localisation: current_user.criterium.localisation.capitalize)
-    .where.not(id: current_user.find_voted_items)
     .where.not(id: current_user.id)
     .order("RANDOM()")
     .uniq
     .first
+
+   # .where.not(id: current_user.find_voted_items)
 
 
     # @user = User
@@ -38,14 +39,22 @@ class UsersController < ApplicationController
     @user = User.find(params[:user_id])
     @user.liked_by(current_user)
     @user.save
+
+    @is_match = false
     # Match ? / Si la personne likee a elle aussi like
     if @user.liked? current_user
       @match = Match.new
       @match.user_1 = current_user
       @match.user_2 = @user
       @match.save
+      @is_match = true
     end
-      redirect_to random_path
+
+    respond_to do |format|
+      format.html { redirect_to random_path }
+      format.js  # <-- will render `app/views/reviews/create.js.erb`
+    end
+      # redirect_to random_path
   end
 
   def decline

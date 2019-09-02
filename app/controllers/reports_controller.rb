@@ -5,6 +5,6 @@ class ReportsController < ApplicationController
     @report.reported_user = @user
     @report.reported_by = current_user
     @report.save
-    redirect_to match_messages_path
+    redirect_to matches_path
   end
 end
