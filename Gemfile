@@ -22,6 +22,8 @@ gem 'geocoder'
 gem 'sidekiq'
 gem 'sidekiq-failures', '~> 1.0'
 
+gem 'dotenv-rails', groups: [:development, :test]
+
 group :development do
   gem 'web-console', '>= 3.3.0'
 end

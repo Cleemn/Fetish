@@ -35,6 +35,24 @@
   }
 }
 
+.message-icones {
+  border: solid 1px #F4F4F4;
+  border-radius: 5px;
+  font-size: 30px;
+}
+
+
+.message-icones-right {
+  text-align: right;
+}
+
+.message-picture {
+  border: solid 1px;
+  border-radius: 1px;
+  width: 240px;
+}
+
+
 ul {
   list-style: none;
   padding-inline-start: 0px;
@@ -90,4 +108,5 @@ a:hover {
     color: white;
   }
 }
+
 
