@@ -1,0 +1,83 @@
+.title-modal {
+  font-size: 40px;
+  font-weight: bolder;
+  color: white;
+  text-align: center;
+  margin-top: 110px;
+  font-family: 'Rock Salt', cursive;
+  letter-spacing: 8px;
+  line-height: 150%;
+}
+
+.gif {
+  width: 200px;
+  height: 200px;
+  overflow:hidden;
+  object-fit: cover;
+  margin-bottom: 90px;
+  margin-top: 70px;
+  padding-left: 10px;
+  border-radius: 150px;
+}
+
+.modal-dialog {
+  object-fit: cover;
+}
+
+#match-modal {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.btn-match-message {
+  background-color: rgba(0, 0, 0, 0);
+  line-height: 110%;
+  width: 150px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #ffc5a1;
+  font-family: sans-serif;
+  padding: 15px 5px;
+  border-radius: 50px;
+  border: solid 1px #ffc5a1;
+}
+
+.btn-match-message:hover {
+  transition: 0.5s;
+  background-color: #ffc5a1;
+  color: white;
+  text-decoration: none
+}
+
+.btn-match-search {
+  background-color: #ffc5a1;
+  line-height: 110%;
+  width: 150px;
+  font-weight: bold;
+  font-size: 18px;
+  color: white;
+  margin-left: 10px;
+  font-family: sans-serif;
+  padding: 15px 5px;
+  border-radius: 50px;
+  border: none;
+}
+
+.btn-match-search a {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.btn-match-search:hover {
+  transition: 0.5s;
+  background-color: white;
+  color: #ffc5a1;
+  text-decoration: none
+}
+
+.match-btns {
+  display: flex;
+  justify-content: space-around;
+}
+
+.match-affiche {
+  pointer-events: auto;
+}
