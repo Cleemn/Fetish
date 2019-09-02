@@ -11,11 +11,11 @@ class MessagesController < ApplicationController
     @user_matches = current_user.matches
     @messages = @match.messages
     @myself = current_user
-      if @match.user_1 != current_user
-        @user = @match.user_1
-      else
-        @user = @match.user_2
-      end
+    if @match.user_1 != current_user
+      @user = @match.user_1
+    else
+      @user = @match.user_2
+    end
     @new_notifications = @messages.where.not(user_id: current_user.id)
     @new_notifications.each do |new_notif|
       new_notif.newnotification = false
@@ -25,6 +25,7 @@ class MessagesController < ApplicationController
   end
 
   def create
+
     @message = Message.new
     @match = Match.find(params[:match_id])
     @myself = current_user
@@ -33,8 +34,19 @@ class MessagesController < ApplicationController
     else
       @user = @match.user_2
     end
+
     @message.user = current_user
+
+    @uploaded_file = message_params[:picture]
+    @filename = @uploaded_file.original_filename
+
+    @message.picture = @filename
     @message.content = message_params[:content]
+
+    #File.open(Rails.root.join('public', 'uploads', uploaded_file.original_filename), 'wb') do |file|
+    # file.write(uploaded_file.read)
+    # end
+
     @message.match = Match.find(params[:match_id])
     # @message.save
     if @message.save
@@ -53,9 +65,10 @@ class MessagesController < ApplicationController
     # redirect_to match_messages_path(@match)
   end
 
+
   private
 
   def message_params
-    params.require(:message).permit(:content, :match_id)
+    params.require(:message).permit(:content, :picture, :match_id)
   end
 end

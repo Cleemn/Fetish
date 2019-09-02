@@ -1,6 +1,9 @@
 class MatchesController < ApplicationController
   def index
-    @matches = Match.where(user_1_id: current_user.id).or(Match.where(user_2_id: current_user.id))
+    # @matches = Match.where(user_1_id: current_user.id).or(Match.where(user_2_id: current_user.id))
+    @matches = Match
+               .where(user_1_id: current_user.id).or(Match.where(user_2_id: current_user.id))
+               .where(ended_by: nil)
   end
 
   def new
@@ -29,6 +32,12 @@ class MatchesController < ApplicationController
     else
       render :new
     end
+  end
+
+  def end
+    @match = Match.find(params[:match_id])
+    @match.ended_by = current_user.id
+    @match.save!
   end
 
   def accepted
