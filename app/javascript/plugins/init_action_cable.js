@@ -12,8 +12,8 @@ const initActionCable = () => {
         if (data.message_user_id !== currentUserId) {
           const MyChatListId = document.getElementById('my-chat-list');
           MyChatListId.insertAdjacentHTML("beforeend", data.message_partial);
-          document.getElementById('message_content').value = "";
-          scrollLastMessageIntoView();
+          // document.getElementById('message_content').value = "";-> cette ligne fout la merde dans le form
+           scrollLastMessageIntoView();
         }
 
         // insert new message at the end of the list
