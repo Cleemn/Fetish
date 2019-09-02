@@ -24,8 +24,3 @@ const initActionCable = () => {
 }
 
 export { initActionCable };
-
-// beug de front a fixer apres
-// notre formulaire ne revient pas a blank
-// le message ne semble pas s'envoyer alors qu'il s'envoie de l'autre cote
-// mettre en place correctement le scroll
