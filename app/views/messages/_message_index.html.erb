@@ -1,15 +1,15 @@
 <div class="my-chat">
-  <h5>Votre conversation avec <%= @user.user_name %>.</h5>
-      <h8>Ceci est le début de vos échanges privés avec <%= @user.user_name %>.</h8>
-      <% if @messages != [] %>
+  <h3>Votre conversation avec <%= @user.user_name.capitalize %> :</h3>
+      <% if @messages.empty? %>
+        <p>Débutez votre conversation avec <%= @user.user_name.capitalize %></p>
+      <% end %>
       <ul id="my-chat-list">
-        <% @messages.each do |message| %>
-          <%= render "messages/message_content", message: message, user: current_user %>
+        <% if !@messages.empty? %>
+          <% @messages.each do |message| %>
+            <%= render "messages/message_content", message: message, user: current_user %>
+          <% end %>
         <% end %>
       </ul>
-      <% else %>
-          <p>Débutez votre conversation avec <%= @user.email.capitalize %></p>
-      <% end %>
 
       <div class="formulaire">
         <%= render "messages/form", match: @match, message: @message %>
