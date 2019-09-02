@@ -6,9 +6,13 @@ import { sendMessageAutomatically } from '../plugins/listener';
 
 flatPickr();
 initActionCable();
+
+global.$ = $
+
 sendMessageAutomatically();
 global.sendMessageAutomatically = sendMessageAutomatically;
 
 // document.addEventListener("keyup", () => {
 //   sendMessageAutomatically();
 // });
+

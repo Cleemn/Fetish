@@ -1,17 +1,17 @@
 <div>
   <% if @criterium.nil? %>
     <div class="container text-center p-5 m-5">
-      <%= link_to "Back to dashboard", dashboard_path, class:"btn btn-outline-danger" %>
-      <h3 class="m-4">Vous n'avez pas anecore ajouté de critères.</h3>
+      <%= link_to "Back to dashboard", dashboard_path, class:"btn btn-outline-danger text-center my-2 mx-auto" %>
+      <h3 class="m-4">Vous n'avez pas encore ajouté de critères.</h3>
       <h4 class="m-4">On y va ?</h4>
       <%= link_to "Ajouter mes critères", new_user_criterium_path, class:"btn-home" %>
     </div>
   <% else %>
   <div class="container">
-    <%= link_to "Back to dashboard", dashboard_path, class:"btn btn-outline-danger" %>
+    <%= link_to "Back to dashboard", dashboard_path, class:"btn btn-outline-danger text-center my-2 mx-auto" %>
     <div class="row d-flex align-items-center">
-      <div class="contenu col-12 col-lg-6">
-        <div class="card-product">
+      <div class="contenu col-12 col-lg-6 py-2">
+        <div class="card-product pr-2">
           <% if @criterium.gender == "Homme" %>
             <img src="https://previews.123rf.com/images/martialred/martialred1605/martialred160500002/56300924-ic%C3%B4ne-homme-ou-salle-de-bains-signe-de-toilettes-des-hommes-plat-pour-les-applications-et-les-sites-web.jpg" class="p-3">
           <% elsif @criterium.gender == "Femme" %>
@@ -19,19 +19,13 @@
           <% end %>
           <div class="card-product-infos">
             <h2>
-              Je suis intéressé(e) par
-              <% if @criterium.gender == "Homme" %>
-                les <%= @criterium.gender %>s
-              <% elsif @criterium.gender == "Femme" %>
-                les <%= @criterium.gender %>s
-              <% end %>
-              qui habitent près de <%= @criterium.localisation %> et qui ont <%= @criterium.age %> ans.
+              Je suis intéressé(e) par les <%= @criterium.gender.downcase %>s qui habitent près de <%= @criterium.localisation %> et qui ont <%= @criterium.age %> ans.
             </h2>
           </div>
         </div>
       </div>
       <div class="contenu col-12 col-lg-6">
-        <h2 class="form-title">Modifier mes critères</h2>
+        <h2 class="form-title text-center">Modifier mes critères</h2>
         <%= simple_form_for [@user, @criterium] do |f| %>
           <%= f.input :gender, collection: ["Homme", "Femme"] %>
           <%= f.input :age, collection: 18..60 %>
