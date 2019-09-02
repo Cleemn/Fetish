@@ -1,3 +1,6 @@
+
+// ../ -> remonter dans le dossier de dessus
+
 function refreshForm(innerHTML) {
   const newMessageForm = document.getElementById('new_message');
   newMessageForm.outerHTML = innerHTML;
@@ -13,4 +16,5 @@ function addMessage(messageHTML) {
 <% else %>
   addMessage('<%= j render "messages/message_content", message: @message, user: current_user %>');
   refreshForm('<%= j render "messages/form", match: @match, message: Message.new %>');
+  sendMessageAutomatically();
 <% end %>
