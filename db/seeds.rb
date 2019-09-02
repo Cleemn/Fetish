@@ -80,72 +80,72 @@ sthenolagnie = Fetish.create(name: "Sthénolagnie", description:"Sthénolagnie",
 zentai = Fetish.create(name: "Zentai", description:"Zentai", image:"zentai.jpg")
 
 
-UserFetish.create(user_id: 99, fetish_id: 55)
-UserFetish.create(user_id: 99, fetish_id: 56)
-UserFetish.create(user_id: 99, fetish_id: 57)
-UserFetish.create(user_id: 99, fetish_id: 58)
-UserFetish.create(user_id: 99, fetish_id: 59)
-UserFetish.create(user_id: 99, fetish_id: 60)
+# UserFetish.create(user_id: 99, fetish_id: 55)
+# UserFetish.create(user_id: 99, fetish_id: 56)
+# UserFetish.create(user_id: 99, fetish_id: 57)
+# UserFetish.create(user_id: 99, fetish_id: 58)
+# UserFetish.create(user_id: 99, fetish_id: 59)
+# UserFetish.create(user_id: 99, fetish_id: 60)
 
-UserFetish.create(user_id: 88, fetish_id: 61)
-UserFetish.create(user_id: 88, fetish_id: 56)
+# UserFetish.create(user_id: 88, fetish_id: 61)
+# UserFetish.create(user_id: 88, fetish_id: 56)
 
-UserFetish.create(user_id: 89, fetish_id: 56)
-UserFetish.create(user_id: 89, fetish_id: 57)
-UserFetish.create(user_id: 89, fetish_id: 60)
+# UserFetish.create(user_id: 89, fetish_id: 56)
+# UserFetish.create(user_id: 89, fetish_id: 57)
+# UserFetish.create(user_id: 89, fetish_id: 60)
 
-UserFetish.create(user_id: 90, fetish_id: 61)
-UserFetish.create(user_id: 90, fetish_id: 62)
-UserFetish.create(user_id: 90, fetish_id: 58)
-UserFetish.create(user_id: 90, fetish_id: 59)
-UserFetish.create(user_id: 90, fetish_id: 63)
-UserFetish.create(user_id: 90, fetish_id: 64)
+# UserFetish.create(user_id: 90, fetish_id: 61)
+# UserFetish.create(user_id: 90, fetish_id: 62)
+# UserFetish.create(user_id: 90, fetish_id: 58)
+# UserFetish.create(user_id: 90, fetish_id: 59)
+# UserFetish.create(user_id: 90, fetish_id: 63)
+# UserFetish.create(user_id: 90, fetish_id: 64)
 
-UserFetish.create(user_id: 91, fetish_id: 58)
+# UserFetish.create(user_id: 91, fetish_id: 58)
 
-UserFetish.create(user_id: 92, fetish_id: 61)
-UserFetish.create(user_id: 92, fetish_id: 65)
-UserFetish.create(user_id: 92, fetish_id: 56)
+# UserFetish.create(user_id: 92, fetish_id: 61)
+# UserFetish.create(user_id: 92, fetish_id: 65)
+# UserFetish.create(user_id: 92, fetish_id: 56)
 
-UserFetish.create(user_id: 93, fetish_id: 66)
-UserFetish.create(user_id: 93, fetish_id: 62)
-UserFetish.create(user_id: 93, fetish_id: 57)
-UserFetish.create(user_id: 93, fetish_id: 67)
-UserFetish.create(user_id: 93, fetish_id: 58)
-UserFetish.create(user_id: 93, fetish_id: 59)
+# UserFetish.create(user_id: 93, fetish_id: 66)
+# UserFetish.create(user_id: 93, fetish_id: 62)
+# UserFetish.create(user_id: 93, fetish_id: 57)
+# UserFetish.create(user_id: 93, fetish_id: 67)
+# UserFetish.create(user_id: 93, fetish_id: 58)
+# UserFetish.create(user_id: 93, fetish_id: 59)
 
-UserFetish.create(user_id: 94, fetish_id: 68)
-UserFetish.create(user_id: 94, fetish_id: 69)
-UserFetish.create(user_id: 94, fetish_id: 60)
-UserFetish.create(user_id: 94, fetish_id: 63)
-UserFetish.create(user_id: 94, fetish_id: 70)
-UserFetish.create(user_id: 94, fetish_id: 71)
-UserFetish.create(user_id: 94, fetish_id: 72)
+# UserFetish.create(user_id: 94, fetish_id: 68)
+# UserFetish.create(user_id: 94, fetish_id: 69)
+# UserFetish.create(user_id: 94, fetish_id: 60)
+# UserFetish.create(user_id: 94, fetish_id: 63)
+# UserFetish.create(user_id: 94, fetish_id: 70)
+# UserFetish.create(user_id: 94, fetish_id: 71)
+# UserFetish.create(user_id: 94, fetish_id: 72)
 
-UserFetish.create(user_id: 95, fetish_id: 72)
-UserFetish.create(user_id: 95, fetish_id: 68)
+# UserFetish.create(user_id: 95, fetish_id: 72)
+# UserFetish.create(user_id: 95, fetish_id: 68)
 
-UserFetish.create(user_id: 96, fetish_id: 72)
-UserFetish.create(user_id: 96, fetish_id: 56)
-UserFetish.create(user_id: 96, fetish_id: 70)
+# UserFetish.create(user_id: 96, fetish_id: 72)
+# UserFetish.create(user_id: 96, fetish_id: 56)
+# UserFetish.create(user_id: 96, fetish_id: 70)
 
-UserFetish.create(user_id: 97, fetish_id: 60)
+# UserFetish.create(user_id: 97, fetish_id: 60)
 
-UserFetish.create(user_id: 98, fetish_id: 60)
-UserFetish.create(user_id: 98, fetish_id: 64)
-
-
+# UserFetish.create(user_id: 98, fetish_id: 60)
+# UserFetish.create(user_id: 98, fetish_id: 64)
 
 
-#USER_FETISH
-# ids = Fetish.all.ids
-# User.all.each do |user|
-#   user_fetish = UserFetish.create(
-#     user_id: user.id,
-#     fetish_id: ids.sample,
-#   )
-#   user_fetish.save!
-# end
+
+
+# USER_FETISH
+ids = Fetish.all.ids
+User.all.each do |user|
+  user_fetish = UserFetish.create(
+    user_id: user.id,
+    fetish_id: ids.sample,
+  )
+  user_fetish.save!
+end
 
 #USER_CRITERIA
 

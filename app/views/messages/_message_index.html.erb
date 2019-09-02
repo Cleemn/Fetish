@@ -1,18 +1,21 @@
-<div class="my-chat">
-  <h3>Your conversation with <%= @user.email.capitalize %> :</h3>
-      <% if @messages != [] %>
-      <ul id="my-chat-list">
-        <% @messages.each do |message| %>
-          <%= render "messages/message_content", message: message, user: current_user %>
+<div class="container">
+  <div class="my-chat">
+    <h4>Votre conversation avec <%= @user.user_name.capitalize %> :</h4>
+        <% if @messages != [] %>
+        <ul id="my-chat-list">
+          <% @messages.each do |message| %>
+            <%= render "messages/message_content", message: message, user: current_user %>
+          <% end %>
+        </ul>
+        <% else %>
+            <p>Débutez votre conversation avec <%= @user.user_name.capitalize %></p>
         <% end %>
-      </ul>
-      <% else %>
-          <p>Débutez votre conversation avec <%= @user.email.capitalize %></p>
-      <% end %>
 
-      <div class="formulaire">
-        <%= render "messages/form", match: @match, message: @message %>
-      </div>
+        <div class="formulaire">
+          <%= render "messages/form", match: @match, message: @message %>
+        </div>
+  </div>
 </div>
+
 
 <!-- afficher si ca a ete lu ou non -->
