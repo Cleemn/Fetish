@@ -9,13 +9,12 @@ Rails.application.routes.draw do
   get "dashboard", to: "users#dashboard"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-
-  resources :matches, only: [:show, :index] do
+  resources :matches, only: [:show, :index, :update] do
     patch "end"
-    resources :messages, only: [:index, :create]
+    resources :messages, only: [:index]
   end
 
- get "random", to: "users#random"
+  get "random", to: "users#random"
 
   resources :users do
 
@@ -25,6 +24,4 @@ Rails.application.routes.draw do
     resources :criteria, only: [:index, :new, :create, :edit, :update]
     resources :user_fetishes, only: [:index, :new, :create, :destroy]
   end
-
-  mount ActionCable.server => "/cable"
 end

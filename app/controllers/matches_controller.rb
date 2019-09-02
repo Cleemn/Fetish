@@ -1,24 +1,17 @@
 class MatchesController < ApplicationController
   def index
-    @matches = Match.where(user_1_id: current_user.id).or(Match.where(user_2_id: current_user.id))
+    # @matches = Match.where(user_1_id: current_user.id).or(Match.where(user_2_id: current_user.id))
+    @matches = Match
+               .where(user_1_id: current_user.id).or(Match.where(user_2_id: current_user.id))
+               .where(ended_by: nil)
   end
   # puis-je tej cette methode? ainsi que route, action controller
-
 
   def new
     @match = Match.new
     @user = User.find(params[:user_id])
     @match.user = @user
   end
-
-
-  # def new
-  #   @match = Match.new
-  #   @user = User.find(params[:id])
-  #   # quel id ici?
-  #   @match.user = @user
-  # end
-
 
   def show
     @match = Match.find(params[:id])
@@ -40,7 +33,12 @@ class MatchesController < ApplicationController
     else
       render :new
     end
+  end
 
+  def end
+    @match = Match.find(params[:match_id])
+    @match.ended_by = current_user.id
+    @match.save!
   end
 
   # def show
