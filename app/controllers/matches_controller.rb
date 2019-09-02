@@ -1,20 +1,24 @@
 class MatchesController < ApplicationController
   def index
-    # @matches = Match.where(user_1_id: current_user.id).or(Match.where(user_2_id: current_user.id))
-    @matches = Match
-               .where(user_1_id: current_user.id).or(Match.where(user_2_id: current_user.id))
-               .where(ended_by: nil)
+    # @matches = Match
+    # .where(user_1_id: current_user.id).or(Match.where(user_2_id: current_user.id))
+    # .where(ended_by: nil)
+    my_match_as_u1 = current_user.match_as_u1
+    my_match_as_u1.each do |m|
+      m.update(checked_by_u1: true)
+    end
+
+    my_match_as_u2 = current_user.match_as_u2
+    my_match_as_u2.each do |m|
+      m.update(checked_by_u2: true)
+    end
+    @matches = Match.where(user_1_id: current_user.id).or(Match.where(user_2_id: current_user.id))
   end
 
   def new
     @match = Match.new
     @user = User.find(params[:user_id])
     @match.user = @user
-  end
-
-  def show
-    @match = Match.find(params[:id])
-    @user = User.find(@booking.article_id)
   end
 
   def create
