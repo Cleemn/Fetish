@@ -14,3 +14,4 @@ function addMessage(messageHTML) {
   addMessage('<%= j render "messages/message_content", message: @message, user: current_user %>');
   refreshForm('<%= j render "messages/form", match: @match, message: Message.new %>');
 <% end %>
+

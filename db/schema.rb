@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_29_150455) do
+ActiveRecord::Schema.define(version: 2019_09_01_121002) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 2019_08_29_150455) do
     t.datetime "updated_at", null: false
     t.bigint "user_1_id"
     t.bigint "user_2_id"
+    t.integer "ended_by"
     t.index ["user_1_id"], name: "index_matches_on_user_1_id"
     t.index ["user_2_id"], name: "index_matches_on_user_2_id"
   end
@@ -50,8 +51,16 @@ ActiveRecord::Schema.define(version: 2019_08_29_150455) do
     t.datetime "updated_at", null: false
     t.bigint "match_id"
     t.boolean "newnotification", default: true
+    t.string "picture"
     t.index ["match_id"], name: "index_messages_on_match_id"
     t.index ["user_id"], name: "index_messages_on_user_id"
+  end
+
+  create_table "reports", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "reported_user_id"
+    t.integer "reported_by_id"
   end
 
   create_table "user_fetishes", force: :cascade do |t|
