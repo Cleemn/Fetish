@@ -15,24 +15,24 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-5 offset-1 pl-4">
-      <div class="user-infos ">
+    <div class="col-lg-5 offset-lg-1 pl-4 py-2">
+      <div class="user-infos">
       <div class="title d-flex align-items-center border-bottom py-2">
         <% if @user.avatar.present? %>
-          <%= image_tag @user.avatar, width: 100, height:100, crop: :fill %>
+          <%= image_tag @user.avatar, width: 90, height:90, crop: :fill, class: "avatar-bordered" %>
         <% else %>
-          <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://kitt.lewagon.com/placeholder/users/ssaunier" />
+          <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="user-circle-solid.svg" />
         <% end %>
-        <h4><%= @user.user_name %> - <%= ((Time.zone.now - @user.birth_date.to_time) / 1.year.seconds).floor %> ans</h4>
+        <h4 class="px-2"><%= @user.user_name %> - <%= ((Time.zone.now - @user.birth_date.to_time) / 1.year.seconds).floor %> ans</h4>
       </div>
-      <div class="content border-bottom py-2">
-        <p><em>"<%= @user.description %>"</em></p>
+      <div class="content py-2">
+        <p class="text-center"><em>"<%= @user.description %>"</em></p>
       </div>
       <% if @criterium.nil? %>
         <p>Vous n'avez pas encore de critères !</p>
         <p><%= link_to "En ajouter ?", new_user_criterium_path(@user), class:"btn btn-home" %></p>
       <% else %>
-        <div class="criteria d-flex align-items-center">
+        <div class="card-product criteria d-flex align-items-center pr-2">
         <% if @criterium.gender == "Homme" %>
           <img src="https://previews.123rf.com/images/martialred/martialred1605/martialred160500002/56300924-ic%C3%B4ne-homme-ou-salle-de-bains-signe-de-toilettes-des-hommes-plat-pour-les-applications-et-les-sites-web.jpg" class="p-3">
         <% elsif @criterium.gender == "Femme" %>
@@ -40,13 +40,7 @@
         <% end %>
         <div class="card-product-infos">
           <p>
-            Je suis intéressé(e) par
-            <% if @criterium.gender == "Homme" %>
-              les <%= @criterium.gender %>s
-            <% elsif @criterium.gender == "Femme" %>
-              les <%= @criterium.gender %>s
-            <% end %>
-            qui habitent près de <%= @criterium.localisation %> et qui ont <%= @criterium.age %> ans.
+            Je suis intéressé(e) par les <%= @criterium.gender.downcase %>s qui habitent près de <%= @criterium.localisation %> et qui ont <%= @criterium.age %> ans.
           </p>
         </div>
           <%= link_to user_criteria_path(@user) do %>
@@ -56,9 +50,9 @@
       <% end %>
       </div>
     </div>
-    <div class="d-flex flex-column pr-4 col-6 border-left">
+    <div class="d-flex flex-column pr-4 col-lg-6 border-left">
       <div class="user-fetishes">
-        <div class="title d-flex justify-content-center px-3">
+        <div class="title d-flex justify-content-center p-3">
           <h4 class="px-3">Mes fétiches</h4>
           <% if @user.user_fetishes.empty? %>
           <% else %>
@@ -71,9 +65,9 @@
           <p class="px-3">Vous n'avez pas encore de fétiches !</p>
           <p><%= link_to "En ajouter ?", new_user_user_fetish_path(@user), class:"btn btn-home" %></p>
         <% else %>
-          <div class="content-fetishes text-center">
+          <div class="content-fetishes">
             <% @user.user_fetishes.each do |user_fetish| %>
-              <div class="clickable">
+              <div class="clickable mx-auto">
                 <%= image_tag user_fetish.fetish.image, width: 70, height: 70, crop: :fill %>
                 <small><%= user_fetish.fetish.name %></small>
               </div>
