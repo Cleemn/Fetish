@@ -16,6 +16,7 @@ class User < ApplicationRecord
 
   geocoded_by :localisation
   after_validation :geocode, if: :will_save_change_to_localisation?
+  after_create :set_default_avatar
   # address ou localisation?
 
   def matches
@@ -32,5 +33,9 @@ class User < ApplicationRecord
 
   def match_as_u2
     Match.where(user_2_id: self.id)
+  end
+
+  def set_default_avatar
+    self.avatar = "logo2.png"
   end
 end

@@ -34,22 +34,22 @@
   width: 150px;
   font-size: 18px;
   font-weight: bold;
-  color: #ffc5a1;
+  color: $fetish;
   font-family: sans-serif;
   padding: 15px 5px;
   border-radius: 50px;
-  border: solid 1px #ffc5a1;
+  border: solid 1px $fetish;
 }
 
 .btn-match-message:hover {
   transition: 0.5s;
-  background-color: #ffc5a1;
+  background-color: $fetish;
   color: white;
   text-decoration: none
 }
 
 .btn-match-search {
-  background-color: #ffc5a1;
+  background-color: $fetish;
   line-height: 110%;
   width: 150px;
   font-weight: bold;
@@ -69,7 +69,7 @@
 .btn-match-search:hover {
   transition: 0.5s;
   background-color: white;
-  color: #ffc5a1;
+  color: $fetish;
   text-decoration: none
 }
 

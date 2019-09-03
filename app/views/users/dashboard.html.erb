@@ -20,7 +20,7 @@
               <% if @user.avatar.present? %>
                 <%= image_tag @user.avatar, width: 90, height:90, crop: :fill, class: "avatar-bordered" %>
               <% else %>
-                <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="user-circle-solid.svg" />
+                <%= image_tag "user-circle-solid.svg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
               <% end %>
               <h4 class="px-2"><%= @user.user_name %> - <%= ((Time.zone.now - @user.birth_date.to_time) / 1.year.seconds).floor %> ans</h4>
             </div>
@@ -85,7 +85,7 @@
         <div class="container text-center p-5 m-5">
           <h3 class="m-4">Vous n'avez pas encore ajouté de critères.</h3>
           <h4 class="m-4">On y va ?</h4>
-          <%= link_to "Ajouter mes critères", new_user_criterium_path, class:"btn-home" %>
+          <%= link_to "Ajouter mes critères", new_user_criterium_path(@user), class:"btn-home" %>
         </div>
       <% else %>
       <div class="container">
