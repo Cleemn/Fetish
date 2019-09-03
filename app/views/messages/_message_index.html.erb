@@ -1,36 +1,39 @@
-<div class="my-chat">
-  <h3>Votre conversation avec <%= @user.user_name.capitalize %> :</h3>
-      <% if @messages.empty? %>
-        <p>Débutez votre conversation avec <%= @user.user_name.capitalize %></p>
-      <% end %>
-      <ul id="my-chat-list">
-        <% if !@messages.empty? %>
-          <% @messages.each do |message| %>
-            <%= render "messages/message_content", message: message, user: current_user %>
-          <% end %>
+<div class="container">
+  <div class="my-chat">
+    <h3>Votre conversation avec <%= @user.user_name.capitalize %> :</h3>
+        <% if @messages.empty? %>
+          <p>Débutez votre conversation avec <%= @user.user_name.capitalize %></p>
         <% end %>
-      </ul>
+        <ul id="my-chat-list">
+          <% if !@messages.empty? %>
+            <% @messages.each do |message| %>
+              <%= render "messages/message_content", message: message, user: current_user %>
+            <% end %>
+          <% end %>
+        </ul>
 
-      <div class="formulaire">
-        <%= render "messages/form", match: @match, message: @message %>
-      </div>
-
-      <div class="message-icones">
-        <div class="message-icones-right">
-          <!--%= link_to do %--->
-            <!--i class="far fa-image"></i-->
-          <!--% end %-->
-          <%= link_to do %>
-            <i class="fas fa-microphone"></i>
-          <% end %>
-          <%= link_to match_end_path(match_id: @match.id), :method => :patch do %>
-             <i class="fas fa-hand-paper"></i>
-          <% end %>
-          <%= link_to user_reports_path(user_id: @user.id), :method => :post do %>
-             <i class="fas fa-exclamation-triangle"> </i>
-          <% end %>
+        <div class="formulaire">
+          <%= render "messages/form", match: @match, message: @message %>
         </div>
-      </div>
+
+        <div class="message-icones">
+          <div class="message-icones-right">
+            <!--%= link_to do %--->
+              <!--i class="far fa-image"></i-->
+            <!--% end %-->
+            <%= link_to do %>
+              <i class="fas fa-microphone"></i>
+            <% end %>
+            <%= link_to match_end_path(match_id: @match.id), :method => :patch do %>
+               <i class="fas fa-hand-paper"></i>
+            <% end %>
+            <%= link_to user_reports_path(user_id: @user.id), :method => :post do %>
+               <i class="fas fa-exclamation-triangle"> </i>
+            <% end %>
+          </div>
+    </div>
+  </div>
 </div>
+
 
 <!-- afficher si ca a ete lu ou non -->

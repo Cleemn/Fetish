@@ -11,17 +11,23 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
-        <li class="nav-item active">
+        <li class="nav-item">
           <%= link_to "Dashboard", "/dashboard", class: "nav-link" %>
         </li>
-        <li class="nav-item active">
+        <li class="nav-item">
           <%= link_to "Search", "/random", class: "nav-link" %>
         </li>
-        <li class="nav-item active">
-          <%= link_to "Vous avez de nouveaux matches🔔", "/matches", class: "nav-link" %>
+        <li class="nav-item">
+          <% if current_user.match_as_u1.where(checked_by_u1: false).size > 0 || current_user.match_as_u2.where(checked_by_u2: false).size > 0 %>
+          <!-- si pas de nouveau match non lu -->
+            <%= link_to "Matches🔔", "/matches", class: "nav-link" %>
+          <% else %>
+          <!-- si tous mes matches ont ete lus -->
+            <%= link_to "Matches", "/matches", class: "nav-link" %>
+          <% end %>
         </li>
         <!-- faire bouger la cloche? :D -->
-        <li class="nav-item">
+        <li class="nav-item active">
           <%= link_to "Home", "/", class: "nav-link" %>
         </li>
 
