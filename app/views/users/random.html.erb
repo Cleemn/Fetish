@@ -8,7 +8,6 @@
       <h6>Modifiez vos critères ou rééssayez prochainement.</h6>
     </div>
     <% else %>
-      <div class="test">
        <div class="avatar-square fetish_card">
           <%= image_tag @user.fetishes.where(fetishes: { name: current_user.fetishes.pluck(:name)}).order("RANDOM()").first[:image], width: 25, height: 50,  data: {toggle: "tooltip", placement: "top"}, title: @user.fetishes.where(fetishes: { name: current_user.fetishes.pluck(:name)}).order("RANDOM()").first[:name]%>
           <% if (@user.fetishes.count - 1) == 0 %>
@@ -31,25 +30,6 @@
             </div>
           </div>
     <% end %>
-
-    <!-- Modal -->
-    <div class="modal fade" id="match-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="match-affiche">
-          <div class="header">
-            <h5 class="title-modal" id="exampleModalLongTitle"> Nouvelle affinité !</h5>
-          </div>
-          <div class="match_body">
-            <%= image_tag "spangle.gif", :class => "gif" %>
-          </div>
-          <div class="match-btns">
-            <%= link_to "Envoyer un message", dashboard_path, class: "btn-match-message" %>
-            <%= link_to "Continuer à chercher", random_path, class: "btn-match-search" %>
-          </div>
-        </div>
-      </div>
-    </div>
-
   </div>
 </div>
 

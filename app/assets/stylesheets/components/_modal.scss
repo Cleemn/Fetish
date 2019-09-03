@@ -12,11 +12,14 @@
 .gif {
   width: 200px;
   height: 200px;
+  display: flex;
+  justify-content: center;
   overflow:hidden;
   object-fit: cover;
   margin-bottom: 90px;
   margin-top: 70px;
-  padding-left: 10px;
+  margin-left: auto;
+  margin-right: auto;
   border-radius: 150px;
 }
 
@@ -24,12 +27,13 @@
   object-fit: cover;
 }
 
-#match-modal {
-  background-color: rgba(0, 0, 0, 0.6);
+.fade {
+  background-color: rgba(0, 0, 0, 0.7);
 }
 
 .btn-match-message {
   background-color: rgba(0, 0, 0, 0);
+  text-align: center;
   line-height: 110%;
   width: 150px;
   font-size: 18px;
@@ -38,8 +42,8 @@
   font-family: sans-serif;
   padding: 15px 5px;
   border-radius: 50px;
-  border: solid 1px $fetish;
-}
+  border: solid 2px $fetish;
+
 
 .btn-match-message:hover {
   transition: 0.5s;
@@ -50,20 +54,21 @@
 
 .btn-match-search {
   background-color: $fetish;
+  text-align: center;
   line-height: 110%;
   width: 150px;
   font-weight: bold;
   font-size: 18px;
-  color: white;
+  color: rgba(0, 0, 0, 0.7);
   margin-left: 10px;
   font-family: sans-serif;
-  padding: 15px 5px;
+  padding: 17px 5px 13px 5px;
   border-radius: 50px;
   border: none;
 }
 
 .btn-match-search a {
-  color: rgba(0, 0, 0, 0.6);
+  color: rgba(0, 0, 0, 0.7);
 }
 
 .btn-match-search:hover {
