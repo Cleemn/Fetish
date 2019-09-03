@@ -16,7 +16,7 @@ class User < ApplicationRecord
 
   geocoded_by :localisation
   after_validation :geocode, if: :will_save_change_to_localisation?
-  after_create :set_default_avatar
+  after_validation :set_default_avatar
   # address ou localisation?
 
   def matches
