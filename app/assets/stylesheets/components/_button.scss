@@ -1,6 +1,6 @@
 // HOME
 .btn-home {
-  background-color: #ffc5a1;
+  background-color: $fetish;
   color: white;
   font-family: sans-serif;
   padding: 15px 25px;
@@ -11,23 +11,23 @@
 .btn-home:hover {
   transition: 0.5s;
   background-color: white;
-  color: #ffc5a1;
+  color: $fetish;
   text-decoration: none
 }
 
 // LOGIN + SIGNIN
 .btn-log {
   background-color: white;
-  color: #ffc5a1;
+  color: $fetish;
   font-family: sans-serif;
   padding: 15px 25px;
   border-radius: 50px;
-  border: solid 1px #ffc5a1;
+  border: solid 1px $fetish;
 }
 
 .btn-log:hover {
   transition: 0.5s;
-  background-color: #ffc5a1;
+  background-color: $fetish;
   color: white;
   text-decoration: none
 }
@@ -70,7 +70,7 @@
 }
 
 .btn-ok {
-  background-color: #FDC5A2;
+  background-color: $fetish;
   font-size: 24px;
   color: white;
   border: white;
