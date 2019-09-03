@@ -1,7 +1,8 @@
 <div class="navbar_top">
   <% if user_signed_in? %>
   <div class="connected connection d-flex align-items-center justify-content-center p-2">
-    <%= image_tag "logo.png", width: 60, height: 60, crop: :fill %>
+    <%= link_to root_path do %><%= image_tag "logo.png", width: 60, height: 60, crop: :fill %>
+    <% end %>
   </div>
   <% else %>
   <div class="connection d-flex align-items-center justify-content-between p-2">
