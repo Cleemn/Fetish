@@ -20,11 +20,10 @@
         <li class="nav-item">
           <% if current_user.matches.size > 0 %>
             <% if current_user.match_as_u1.where(checked_by_u1: false).size > 0 || current_user.match_as_u2.where(checked_by_u2: false).size > 0 %>
-              <%= link_to "Matches🔔", "/matches", class: "nav-link" %>
-              <!-- "/match/:match_id/messages" -->
+              <%= link_to "Matches", match_messages_path(@last_match), class: "nav-link the-bell" %>
+<!--               <div id="bell" class="animated infinite bounce">🔔</div> -->
             <% else %>
-              <%= link_to "Matches", "/matches", class: "nav-link" %>
-              <!-- "/matches/:match_id/messages" -->
+              <%= link_to "Matches", match_messages_path(@last_match), class: "nav-link" %>
             <% end %>
           <% else %>
             <%= link_to "Matches", "/random", class: "nav-link" %>

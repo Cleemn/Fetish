@@ -13,6 +13,7 @@ class User < ApplicationRecord
   acts_as_voter
   validates :user_name, presence: true, uniqueness: true
   validates :birth_date, presence: true
+  validates :description, length: { maximum: 120 }
 
   geocoded_by :localisation
   after_validation :geocode, if: :will_save_change_to_localisation?
