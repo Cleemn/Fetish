@@ -25,8 +25,7 @@ class MessagesController < ApplicationController
   end
 
   def create
-
-    @message = Message.new
+    @message = Message.new(message_params)
     @match = Match.find(params[:match_id])
     @myself = current_user
     if @match.user_1 != current_user
@@ -36,18 +35,7 @@ class MessagesController < ApplicationController
     end
 
     @message.user = current_user
-
-    @uploaded_file = message_params[:picture]
-    @filename = @uploaded_file.original_filename
-
-    @message.picture = @filename
-    @message.content = message_params[:content]
-
-    #File.open(Rails.root.join('public', 'uploads', uploaded_file.original_filename), 'wb') do |file|
-    # file.write(uploaded_file.read)
-    # end
-
-    @message.match = Match.find(params[:match_id])
+    @message.match = @match
     # @message.save
     if @message.save
       respond_to do |format|
@@ -69,6 +57,7 @@ class MessagesController < ApplicationController
   private
 
   def message_params
-    params.require(:message).permit(:content, :picture, :match_id)
+#    params.require(:message).permit(:content, :picture, :match_id)
+    params.require(:message).permit(:content, :picture, :picture_cache)
   end
 end
