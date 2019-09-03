@@ -1,5 +1,9 @@
 <% if @is_match == true %>
-  $("#match-modal").modal()
+  content = document.querySelector('.random')
+  content.insertAdjacentHTML('beforeend', '<%= j render "users/match_modal", match: @match %>');
+  matchId = <%= @match.id %>
+  string = `#match-modal-${matchId}`
+  $(string).modal()
 <% else %>
   window.location.replace("<%= random_path %>")
 <% end %>

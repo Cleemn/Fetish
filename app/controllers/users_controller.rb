@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
-
   def show
-   @user = current_user
+    @user = current_user
   end
 
   def random
@@ -14,24 +13,9 @@ class UsersController < ApplicationController
     .uniq
     .first
 
-#    .where(gender: current_user.criterium.gender.capitalize)
-   # .where.not(id: current_user.find_voted_items)
+    #.where(gender: current_user.criterium.gender.capitalize)
+    #.where.not(id: current_user.find_voted_items)
     #.where(localisation: current_user.criterium.localisation.capitalize)
-
-
-    # @user = User
-    #   .joins(:user_fetishes)
-    #   .joins(:fetishes)
-    #   .where(fetishes: current_user.user_fetishes)
-    #
-    #   .where.not(id: current_user.find_voted_items)
-    #
-    #   .first
-    #   raise
-    # @match = Match.new(user_1_id: @user.id, user_2_id: current_user.id)
-    # @match.save!
-
-     #.where(gender: current_user.criterium.gender)
   end
 
   def accept
@@ -80,5 +64,4 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:email, :encrypted_password, :user_name, :gender, :birth_date, :avatar, :description)
   end
-
 end
