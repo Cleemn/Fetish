@@ -1,9 +1,24 @@
 <% if user_signed_in? %>
-<div class="nav_bottom d-flex align-items-center justify-content-around border-top">
-  <%= link_to dashboard_path do %><i class="fas fa-user fa-2x py-3" style="color:#FA8072"></i><% end %>
-  <%= link_to random_path do %><i class="fas fa-heart fa-2x py-3"></i><% end %>
-  <%= link_to matches_path do %><i class="fas fa-bell fa-2x py-3"></i><% end %>
-  <%= link_to root_path do %><i class="fas fa-home fa-2x py-3"></i><% end %>
-  <%= link_to destroy_user_session_path, method: :delete do %><i class="fas fa-power-off fa-2x"></i><% end %>
-</div>
+  <div class="nav_bottom d-flex align-items-center justify-content-around border-top">
+
+    <%= link_to dashboard_path do %><i class="fas fa-user fa-2x py-3" style="color:#FA8072"></i><% end %>
+
+    <%= link_to random_path do %><i class="fas fa-heart fa-2x py-3"></i><% end %>
+
+    <% if current_user.matches.size > 0 %>
+      <% if current_user.match_as_u1.where(checked_by_u1: false).size > 0 || current_user.match_as_u2.where(checked_by_u2: false).size > 0 %>
+        <%= link_to match_messages_path(@last_match) do %><i class="fas fa-bell fa-2x py-3"></i><% end %>
+      <% else %>
+        <%= link_to match_messages_path(@last_match) do %><i class="fas fa-bell fa-2x py-3"></i><% end %>
+  <!-- changer de cloche si notif ou non -->
+      <% end %>
+    <% else %>
+      <%= link_to random_path do %><i class="fas fa-bell fa-2x py-3"></i><% end %>
+    <% end %>
+
+    <%= link_to root_path do %><i class="fas fa-home fa-2x py-3"></i><% end %>
+    <%= link_to destroy_user_session_path, method: :delete do %><i class="fas fa-power-off fa-2x"></i><% end %>
+  </div>
 <% end %>
+
+
