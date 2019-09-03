@@ -14,7 +14,7 @@ class UserFetishesController < ApplicationController
 
   def create
     @user = User.find(params[:user_id])
-    fetishes = params[:user_fetish][:fetish_id]
+    fetishes = params[:user_fetish][:fetish_id] - @user.fetishes.pluck(:id)
     fetishes.shift
     fetishes.each do |fetish|
       fetish = Fetish.find_by(name: fetish)
