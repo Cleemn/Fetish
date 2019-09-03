@@ -25,7 +25,6 @@ class MessagesController < ApplicationController
   end
 
   def create
-
     @message = Message.new
     @match = Match.find(params[:match_id])
     @myself = current_user
