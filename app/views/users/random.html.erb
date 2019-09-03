@@ -8,13 +8,16 @@
       <h6>Modifiez vos critères ou rééssayez prochainement.</h6>
     </div>
     <% else %>
-       <div class="avatar-square fetish_card">
-          <%= image_tag @user.fetishes.where(fetishes: { name: current_user.fetishes.pluck(:name)}).order("RANDOM()").first[:image], width: 25, height: 50,  data: {toggle: "tooltip", placement: "top"}, title: @user.fetishes.where(fetishes: { name: current_user.fetishes.pluck(:name)}).order("RANDOM()").first[:name]%>
+       <div class="fetish_card">
+          <%= image_tag @user.fetishes.where(fetishes: { name: current_user.fetishes.pluck(:name)}).order("RANDOM()").first[:image], width: 25, height: 50,  data: {toggle: "tooltip", placement: "top"}, class:"avatar-square"%>
+          <small class="precision-fetish"> <%= @user.fetishes.where(fetishes: { name: current_user.fetishes.pluck(:name)}).order("RANDOM()").first[:name]%> </small>
           <% if (@user.fetishes.count - 1) == 0 %>
               <p></p>
           <% elsif (@user.fetishes.count -1)  == 1 %>
+           <%= image_tag "question.jpg" %>
                <small><%= @user.fetishes.count -1 %> autre fetiche </small>
           <% else %>
+          <%= image_tag "question.jpg", width: 35, height: 35,  data: {toggle: "tooltip", placement: "top"}, class:"question" %>
                <small><%= @user.fetishes.count -1 %> autres fetiches </small>
           <% end %>
         </div>
