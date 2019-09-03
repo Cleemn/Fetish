@@ -1,5 +1,11 @@
-<%= simple_form_for [@user, @user_fetishes] do |f| %>
-  <%= f.input :fetish_id, as: :check_boxes, collection: Fetish::FETISHES, input_html: { multiple: true } %>
-    <%= f.submit "Mettre à jour mes fétiches", class: "btn-home m-4"%>
-<% end %>
-
+    <div class="col-4 offset-4">
+      <h2 class="form-title">Ajouter mes fétiches</h2>
+      <%= simple_form_for [@user, @user_fetish] do |f| %>
+        <%= f.input :fetish_id, as: :check_boxes, collection: Fetish::FETISHES, input_html: { multiple: true } %>
+        <div class="d-flex justify-content-center">
+          <%= f.submit "Mettre à jour mes fétiches", class: "btn-home m-4"%>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
