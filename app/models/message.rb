@@ -4,6 +4,8 @@ class Message < ApplicationRecord
   validates :content, presence: true, allow_blank: false
   after_create :broadcast_message
 
+  mount_uploader :picture, PhotoUploader
+
   private
 
   def broadcast_message
@@ -16,3 +18,4 @@ class Message < ApplicationRecord
     })
   end
 end
+
