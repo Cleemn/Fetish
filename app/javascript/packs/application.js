@@ -7,7 +7,6 @@ import { dashboard_animation } from '../components/dashboard';
 
 flatPickr();
 initActionCable();
-dashboard_animation();
 
 global.$ = $
 
@@ -18,3 +17,4 @@ global.sendMessageAutomatically = sendMessageAutomatically;
 //   sendMessageAutomatically();
 // });
 
+dashboard_animation();
