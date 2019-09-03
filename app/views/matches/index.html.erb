@@ -4,19 +4,20 @@
   <% @matches.each do |match| %>
   <% mess = match.messages.where.not(user_id: current_user.id) %>
   <ul>
-    <% if match.user_1 != current_user %>
-      <li>
-        <%#= image_tag match.user_1.avatar, class:"avatar" %>
-        <h3 class="new-match-message-notification">
-          <%= "Vous avez matché avec #{match.user_1.email.capitalize}," %>
-          <%= link_to "envoyez-lui un message 💌", match_messages_path(match) %>
-        </h3>
-      <% else %>
-        <%#= image_tag match.user_2.avatar, class:"avatar" %>
-        <h3 class="new-match-message-notification">
-          <%= "Vous avez matché avec #{match.user_2.email.capitalize}," %>
-          <%= link_to "envoyez-lui un message 💌", match_messages_path(match) %>
-        </h3>
+<!-- faire un truc de maniere a ce que si je ne lui ai pas ecrit que ca me dise de lui ecrire -->
+      <% if match.user_1 != current_user %>
+        <li>
+          <%#= image_tag match.user_1.avatar, class:"avatar" %>
+          <h3 class="new-match-message-notification">
+            <%= "Vous avez matché avec #{match.user_1.email.capitalize}," %>
+            <%= link_to "envoyez-lui un message 💌", match_messages_path(match) %>
+          </h3>
+        <% else %>
+          <%#= image_tag match.user_2.avatar, class:"avatar" %>
+          <h3 class="new-match-message-notification">
+            <%= "Vous avez matché avec #{match.user_2.email.capitalize}," %>
+            <%= link_to "envoyez-lui un message 💌", match_messages_path(match) %>
+          </h3>
         <!-- il faudra voir l'avatar des autres -->
         <!-- les notifications sur l'avatar -->
       </li>
@@ -24,4 +25,5 @@
   </ul>
   <% end %>
 </div>
+
 
