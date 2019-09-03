@@ -12,14 +12,16 @@
   background-color: grey;
   color: white;
   font-weight: bold;
-  text-align: left;
+  // text-align: left;
+  width: 75%;
 }
 
 .right-orange-user {
   background-color: $fetish;
   color: white;
-  text-align: right;
+  // text-align: right;
   font-weight: bold;
+  width: 75%;
 }
 
 .message-index {
@@ -83,10 +85,6 @@ a {
 a:hover {
   text-decoration: none;
 }
-
-// .my-chat {
-//   padding: 30px;
-// }
 
 .my-matches {
   text-align: left;
