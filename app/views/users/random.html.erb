@@ -1,25 +1,25 @@
 
-<div class="container random">
+<div class="random">
   <div class="card-trip random">
     <% if @user == nil %>
     <div class="lonely">
-      <h6>Aucun utilisateur ne correspond à votre recherche... 😢 </h6>
+      <h6>Aucun utilisateur ne correspond à votre recherche... 😢</h6>
       <%= image_tag "lonely.jpg" %>
       <h6>Modifiez vos critères ou rééssayez prochainement.</h6>
-      </div>
+    </div>
     <% else %>
-      <div class="d-flex">
-          <div class="avatar-square">
-            <%= image_tag @user.fetishes.where(fetishes: { name: current_user.fetishes.pluck(:name)}).order("RANDOM()").first[:image], width: 25, height: 50,  data: {toggle: "tooltip", placement: "top"}, title: @user.fetishes.where(fetishes: { name: current_user.fetishes.pluck(:name)}).order("RANDOM()").first[:name]%>
-            <% if (@user.fetishes.count - 1) == 0 %>
+      <div class="test">
+       <div class="avatar-square fetish_card">
+          <%= image_tag @user.fetishes.where(fetishes: { name: current_user.fetishes.pluck(:name)}).order("RANDOM()").first[:image], width: 25, height: 50,  data: {toggle: "tooltip", placement: "top"}, title: @user.fetishes.where(fetishes: { name: current_user.fetishes.pluck(:name)}).order("RANDOM()").first[:name]%>
+          <% if (@user.fetishes.count - 1) == 0 %>
               <p></p>
-            <% elsif (@user.fetishes.count -1)  == 1 %>
+          <% elsif (@user.fetishes.count -1)  == 1 %>
                <small><%= @user.fetishes.count -1 %> autre fetiche </small>
-            <% else %>
+          <% else %>
                <small><%= @user.fetishes.count -1 %> autres fetiches </small>
-            <% end %>
-          </div>
-          <div class="container">
+          <% end %>
+        </div>
+          <div class="user_random">
             <h2><%=@user.user_name%></h2>
             <%= image_tag @user.avatar %>
             <div class="card-trip-infos">
@@ -30,31 +30,25 @@
               <button class="btn btn-ok"><%= link_to "Ok", user_accept_path(user_id: @user.id),  method: :patch, remote: true %></button>
             </div>
           </div>
-          <div class="ajustement">  </div>
-    </div>
     <% end %>
 
     <!-- Modal -->
     <div class="modal fade" id="match-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
       <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLongTitle"> Nouvelle affinité !</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
+        <div class="match-affiche">
+          <div class="header">
+            <h5 class="title-modal" id="exampleModalLongTitle"> Nouvelle affinité !</h5>
           </div>
-          <div class="modal-body">
-            <%= image_tag "spangle.gif", height: 50 %>
+          <div class="match_body">
+            <%= image_tag "spangle.gif", :class => "gif" %>
           </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary"><%= link_to "Envoyer un message", match_messages_path(@user[:id])  %> </button>
-            <button type="button" class="btn btn-primary"><%= link_to "Continuer à chercher", random_path %> </button>
+          <div class="match-btns">
+            <%= link_to "Envoyer un message", dashboard_path, class: "btn-match-message" %>
+            <%= link_to "Continuer à chercher", random_path, class: "btn-match-search" %>
           </div>
         </div>
       </div>
     </div>
-
 
   </div>
 </div>

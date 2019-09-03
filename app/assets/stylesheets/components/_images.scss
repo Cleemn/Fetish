@@ -3,3 +3,18 @@
   width: 120px;
   object-fit: cover;
 }
+
+#parent {
+   position: relative;
+}
+img.superpose {
+   position: absolute;
+   top: 25px;
+   left: 30px;
+}
+#img_1 {
+   z-index: 11;
+}
+#img_2 {
+   z-index: 10;
+}

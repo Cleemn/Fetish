@@ -13,7 +13,6 @@ Fetish.destroy_all
 UserFetish.destroy_all
 Criterium.destroy_all
 
-
 #USERS
 puts 'Creating 12 fake users...'
 
@@ -86,6 +85,12 @@ zentai = Fetish.create(name: "Zentai", description:"Zentai", image:"zentai.jpg")
 # UserFetish.create(user_id: 99, fetish_id: 58)
 # UserFetish.create(user_id: 99, fetish_id: 59)
 # UserFetish.create(user_id: 99, fetish_id: 60)
+# UserFetish.create(user_id: 88, fetish_id: 61)
+# UserFetish.create(user_id: 88, fetish_id: 56)
+# UserFetish.create(user_id: 89, fetish_id: 56)
+# UserFetish.create(user_id: 89, fetish_id: 57)
+# UserFetish.create(user_id: 89, fetish_id: 60)
+
 
 # UserFetish.create(user_id: 88, fetish_id: 61)
 # UserFetish.create(user_id: 88, fetish_id: 56)
@@ -102,7 +107,6 @@ zentai = Fetish.create(name: "Zentai", description:"Zentai", image:"zentai.jpg")
 # UserFetish.create(user_id: 90, fetish_id: 64)
 
 # UserFetish.create(user_id: 91, fetish_id: 58)
-
 # UserFetish.create(user_id: 92, fetish_id: 61)
 # UserFetish.create(user_id: 92, fetish_id: 65)
 # UserFetish.create(user_id: 92, fetish_id: 56)
@@ -124,18 +128,12 @@ zentai = Fetish.create(name: "Zentai", description:"Zentai", image:"zentai.jpg")
 
 # UserFetish.create(user_id: 95, fetish_id: 72)
 # UserFetish.create(user_id: 95, fetish_id: 68)
-
 # UserFetish.create(user_id: 96, fetish_id: 72)
 # UserFetish.create(user_id: 96, fetish_id: 56)
 # UserFetish.create(user_id: 96, fetish_id: 70)
-
 # UserFetish.create(user_id: 97, fetish_id: 60)
-
 # UserFetish.create(user_id: 98, fetish_id: 60)
 # UserFetish.create(user_id: 98, fetish_id: 64)
-
-
-
 
 # USER_FETISH
 ids = Fetish.all.ids
