@@ -1,19 +1,36 @@
 <div class="small-box message">
   <% if message.user == user %>
+      <!-- Colonne droite - msgs envoyés -->
     <li class="right-orange-user">
-  <% else %>
-    <li class="left-grey-user">
-  <% end %>
-    <!-- if content is not a file png and not a file jpeg : text -->
-    <% if not(message.picture.nil?) %>
+      <% unless message.picture.url.nil? %>
+        <p>
+        <%= cl_image_tag message.picture, width: 240, height: 180, crop: :fill%>
+        </p>
+      <% end %>
       <p>
-        <%= image_tag(message.picture, :class => "message-picture") %>
+        <%= message.content %>
       </p>
-    <% end %>
-    <p>
-      <%= message.content %>
-    </p>
-  </li>
+    </li>
+  <% else %>
+    <!-- Colonne gauche - msgs reçus - flouté si lu - logo pour lecture non lus -->
+    <li class="left-grey-user">
+      <% unless message.picture.url.nil? %>
+        <% if message.seen %>
+          <%= cl_image_tag message.picture, width: 240, height: 180, :background=>"#110e0e", :effect=>"blur:700", :opacity=>67, crop: :fill%>
+        <% else %>
+          <!-- Photo non vue : floutée et logo en sur impression -->
+          <!--%= link_to do %-->
+              <%= cl_image_tag message.picture, :transformation=>[
+              {:effect=>"blur:700", :height=>180, :opacity=>67, :quality=>100, :width=>240, :crop=>"scale"},
+              {:color=>"#ffffff", :gravity=>"center", :overlay=>"fetish_logo", :width=>48, :x=>90, :y=>60, :crop=>"limit"}] %>
+            <!--% end %-->
+        <% end %>
+      <% end %>
+      <p>
+        <%= message.content %>
+      </p>
+    </li>
+  <% end %>
   <h8 class="d-flex justify-content-center small mb-1">
   <%= message.created_at.strftime("%b %-d %Y, %H:%M") %>
   <!-- else, si message cree il y a moins d'un jour :hh, mm -->

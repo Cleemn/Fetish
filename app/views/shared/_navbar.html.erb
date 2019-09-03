@@ -18,12 +18,16 @@
           <%= link_to "Search", "/random", class: "nav-link" %>
         </li>
         <li class="nav-item">
-          <% if current_user.match_as_u1.where(checked_by_u1: false).size > 0 || current_user.match_as_u2.where(checked_by_u2: false).size > 0 %>
-          <!-- si pas de nouveau match non lu -->
-            <%= link_to "Matches🔔", "/matches", class: "nav-link" %>
+          <% if current_user.matches.size > 0 %>
+            <% if current_user.match_as_u1.where(checked_by_u1: false).size > 0 || current_user.match_as_u2.where(checked_by_u2: false).size > 0 %>
+              <%= link_to "Matches🔔", "/matches", class: "nav-link" %>
+              <!-- "/match/:match_id/messages" -->
+            <% else %>
+              <%= link_to "Matches", "/matches", class: "nav-link" %>
+              <!-- "/matches/:match_id/messages" -->
+            <% end %>
           <% else %>
-          <!-- si tous mes matches ont ete lus -->
-            <%= link_to "Matches", "/matches", class: "nav-link" %>
+            <%= link_to "Matches", "/random", class: "nav-link" %>
           <% end %>
         </li>
         <!-- faire bouger la cloche? :D -->
