@@ -31,13 +31,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
   </head>
   <body>
-    <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
+    <%= render 'shared/navbar_top' %>
     <div id="body-content">
       <%= yield %>
     </div>
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
-    <%= render 'shared/footer' %>
+    <%= render 'shared/navbar_bottom' %>
   </body>
 </html>
