@@ -8,12 +8,13 @@ class UsersController < ApplicationController
     .joins(:user_fetishes)
     .joins(:fetishes)
     .where(fetishes: { name: current_user.fetishes.pluck(:name)})
+    .where(gender: current_user.criterium.gender.capitalize)
     .where.not(id: current_user.id)
     .order("RANDOM()")
     .uniq
     .first
 
-    #.where(gender: current_user.criterium.gender.capitalize)
+
     #.where.not(id: current_user.find_voted_items)
     #.where(localisation: current_user.criterium.localisation.capitalize)
   end
