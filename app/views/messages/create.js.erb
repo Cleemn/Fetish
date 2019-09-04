@@ -9,12 +9,13 @@ function refreshForm(innerHTML) {
 function addMessage(messageHTML) {
   const messages = document.getElementById('my-chat-list');
   messages.insertAdjacentHTML('beforeend', messageHTML);
+
 }
 
 <% if @message.errors.any? %>
-  refreshForm('<%= j render "messages/form", match: @match, message: @message %>');
+  refreshForm('<%= j render "messages/form", match: @match, message: @message.reload %>');
 <% else %>
-  addMessage('<%= j render "messages/message_content", message: @message, user: current_user %>');
+  addMessage('<%= j render "messages/message_content", message: @message.reload, user: current_user %>');
   refreshForm('<%= j render "messages/form", match: @match, message: Message.new %>');
   sendMessageAutomatically();
 <% end %>
