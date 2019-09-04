@@ -1,12 +1,10 @@
 <div class="my-matches">
-<%#= image_tag "cheum.png" %>
 <!-- icone et lien pour Find a Fetisher -->
 <ul class="horizontal-scroll">
   <% @matches.each do |match| %>
   <% mess = match.messages.where.not(user_id: current_user.id) %>
     <li>
     <% if match.user_1 != current_user %>
-        <%#= image_tag match.user_1.avatar, class:"avatar" %>
         <div class="match-message-notification p-2">
           <div class="image">
             <%= image_tag match.user_1.avatar, class: "avatar-bordered-match mx-2", width: 50 %>
@@ -23,7 +21,6 @@
           </div>
         </div>
       <% else %>
-        <%#= image_tag match.user_2.avatar, class:"avatar" %>
         <div class="match-message-notification p-2">
           <%= image_tag match.user_2.avatar, class: "avatar-bordered-match mx-2", width: 50 %>
           <%= link_to match.user_2.user_name.capitalize, match_messages_path(match) %>

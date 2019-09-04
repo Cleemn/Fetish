@@ -4,7 +4,6 @@ class UsersController < ApplicationController
   end
 
   def random
-    @last_match = Match.last.id
     @user = User
     .joins(:user_fetishes)
     .joins(:fetishes)
@@ -15,7 +14,8 @@ class UsersController < ApplicationController
     .order("RANDOM()")
     .uniq
     .first
-
+    @user_matches = current_user.matches
+    @user_last_match = @user_matches.last
 
     #.where.not(id: current_user.find_voted_items)
     #.where(localisation: current_user.criterium.localisation.capitalize)
@@ -57,8 +57,9 @@ class UsersController < ApplicationController
   #end
 
   def dashboard
-    @last_match = Match.last.id
     @user = current_user
+    @user_matches = current_user.matches
+    @user_last_match = @user_matches.last
     @criterium = current_user.criterium
     @user_fetishes = current_user.user_fetishes
   end
