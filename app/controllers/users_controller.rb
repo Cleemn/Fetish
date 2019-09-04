@@ -58,8 +58,8 @@ class UsersController < ApplicationController
 
   def dashboard
     @user = current_user
-    @user_matches = current_user.matches
-    @user_last_match = @user_matches.last
+    @user_matches = current_user.matches if !@user_matches.nil?
+    @user_last_match = @user_matches.last if !@user_matches.nil?
     @criterium = current_user.criterium
     @user_fetishes = current_user.user_fetishes
   end
