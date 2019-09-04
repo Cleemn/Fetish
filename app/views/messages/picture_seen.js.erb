@@ -1,0 +1,36 @@
+function closeModal() {
+    // ...
+  modal_photo.setAttribute('class' ,'modal fade');
+  modal_photo.setAttribute('style' ,'display: none;');
+  modal_photo.setAttribute('aria-hidden','true');
+}
+
+function showModal() {
+modal_photo.setAttribute('class', 'modal fade show');
+modal_photo.setAttribute('style', 'display: block; padding-right: 15px;');
+modal_photo.setAttribute('aria-modal', 'true');
+}
+
+
+
+// Ouvrir la modale
+// Sélectionner la modale
+modal_photo = document.getElementById("photo-Modal<%= @message.id%>");
+// picture = document.getElementById("photo-Modal<%= @message.id%>");
+showModal()
+// Attendre 10 secondes - SetTimeOut(callback, 10sec)
+// Fermer la modal et supprimer le lien.
+setTimeout(function() {
+  closeModal();
+  removeLink();
+}, 3000);
+
+
+
+//TimeOut = setTimeOut(modal_photo.setAttribute('class' ,'modal fade'), 3000);
+// fermer la modale de modal fade en modal
+// Mettre un blur sur la photo et empêcher le click sur l'image
+console.log("Hello 3");
+//console.log("<%= @message%>");
+
+

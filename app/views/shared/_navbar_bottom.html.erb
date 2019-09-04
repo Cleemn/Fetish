@@ -11,15 +11,13 @@
           <div id="bell" class="animated infinite bounce"><i class="fas fa-bell fa-2x py-3"></i></div></%><% end %>
       <% else %>
         <%= link_to match_messages_path(@user_last_match) do %><i class="fas fa-bell fa-2x py-3"></i><% end %>
-  <!-- changer de cloche si notif ou non -->
       <% end %>
     <% else %>
       <%= link_to random_path do %><i class="fas fa-bell fa-2x py-3"></i><% end %>
     <% end %>
 
     <%= link_to root_path do %><i class="fas fa-home fa-2x py-3"></i><% end %>
+
     <%= link_to destroy_user_session_path, method: :delete do %><i class="fas fa-power-off fa-2x"></i><% end %>
   </div>
 <% end %>
-
-

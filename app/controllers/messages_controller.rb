@@ -63,6 +63,17 @@ class MessagesController < ApplicationController
     # redirect_to match_messages_path(@match)
   end
 
+
+  def picture_seen
+    @message = Message.find(params[:message_id])
+    @message.seen = true
+    if @message.save
+      respond_to do |format|
+        format.js # <-- idem
+      end
+    end
+  end
+
   private
 
   def message_params

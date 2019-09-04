@@ -1,6 +1,4 @@
 <div class="small-box message">
-    <h8 class="small mb-1">
-  <%= message.created_at.strftime("%b %-d %Y, %H:%M") %>
   <% if message.user == user %>
       <!-- Colonne droite - msgs envoyés -->
     <li class="right-orange-user">
@@ -21,11 +19,13 @@
           <%= cl_image_tag message.picture, width: 240, height: 180, :background=>"#110e0e", :effect=>"blur:700", :opacity=>67, crop: :fill%>
         <% else %>
           <!-- Photo non vue : floutée et logo en sur impression -->
-          <!--%= link_to do %-->
-              <%= cl_image_tag message.picture, :transformation=>[
-              {:effect=>"blur:700", :height=>u180, :opacity=>67, :quality=>100, :width=>240, :crop=>"scale"},
-              {:color=>"#ffffff", :gravity=>"center", :overlay=>"fetish_logo", :width=>48, :x=>90, :y=>60, :crop=>"limit"}] %>
-            <!--% end %-->
+          <%#= link_to message_picture_seen_path(message_id: message), method: :patch, remote: true do  %>
+
+            <%= link_to message_picture_seen_path(message_id: message), method: :patch, remote: true do  %>
+                  <%= cl_image_tag message.picture, :transformation=>[
+                  {:effect=>"blur:700", :height=>180, :opacity=>67, :quality=>100, :width=>240, :crop=>"scale"},
+                  {:color=>"#ffffff", :gravity=>"center", :overlay=>"fetish_logo", :width=>48, :x=>90, :y=>60, :crop=>"limit"}], data: { toggle: "modal", target: "#photo-Modal#{message.id}"} %>
+            <% end %>
         <% end %>
       <% end %>
       <p class="left-paragraph">
@@ -33,9 +33,31 @@
       </p>
     </li>
   <% end %>
-
+  <h8 class="d-flex justify-content-center small mb-1">
+  <%= message.created_at.strftime("%b %-d %Y, %H:%M") %>
   <!-- else, si message cree il y a moins d'un jour :hh, mm -->
   <!-- genre daytime.now - daytime.message -->
   <!-- if/else si ce sont des messages qui de la meme personne qui se suivent, ne pas afficher le temps entretemps -->
   </h8>
+
+  <!-- Bootstrap - Modal affichage de la photo - id suffixé par l'id de la photo - autant de modal que de photo ...-->
+  <div class="modal fade" id="photo-Modal<%= message.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel"></h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <%= cl_image_tag message.picture, :transformation=>[
+              {:quality=>100, :width=>480, :crop=>"fill"}] %>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
