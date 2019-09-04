@@ -171,7 +171,6 @@ end
 #   criterium.save!
 # end
 puts "Creation des matchs"
-Match.create!(user_1_id: 1, user_2_id: 2)
 Match.create!(user_1_id: 1, user_2_id: 3)
 Match.create!(user_1_id: 1, user_2_id: 4)
 Match.create!(user_1_id: 2, user_2_id: 3)
