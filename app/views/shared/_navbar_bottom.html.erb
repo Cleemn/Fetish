@@ -8,7 +8,7 @@
     <% if !current_user.matches.empty? %>
       <% if current_user.match_as_u1.where(checked_by_u1: false).size > 0 || current_user.match_as_u2.where(checked_by_u2: false).size > 0 %>
         <%= link_to match_messages_path(current_user, @user_last_match), class: "the-bell" do %>
-          <div id="bell" class="animated infinite bounce"><i class="fas fa-bell fa-2x py-3"></i></div></%><% end %>
+          <div id="bell" class="animated infinite tada"><i class="fas fa-bell fa-2x py-3"></i></div></%><% end %>
       <% else %>
         <%= link_to match_messages_path(current_user, @user_last_match) do %><i class="fas fa-bell fa-2x py-3"></i><% end %>
       <% end %>

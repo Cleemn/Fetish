@@ -4,7 +4,7 @@
     <% if @user == nil %>
     <div class="lonely">
       <h6>Aucun utilisateur ne correspond à votre recherche... 😢</h6>
-      <%= image_tag "lonely.jpg" %>
+      <%= image_tag "lonely.jpg", width: 200, height: 200, crop: :fill, class:"animated swing"%>
       <h6>Modifiez vos critères ou rééssayez prochainement.</h6>
     </div>
     <% else %>
