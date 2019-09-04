@@ -28,9 +28,11 @@
           <%#= link_to message_picture_seen_path(message_id: message), method: :patch, remote: true do  %>
 
             <%= link_to message_picture_seen_path(message_id: message), method: :patch, remote: true do  %>
-                  <%= cl_image_tag message.picture, :transformation=>[
-                  {:effect=>"blur:700", :height=>180, :opacity=>67, :quality=>100, :width=>240, :crop=>"scale"},
-                  {:color=>"#ffffff", :gravity=>"center", :overlay=>"fetish_logo", :width=>48, :x=>90, :y=>60, :crop=>"limit"}], data: { toggle: "modal", target: "#photo-Modal#{message.id}"} %>
+                  <div id="photo-id<%= message.id %>" >
+                    <%= cl_image_tag message.picture, :transformation=>[
+                    {:effect=>"blur:700", :height=>180, :opacity=>67, :quality=>100, :width=>240, :crop=>"scale"},
+                    {:color=>"#ffffff", :gravity=>"center", :overlay=>"fetish_logo", :width=>48, :x=>90, :y=>60, :crop=>"limit"}], data: { toggle: "modal", target: "#photo-Modal#{message.id}"} %>
+                  </div>
             <% end %>
         <% end %>
       <% end %>
