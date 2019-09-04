@@ -6,10 +6,10 @@ class MessagesController < ApplicationController
 
   # end
   def index
-    @last_match = Match.last.id
     @message = Message.new
     @match = Match.find(params[:match_id])
     @user_matches = current_user.matches
+    @user_last_match = @user_matches.last.id if !@match.nil?
     @messages = @match.messages
     @myself = current_user
     if @match.user_1 != current_user
@@ -62,7 +62,6 @@ class MessagesController < ApplicationController
     end
     # redirect_to match_messages_path(@match)
   end
-
 
   private
 

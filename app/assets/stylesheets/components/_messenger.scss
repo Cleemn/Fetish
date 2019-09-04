@@ -12,16 +12,25 @@
   background-color: grey;
   color: white;
   font-weight: bold;
-  // text-align: left;
   width: 75%;
 }
+
+.left-paragraph {
+  text-align: left;
+  padding: 12px;
+}
+
 
 .right-orange-user {
   background-color: $fetish;
   color: white;
-  // text-align: right;
   font-weight: bold;
-  width: 75%;
+  margin-left: 25%;
+}
+
+.right-paragraph {
+  text-align: right;
+  padding: 12px;
 }
 
 .message-index {
@@ -33,6 +42,7 @@
   .messages {
     width: 100%;
     overflow: scroll;
+    flex: 1;
   }
 }
 
@@ -45,12 +55,16 @@
 
 .my-chat h5 {
   text-align: center;
-  margin-bottom: 330px;
 }
 
-.my-chat p {
-  text-align: center;
-  font-size: 12px;
+.my-chat {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+}
+
+#my-chat-list{
+  flex: 1;
 }
 
 .message-icones-right {
