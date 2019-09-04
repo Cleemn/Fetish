@@ -12,6 +12,8 @@ User.destroy_all
 Fetish.destroy_all
 UserFetish.destroy_all
 Criterium.destroy_all
+Message.destroy_all
+Match.destroy_all
 
 #USERS
 puts 'Creating 12 fake users...'
@@ -136,6 +138,7 @@ zentai = Fetish.create(name: "Zentai", description:"Zentai", image:"zentai.jpg")
 # UserFetish.create(user_id: 98, fetish_id: 64)
 
 # USER_FETISH
+puts "Creation des fétichess"
 ids = Fetish.all.ids
 User.all.each do |user|
   user_fetish = UserFetish.create(
@@ -147,6 +150,7 @@ end
 
 #USER_CRITERIA
 
+puts "Creation des critères"
 User.first(12).each do |user|
   criterium = Criterium.create(
     user_id: user.id,
@@ -166,5 +170,14 @@ end
 #     )
 #   criterium.save!
 # end
+puts "Creation des matchs"
+Match.create!(user_1_id: 1, user_2_id: 2)
+Match.create!(user_1_id: 2, user_2_id: 3)
+Match.create!(user_1_id: 3, user_2_id: 4)
+Match.create!(user_1_id: 4, user_2_id: 5)
+Match.create!(user_1_id: 5, user_2_id: 6)
+Match.create!(user_1_id: 6, user_2_id: 7)
+Match.create!(user_1_id: 7, user_2_id: 7)
+Match.create!(user_1_id: 7, user_2_id: 8)
 
 puts 'Finished!'
