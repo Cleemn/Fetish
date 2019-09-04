@@ -23,7 +23,7 @@ Rails.application.routes.draw do
     patch "decline"
     resources :reports, only: [:create]
     resources :criteria, only: [:index, :new, :create, :edit, :update]
-    resources :user_fetishes, only: [:index, :new, :create, :destroy]
+    resources :user_fetishes, only: [:index, :new, :create, :edit, :update, :destroy]
   end
 
   mount ActionCable.server => "/cable"

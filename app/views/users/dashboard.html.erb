@@ -67,7 +67,7 @@
               <div class="content-fetishes">
                 <% @user.user_fetishes.each do |user_fetish| %>
                   <div class="clickable mx-auto">
-                    <%= image_tag user_fetish.fetish.image, width: 70, height: 70, crop: :fill %>
+                    <%= image_tag user_fetish.fetish.image, width: 30, height: 30, crop: :fill %>
                     <small><%= user_fetish.fetish.name %></small>
                   </div>
                 <% end %>
@@ -140,7 +140,7 @@
             <div class="content-fetishes-index my-3 d-flex justify-content-center flex-wrap">
               <% @user.user_fetishes.each do |user_fetish| %>
                 <div class="clickable my-3">
-                  <%= image_tag user_fetish.fetish.image, width: 70, height: 70, crop: :fill %>
+                  <%= image_tag user_fetish.fetish.image, width: 30, height: 30, crop: :fill %>
                   <small><%= user_fetish.fetish.name %></small>
                   <%= link_to user_user_fetish_path(@user, user_fetish), method: :delete, data: { confirm: "Are you sure?" }, class:"p-2" do %><i class="fas fa-trash fa-1x" style="color:#439775"></i>
                   <% end %>

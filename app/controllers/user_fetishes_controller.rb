@@ -14,12 +14,24 @@ class UserFetishesController < ApplicationController
 
   def create
     @user = User.find(params[:user_id])
-    fetishes = params[:user_fetish][:fetish_id]
-    fetishes.shift
-    fetishes.each do |fetish|
-      fetish = Fetish.find_by(name: fetish)
+    # if !params[:user_festish].nil?
+      fetishes = params[:user_fetish][:fetish_id]
+      fetishes.each do |fetish|
+      fetish = Fetish.find(fetish)
       UserFetish.create!(fetish_id: fetish.id, user_id: current_user.id)
+         # @fetish.update(fetish_params)
+      # end
     end
+    redirect_to user_user_fetishes_path
+  end
+
+  def edit
+    @fetish = Fetish.find(params[:user_fetish][:fetish_id])
+  end
+
+  def update
+    @fetish = Fetish.find(params[:user_fetish][:fetish_id])
+    @fetish.update(fetish_params)
     redirect_to user_user_fetishes_path
   end
 
