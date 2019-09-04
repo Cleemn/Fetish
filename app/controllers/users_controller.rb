@@ -8,14 +8,17 @@ class UsersController < ApplicationController
     .joins(:user_fetishes)
     .joins(:fetishes)
     .where(fetishes: { name: current_user.fetishes.pluck(:name)})
-    .where(gender: current_user.criterium.gender.capitalize)
     .where.not(id: current_user.id)
+    .where.not(id: current_user.find_voted_items)
     .order("RANDOM()")
     .uniq
     .first
+    
+    @user_matches = current_user.matches
+    @user_last_match = @user_matches.last
 
     #.where.not(id: current_user.find_voted_items)
-    #.where.not(id: current_user.find_voted_items)
+    #.where(gender: current_user.criterium.gender.capitalize)
     #.where(localisation: current_user.criterium.localisation.capitalize)
   end
 
@@ -56,6 +59,8 @@ class UsersController < ApplicationController
 
   def dashboard
     @user = current_user
+    @user_matches = current_user.matches if !@user_matches.nil?
+    @user_last_match = @user_matches.last if !@user_matches.nil?
     @criterium = current_user.criterium
     @user_fetishes = current_user.user_fetishes
   end

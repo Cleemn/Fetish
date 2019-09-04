@@ -1,17 +1,18 @@
-<div class="container">
-  <div class="my-chat">
-    <h5>Votre conversation avec <%= @user.user_name.capitalize %> :</h5>
-        <% if @messages.empty? %>
-          <p>Débutez votre conversation avec <%= @user.user_name.capitalize %></p>
-        <% end %>
-        <ul id="my-chat-list">
-          <% if !@messages.empty? %>
-            <% @messages.each do |message| %>
-              <%= render "messages/message_content", message: message, user: current_user %>
-            <% end %>
+<div class="my-chat">
+  <h5>Votre conversation avec <%= @user.user_name.capitalize %> :</h5>
+  <!-- enlever ca de la version definitive -->
+      <% if @messages.empty? %>
+        <p>Débutez votre conversation avec <%= @user.user_name.capitalize %></p>
+      <% end %>
+      <ul id="my-chat-list">
+        <% if !@messages.empty? %>
+          <% @messages.each do |message| %>
+            <%= render "messages/message_content", message: message, user: current_user %>
           <% end %>
-        </ul>
+        <% end %>
+      </ul>
 
+      <div class="chat-zone">
         <div class="formulaire">
           <%= render "messages/form", match: @match, message: @message %>
         </div>
@@ -31,9 +32,10 @@
                <i class="fas fa-exclamation-triangle"> </i>
             <% end %>
           </div>
-    </div>
-  </div>
+        </div>
+      </div>
 </div>
+
 
 
 <!-- afficher si ca a ete lu ou non -->

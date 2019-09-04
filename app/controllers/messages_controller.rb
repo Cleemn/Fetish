@@ -9,6 +9,7 @@ class MessagesController < ApplicationController
     @message = Message.new
     @match = Match.find(params[:match_id])
     @user_matches = current_user.matches
+    @user_last_match = @user_matches.last.id if !@match.nil?
     @messages = @match.messages
     @myself = current_user
     if @match.user_1 != current_user
@@ -20,6 +21,15 @@ class MessagesController < ApplicationController
     @new_notifications.each do |new_notif|
       new_notif.newnotification = false
       new_notif.save
+    end
+    my_match_as_u1 = current_user.match_as_u1
+    my_match_as_u1.each do |m|
+      m.update(checked_by_u1: true)
+    end
+
+    my_match_as_u2 = current_user.match_as_u2
+    my_match_as_u2.each do |m|
+      m.update(checked_by_u2: true)
     end
     @matches = Match.where(user_1_id: current_user.id).or(Match.where(user_2_id: current_user.id))
   end
@@ -53,6 +63,16 @@ class MessagesController < ApplicationController
     # redirect_to match_messages_path(@match)
   end
 
+
+  def picture_seen
+    @message = Message.find(params[:message_id])
+    @message.seen = true
+    if @message.save
+      respond_to do |format|
+        format.js # <-- idem
+      end
+    end
+  end
 
   private
 

@@ -12,18 +12,29 @@
   background-color: grey;
   color: white;
   font-weight: bold;
-  text-align: left;
+  width: 75%;
 }
+
+.left-paragraph {
+  text-align: left;
+  padding: 12px;
+}
+
 
 .right-orange-user {
   background-color: $fetish;
   color: white;
-  text-align: right;
   font-weight: bold;
+  margin-left: 25%;
+}
+
+.right-paragraph {
+  text-align: right;
+  padding: 12px;
 }
 
 .message-index {
-  height: calc(100vh - 176px);
+  height: calc(100vh - 300px);
   // overflow: scroll;
   .match-list {
     width: 100%;
@@ -31,24 +42,31 @@
   .messages {
     width: 100%;
     overflow: scroll;
+    flex: 1;
   }
 }
 
 .message-icones {
   border: solid 0px #F4F4F4;
   border-radius: 5px;
-  font-size: 30px;
+  font-size: 20px;
   letter-spacing: 6px;
+  margin-top: -22px;
+  // enlever ca apres
 }
 
 .my-chat h5 {
   text-align: center;
-  margin-bottom: 330px;
 }
 
-.my-chat p {
-  text-align: center;
-  font-size: 12px;
+.my-chat {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+}
+
+#my-chat-list{
+  flex: 1;
 }
 
 .message-icones-right {
@@ -61,6 +79,17 @@
   width: 240px;
 }
 
+.message-picture img:hover {
+  transition: 0.5s;
+  background-color: white;
+  color: #ffc5a1;
+}
+
+.chat-zone {
+  position: fixed;
+  bottom: 94px;
+  background-color: white;
+}
 
 ul {
   list-style: none;
@@ -83,10 +112,6 @@ a {
 a:hover {
   text-decoration: none;
 }
-
-// .my-chat {
-//   padding: 30px;
-// }
 
 .my-matches {
   text-align: left;
@@ -125,6 +150,10 @@ a:hover {
   a {
     color: white;
   }
+}
+
+.small-box.message:last-child {
+margin-bottom: 20px;
 }
 
 
