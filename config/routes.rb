@@ -11,8 +11,12 @@ Rails.application.routes.draw do
 
 
   resources :matches, only: [:show, :index] do
-    patch "end"
-    resources :messages, only: [:index, :create]
+      patch "end"
+      resources :messages, only: [:index, :create]
+  end
+
+  resources :messages, only: [] do
+    patch "picture_seen"
   end
 
  get "random", to: "users#random"
