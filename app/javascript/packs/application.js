@@ -7,10 +7,13 @@ import { dashboard_animation } from '../components/dashboard';
 import { uploadBtn } from '../components/messenger';
 import { sendBtn } from '../components/messenger';
 import { scrollToBottom } from '../components/messenger';
+import { choices } from '../components/fetish_choice';
+
 
 
 flatPickr();
 initActionCable();
+choices();
 
 global.$ = $
 

@@ -1,4 +1,10 @@
 <div class="small-box message">
+    <h6 class="d-flex justify-content-center small mb-1">
+  <%= message.created_at.strftime("%b %-d %Y, %H:%M") %>
+  <!-- else, si message cree il y a moins d'un jour :hh, mm -->
+  <!-- genre daytime.now - daytime.message -->
+  <!-- if/else si ce sont des messages qui de la meme personne qui se suivent, ne pas afficher le temps entretemps -->
+  </h6>
   <% if message.user == user %>
       <!-- Colonne droite - msgs envoyés -->
       <% unless message.picture.url.nil? %>
@@ -33,12 +39,6 @@
       <p class="left-paragraph"><%= message.content %></p>
     </li>
   <% end %>
-  <h8 class="d-flex justify-content-center small mb-1">
-  <%= message.created_at.strftime("%b %-d %Y, %H:%M") %>
-  <!-- else, si message cree il y a moins d'un jour :hh, mm -->
-  <!-- genre daytime.now - daytime.message -->
-  <!-- if/else si ce sont des messages qui de la meme personne qui se suivent, ne pas afficher le temps entretemps -->
-  </h8>
 
   <!-- Bootstrap - Modal affichage de la photo - id suffixé par l'id de la photo - autant de modal que de photo ...-->
   <div class="modal modal_fade" id="photo-Modal<%= message.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
