@@ -1,32 +1,102 @@
-// .col-8 {
-//   overflow: hidden;
-//   background: white;
-//   // box-shadow: 0 0 15px rgba(0,0,0,0.2);
-//   padding: 30px;
-//   border-radius: 5px;
-//   margin-top: 20px;
-// }
+.messenger-list {
+  display: flex;
+}
 
+.messenger-line-left {
+  justify-content: flex-start;
+}
+
+.messenger-line-right {
+  margin-left: auto;
+//  justify-content: flex-end;
+}
+
+
+.messenger-form {
+  //background-color: $fetish;
+  //background-color: $gray;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 5px;
+}
+
+.form-group {
+  margin: 0 !important;
+}
+
+// nom du champ donné par le simple_form_for
+#message_content {
+  height: 30px;
+  width: 235px;
+  margin:  5px 0;
+}
+
+.messenger-input {
+  flex-grow: 1;
+  height: 30px;
+  margin-bottom: 0px;
+}
+
+.icon-upload {
+  margin-left: 7px;
+  //background-color: $gray;
+  font-size: 30px;
+  color: $fetish;
+}
+
+.icon-send {
+  //background-color: $gray;
+  font-size: 30px;
+  color: $fetish;
+  margin-right: 7px;
+}
+
+.btn-upload-hidden {
+  display: none;
+}
+
+.btn-send-hidden {
+  display: none;
+}
+
+.messenger-photo {
+  border-radius: 5px;
+//  width: 240px;
+//  height: 180px;
+}
 //
 .left-grey-user {
   background-color: grey;
   color: white;
   font-weight: bold;
+  box-sizing: content-box;
+//  width: auto;
+  width: 75%;
+}
+
+.left-photo-user {
+  background-color: $white;
   width: 75%;
 }
 
 .left-paragraph {
   text-align: left;
-  padding: 12px;
+  padding: 7px;
 }
 
-
-.right-orange-user {
+.right-color-fetish-user {
   background-color: $fetish;
   color: white;
   font-weight: bold;
   margin-left: 25%;
 }
+
+.right-photo-user {
+  justify-content: flex-end;
+}
+
 
 .right-paragraph {
   text-align: right;
@@ -66,8 +136,12 @@
 }
 
 #my-chat-list{
-  flex: 1;
+//  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
+
+
 
 .message-icones-right {
   text-align: right;
