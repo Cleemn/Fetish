@@ -67,10 +67,10 @@ uniformes = Fetish.create(name: "Uniformes", description:"Uniformes", image:"pol
 bbw = Fetish.create(name: "BBW", description:"Big Beautiful Women", image:"women.png")
 cuir = Fetish.create(name: "Cuir", description:"Cuir Moustache", image:"leather.png")
 aquaphilie = Fetish.create(name: "Aquaphilie", description:"Aquaphilie", image:"water.png")
-bandana = Fetish.create(name: "Bandana", description:"Bandana", image:"bandana.jpg")
+bandana = Fetish.create(name: "Bandana", description:"Bandana", image:"bandana.png")
 bottes = Fetish.create(name: "Bottes", description:"Bottes", image:"boots.png")
 chaussures = Fetish.create(name: "Chaussures", description:"Chaussures", image:"shoe.png")
-poupee = Fetish.create(name: "Poupée", description:"Poupée", image:"poupee.jpg")
+poupee = Fetish.create(name: "Poupée", description:"Poupée", image:"poupee.png")
 ballons = Fetish.create(name: "Ballons", description:"Ballons", image:"baloon.png")
 lunettes = Fetish.create(name: "Lunettes", description:"Lunettes", image:"glasses.png")
 seins = Fetish.create(name: "Seins", description:"Seins", image:"breast.png")
@@ -78,7 +78,7 @@ sous_vetements = Fetish.create(name: "Sous-vêtements", description:"Sous-vêtem
 knismolagnie = Fetish.create(name: "Knismolagnie", description:"Knismolagnie", image:"feather.png")
 nasophilie = Fetish.create(name: "Nasophilie", description:"Nasophilie", image:"nez.jpg")
 sthenolagnie = Fetish.create(name: "Sthénolagnie", description:"Sthénolagnie", image:"biceps.png")
-zentai = Fetish.create(name: "Zentai", description:"Zentai", image:"zentai.jpg")
+zentai = Fetish.create(name: "Zentai", description:"Zentai", image:"zentai.png")
 
 
 # UserFetish.create(user_id: 99, fetish_id: 55)
