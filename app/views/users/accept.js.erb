@@ -1,9 +1,12 @@
+function displayPopup(modal, matchId) {
+  const content = document.querySelector('.random');
+  content.insertAdjacentHTML('beforeend', modal);
+  const string = `#match-modal-${matchId}`;
+  $(string).modal();
+}
+
 <% if @is_match == true %>
-  content = document.querySelector('.random')
-  content.insertAdjacentHTML('beforeend', '<%= j render "users/match_modal", match: @match %>');
-  matchId = <%= @match.id %>
-  string = `#match-modal-${matchId}`
-  $(string).modal()
+  displayPopup('<%= j render "users/match_modal", match: @match %>', '<%= @match.id %>');
 <% else %>
   window.location.replace("<%= random_path %>")
 <% end %>
