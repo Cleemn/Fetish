@@ -6,9 +6,16 @@
         <div class="lonely">
           <h6>Aucun utilisateur ne correspond à votre recherche... 😢</h6>
         <%= image_tag "lonely.jpg", width: 200, height: 200, crop: :fill, class:"animated swing"%>
-          <h6>Modifiez vos critères ou rééssayez prochainement.</h6>
-        </div>
+        <h6>Modifiez vos critères ou rééssayez prochainement.</h6>
+        <% if current_user.matches.empty? %>
+        <%= link_to "Modifier mes critères", dashboard_path, class: "btn-home" %>
+        <% else %>
+        <% end %>
       </div>
+        <div class="d-flex justify-content-center align-items-center">
+          <%= link_to "Modifier mes critères", dashboard_path, class: "btn-home w-50", style:"font-size: 21px;font-family: 'Signika', sans-serif;"%>
+          <%= link_to "Voir mes messages", match_messages_path(current_user, @user_last_match), class: "btn-log w-50", style:"font-size: 21px;font-family: 'Signika', sans-serif;" %>
+        </div>
     <% else %>
       <div class="card-trip random" style="margin-left: 10px; margin-right: 10px; margin-top: 20px; margin-bottom: 10px">
         <div class="fetish_card">
@@ -33,6 +40,7 @@
   </div>
   <div id="not-to-be-seen-right"></div>
 </div>
+  
 <% if user_signed_in? %>
   <div class="nav_bottom d-flex align-items-center justify-content-around border-top">
 
@@ -42,9 +50,7 @@
 
 <% if user_signed_in? %>
   <div class="nav_bottom d-flex align-items-center justify-content-around border-top">
-
-    <%= link_to dashboard_path do %><i class="fas fa-user fa-2x py-3" style="color:#FA8072"></i><% end %>
-
+    <%= link_to root_path do %><i class="fas fa-home fa-2x py-3"></i><% end %>
     <%= link_to random_path do %><i class="fas fa-feather-alt fa-2x py-3" style="color:#4ecdc4"></i><% end %>
 
     <% if !current_user.matches.empty? %>
@@ -57,7 +63,6 @@
     <% else %>
       <%= link_to random_path do %><i class="fas fa-heart fa-2x py-3"></i><% end %>
     <% end %>
-
-    <%= link_to root_path do %><i class="fas fa-home fa-2x py-3"></i><% end %>
+    <%= link_to dashboard_path do %><i class="fas fa-user fa-2x py-3" style="color:#FA8072"></i><% end %>
   </div>
 <% end %>
