@@ -13,23 +13,25 @@
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.1);
   flex: 0 0 30%;
-  border: 1px solid #dedede;
-  padding: 20px;
+  border: 3px solid #dedede;
+  padding-top: 20px;
   border-radius: 8px;
   min-width: 110px;
   max-width: 110px;
-  max-height: 100px;
-  font-size: 12px;
+  max-height: 110px;
+  min-height: 110px;
+  font-size: 15px;
   margin: 5px;
   text-align: center;
+  color: black;
+  font-weight: bold;
   &:hover {
-    opacity: 0.8;
     cursor: pointer;
   }
 }
 
 .fetish-choice.active {
-  border: 1px solid $fetish;
+  border: 3px solid $fetish;
 }
 
 .trash {
@@ -68,6 +70,48 @@
 }
 
 .content-fetishes-index {
+  grid-gap: 16px;
+  overflow: hidden;
+  height: auto;
+  background: white;
+  margin: 0 auto;
+}
+
+
+//DASHBOARD
+
+.clickable-profil {
+  display: space-around;
+  background: white;
+  position: relative;
+  box-shadow: 0 0 13px rgba(0,0,0,0.2);
+  flex: 0 0 30%;
+  padding-top: 20px;
+  border-radius: 90px;
+  min-width: 110px;
+  min-height: 110px;
+  max-width: 110px;
+  max-height: 110px;
+  font-size: 15px;
+  font-weight: bold;
+  margin: 5px;
+  color: black;
+  text-align: center;
+}
+
+.content-fetishes-profil {
+  padding-top: 5px;
+  display: grid;
+  grid-gap: 8px;
+  grid-template-columns: 1fr 1fr 1fr;
+  overflow: hidden;
+  height: auto;
+  background: white;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.content-fetishes-index-profil {
   grid-gap: 16px;
   overflow: hidden;
   height: auto;
