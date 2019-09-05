@@ -1,16 +1,46 @@
+// Affichage left - right
+.messenger-font {
+  color: white;
+  font-weight: bold;
+}
+
+.messenger-photo {
+  border-radius: 5px;
+}
+
 .messenger-list {
-  display: flex;
+//  display: flex;
 }
 
-.messenger-line-left {
+//
+.left-paragraph {
   justify-content: flex-start;
+  background-color: grey;
+  width: 75%;
+  text-align: left;
+  padding: 7px;
 }
 
-.messenger-line-right {
+.right-paragraph {
+  justify-content: flex-end;
+  background-color: $fetish;
+  margin-left: 25%;
+  text-align: right;
+  padding: 12px;
+}
+
+.left-photo-user {
+  justify-content: flex-start;
+  width: 75%;
+}
+
+.right-photo-user {
   margin-left: auto;
-//  justify-content: flex-end;
+  justify-content: flex-end;
 }
 
+
+//
 
 .messenger-form {
   //background-color: $fetish;
@@ -61,48 +91,6 @@
   display: none;
 }
 
-.messenger-photo {
-  border-radius: 5px;
-//  width: 240px;
-//  height: 180px;
-}
-//
-.left-grey-user {
-  background-color: grey;
-  color: white;
-  font-weight: bold;
-  box-sizing: content-box;
-//  width: auto;
-  width: 75%;
-}
-
-.left-photo-user {
-  background-color: $white;
-  width: 75%;
-}
-
-.left-paragraph {
-  text-align: left;
-  padding: 7px;
-}
-
-.right-color-fetish-user {
-  background-color: $fetish;
-  color: white;
-  font-weight: bold;
-  margin-left: 25%;
-}
-
-.right-photo-user {
-  justify-content: flex-end;
-}
-
-
-.right-paragraph {
-  text-align: right;
-  padding: 12px;
-}
-
 .message-index {
   height: calc(100vh - 300px);
   // overflow: scroll;
@@ -140,7 +128,6 @@
   display: flex;
   flex-direction: column;
 }
-
 
 
 .message-icones-right {
@@ -231,3 +218,8 @@ margin-bottom: 20px;
 }
 
 
+// pour entourer mon avatar
+// border: 2px solid pink;
+// border-radius: 500px;
+// pe JS pour bounce la conversation
+// ajouter une opacite aux autres
