@@ -1,6 +1,7 @@
 import "bootstrap";
 
 import { flatPickr } from '../plugins/flatpickr';
+import { initSortable } from '../plugins/init_sortable';
 import { initActionCable } from '../plugins/init_action_cable';
 import { sendMessageAutomatically } from '../plugins/listener';
 import { dashboard_animation } from '../components/dashboard';
@@ -21,3 +22,5 @@ global.sendMessageAutomatically = sendMessageAutomatically;
 // });
 
 dashboard_animation();
+
+initSortable();

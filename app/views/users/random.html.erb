@@ -1,5 +1,7 @@
 
-<div class="random">
+<div id="swipe" class="random" data-user-id="<%= @user&.id %>">
+  <div id="not-to-be-seen-left"></div>
+  <!-- <div style="width: 30px; height: 30px; background:red;"></div> -->
   <div class="card-trip random">
     <% if @user == nil %>
     <div class="lonely">
@@ -22,6 +24,8 @@
           <% end %>
         </div>
           <div class="user_random">
+            <!-- <div id="not-to-be-seen-left"></div> -->
+            <span id="test-js"></span>
             <h2><%=@user.user_name%></h2>
             <%= image_tag @user.avatar %>
             <div class="card-trip-infos">
@@ -31,8 +35,11 @@
               <button class="btn btn-no"><%= link_to "No",user_decline_path(user_id: @user.id), method: :patch %></button>
               <button class="btn btn-ok"><%= link_to "Ok", user_accept_path(user_id: @user.id),  method: :patch, remote: true %></button>
             </div>
+           <!--  <div id="not-to-be-seen-right"></div> -->
           </div>
     <% end %>
   </div>
+   <div id="not-to-be-seen-right"></div>
+<!--   <div style="width: 30px; height: 30px; background:red;"></div> -->
 </div>
 
