@@ -1,20 +1,16 @@
-<div class="small-box message">
+<div class="small-box messenger-list messenger-font">
   <% if message.user == user %>
-      <!-- Colonne droite - msgs envoyés -->
-      <% unless message.picture.url.nil? %>
-        <!--li class="right-photo-user"-->
-        <div class="messenger-list">
-          <p class="messenger-list-right"><%= cl_image_tag message.picture, width: 240, height: 180, crop: :fill%></p>
-        </div>
-        <!--/li-->
-      <% end %>
-      <!--li class="right-color-fetish-user"-->
-        <p class="right-paragraph"><%= message.content %></p>
-    <!--/li-->
+    <!-- Colonne droite - msgs envoyés -->
+    <% unless message.picture.url.nil? %>
+      <li class="messenger-photo right-photo-user">
+        <%= cl_image_tag message.picture, width: 240, height: 180, crop: :fill%>
+      </li>
+    <% end %>
+    <li class="right-paragraph"><%= message.content %></li>
   <% else %>
     <!-- Colonne gauche - msgs reçus - flouté si lu - logo pour lecture non lus -->
     <% unless message.picture.url.nil? %>
-      <li class="left-photo-user">
+      <li class="messenger-photo left-photo-user">
         <% if message.seen && false %>
           <%= cl_image_tag message.picture, width: 240, height: 180, :background=>"#110e0e", :effect=>"blur:700", :opacity=>67, crop: :fill%>
         <% else %>
@@ -29,9 +25,7 @@
         <% end %>
       </li>
     <% end %>
-    <li class="left-grey-user">
-      <p class="left-paragraph"><%= message.content %></p>
-    </li>
+    <li class="left-paragraph"><%= message.content %></li>
   <% end %>
   <h8 class="d-flex justify-content-center small mb-1">
   <%= message.created_at.strftime("%b %-d %Y, %H:%M") %>
@@ -44,9 +38,11 @@
   <div class="modal modal_fade" id="photo-Modal<%= message.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="content">
-        <div class="modal-body">
+        <div class="header">
+        </div>
+        <div class="modal-picture-center">
           <%= cl_image_tag message.picture, :transformation=>[
-              {:quality=>100, :width=>480, :crop=>"fill"}] %>
+              {:quality=>100, :width=>320, :crop=>"fill"}] %>
         </div>
       </div>
     </div>
