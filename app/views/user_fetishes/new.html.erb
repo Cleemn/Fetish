@@ -1,6 +1,6 @@
 
     <div class="container">
-      <h2 class="form-title">Ajouter mes fétiches</h2>
+      <h2 class="form-title my-4">Ajouter mes fétiches</h2>
 
       <%= simple_form_for [@user, @user_fetish] do |f| %>
       <div class="fetish-choices">
@@ -8,7 +8,7 @@
           <input  type="checkbox" class="hidden" value="<%=fetish.id%>" name="user_fetish[fetish_id][]" id="user_fetish_fetish_id_<%=fetish.id%>" multiple>
           <label class="fetish-choice <%= "active" if current_user.fetishes.include?(fetish) %>" for="user_fetish_fetish_id_<%= fetish.id %>">
             <%= image_tag fetish.image, width: 30, height: 30, crop: :fill %>
-            <div>
+            <div class="text my-2">
             <%= fetish.name %>
             </div>
           </label>
