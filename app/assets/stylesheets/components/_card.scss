@@ -95,7 +95,6 @@
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 80%;
 }
 
 .card-trip h2 {
@@ -109,21 +108,19 @@
     font-size: 22px;
     /* opacity: .7; */
     /* margin: 18px; */
-    padding: 70px 130px 0 130px;
+    padding: 58px 30px;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
     z-index: 20;
     background-color: #4ecdc4;
-    position: absolute;
-    top: -7px;
-    left: -105px;
     width: 600px;
     height: 600px;
     color: white;
     font-weight: 500;
     border-radius: 310px;
     font-family: 'Signika', sans-serif;
+    line-height: 1;
 }
 
 .card-trip .card-trip-infos {
