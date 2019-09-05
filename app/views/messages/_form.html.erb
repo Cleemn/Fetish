@@ -1,7 +1,11 @@
-<%= simple_form_for [match, message], remote: true do |f| %>
-  <%= f.input :content, label: false, placeholder: "Ecrivez votre message ici" %>
-  <i class="fas fa-image" ></i>
-  <%= f.file_field :picture %>
-  <%= f.submit "Envoyer", class: "btn btn-primary", id: "send-btn" %>
+ <%= simple_form_for [match, message], remote: true do |f| %>
+  <!--i id="btn_upload_picture" class="fas fa-image" onclick="alert('Clic sur image')";--><!--/i-->
+    <%= f.file_field :picture, class: "btn-upload-hidden", id: "btn-to-click" %>
+    <%= f.submit "Envoyer", class: "btn btn-primary btn-send-hidden", id: "btn-submit-hidden" %>
+  <div class="messenger-form">
+    <i id="icon_upload_picture" class="far fa-image icon-upload"></i>
+    <%= f.input :content, label: false, placeholder: "Ecrivez votre message ici", class: "messenger-input"%>
+    <i id="icon_send" class="fas fa-paper-plane icon-send"></i>
+  </div>
 <% end %>
 
