@@ -38,7 +38,6 @@ class UsersController < ApplicationController
       @match.save
       @is_match = true
     end
-
     respond_to do |format|
       format.html { redirect_to random_path }
       format.js  # <-- will render `app/views/reviews/create.js.erb`

@@ -12,9 +12,11 @@ const initSortable = () => {
         }
       }
       if (event.newIndex > event.oldIndex) {
-        document.getElementById('button').click();
+        console.log("droite")
+        document.getElementById('accept-button').click();
         // window.location = `/users/${el.dataset.userId}/accept`;
       } else {
+        console.log("gquche")
         window.location = `/users/${el.dataset.userId}/decline`;
       }
     }
