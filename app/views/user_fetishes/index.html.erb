@@ -1,4 +1,4 @@
-<div>
+<div style="padding-bottom: 50px;">
   <% if @user.user_fetishes.empty? %>
     <div class="container text-center">
       <%= link_to "Back to dashboard", dashboard_path, class:"btn btn-outline-danger text-center my-2 mx-auto" %>
@@ -31,9 +31,7 @@
 
 <% if user_signed_in? %>
   <div class="nav_bottom d-flex align-items-center justify-content-around border-top">
-
-    <%= link_to dashboard_path do %><i class="fas fa-user fa-2x py-3" style="color:#4ecdc4"></i><% end %>
-
+    <%= link_to root_path do %><i class="fas fa-home fa-2x py-3"></i><% end %>
     <%= link_to random_path do %><i class="fas fa-feather-alt fa-2x py-3"></i><% end %>
 
     <% if !current_user.matches.empty? %>
@@ -46,7 +44,6 @@
     <% else %>
       <%= link_to random_path do %><i class="fas fa-heart fa-2x py-3"></i><% end %>
     <% end %>
-
-    <%= link_to root_path do %><i class="fas fa-home fa-2x py-3"></i><% end %>
+    <%= link_to dashboard_path do %><i class="fas fa-user fa-2x py-3" style="color:#4ecdc4"></i><% end %>
   </div>
 <% end %>
