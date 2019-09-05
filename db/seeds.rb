@@ -19,17 +19,17 @@ Match.destroy_all
 puts 'Creating 12 fake users...'
 
 User.create!(user_name: Faker::Artist.unique.name, description: "On dira à tes parents qu'on s'est rencontrées dans le TGV.", email: "clementine@laposte.net", password: "coucou", avatar: "bitmoji4.png", birth_date: "1991-10-10", gender: "Femme", localisation: "Paris")
-User.create!(user_name: Faker::Artist.unique.name, description: Faker::Quotes::Shakespeare.hamlet_quote, email: "mc@caramail.com", password: "coucou", avatar: "bitmoji9.png", birth_date: "1991-10-10", gender: "Femme", localisation: "Paris")
-User.create!(user_name: Faker::Artist.unique.name, description: "Recherche une femme qui aime le théâtre, la Grèce Antique et le bondage.", email: Faker::Internet.email, password: "coucou", avatar: "bitmoji1.jpeg", birth_date: "1991-10-10", gender: "Femme", localisation: "Paris")
+User.create!(user_name: Faker::Artist.unique.name, description: "Bonjour toi, je suis une poète et j'aime beaucoup de choses que j'aimerais te faire découvrir si jamais nous matchons..", email: "mc@caramail.com", password: "coucou", avatar: "bitmoji9.png", birth_date: "1991-10-10", gender: "Femme", localisation: "Paris")
+User.create!(user_name: Faker::Artist.unique.name, description: "Recherche une femme qui aime le théâtre, la Grèce Antique et le bondage.", email: Faker::Internet.email, password: "coucou", avatar: "bitmoji1.png", birth_date: "1991-10-10", gender: "Femme", localisation: "Paris")
 User.create!(user_name: Faker::Artist.unique.name, description: "J'espère que t'aimes les mauvaises filles, parce que je suis mauvaise dans tout.", email: Faker::Internet.email, password: "coucou", avatar: "bitmoji10.png", birth_date: "1991-10-10", gender: "Femme", localisation: "Paris")
-User.create!(user_name: Faker::Artist.unique.name, description: Faker::Quotes::Shakespeare.hamlet_quote, email: Faker::Internet.email, password: "coucou", avatar: "bitmoji11.png", birth_date: "1991-10-10", gender: "Femme", localisation: "Paris")
-User.create!(user_name: Faker::Artist.unique.name, description: Faker::Quotes::Shakespeare.hamlet_quote, email: Faker::Internet.email, password: "coucou", avatar: "bitmoji12.jpg", birth_date: "1991-10-10", gender: "Femme", localisation: "Paris")
-User.create!(user_name: Faker::Artist.unique.name, description: Faker::Quotes::Shakespeare.hamlet_quote, email: Faker::Internet.email, password: "coucou", avatar: "bitmoji13.jpg", birth_date: "1991-10-10", gender: "Femme", localisation: "Paris")
-User.create!(user_name: Faker::Artist.unique.name, description: Faker::Quotes::Shakespeare.hamlet_quote, email: Faker::Internet.email, password: "coucou", avatar: "bitmoji14.jpg", birth_date: "1991-10-10", gender: "Femme", localisation: "Paris")
-User.create!(user_name: Faker::Artist.unique.name, description: Faker::Quotes::Shakespeare.hamlet_quote, email: Faker::Internet.email, password: "coucou", avatar: "bitmoji15.jpg", birth_date: "1991-10-10", gender: "Femme", localisation: "Paris")
-User.create!(user_name: Faker::Artist.unique.name, description: Faker::Quotes::Shakespeare.hamlet_quote, email: Faker::Internet.email, password: "coucou", avatar: "bitmoji16.png", birth_date: "1991-10-10", gender: "Femme", localisation: "Paris")
-User.create!(user_name: Faker::Artist.unique.name, description: Faker::Quotes::Shakespeare.hamlet_quote, email: Faker::Internet.email, password: "coucou", avatar: "bitmoji17.png", birth_date: "1991-10-10", gender: "Femme", localisation: "Paris")
-User.create!(user_name: Faker::Artist.unique.name, description: Faker::Quotes::Shakespeare.hamlet_quote, email: Faker::Internet.email, password: "coucou", avatar: "bitmoji2.jpg", birth_date: "1991-10-10", gender: "Femme", localisation: "Paris")
+User.create!(user_name: Faker::Artist.unique.name, description: "J'ai beaucoup de fétiches, ils ne rentraient pas tous dans la liste. Accepte-moi si tu veux les découvrir...", email: Faker::Internet.email, password: "coucou", avatar: "bitmoji11.png", birth_date: "1991-10-10", gender: "Femme", localisation: "Paris")
+User.create!(user_name: Faker::Artist.unique.name, description: "Je n'ai jamais osé les sites de rencontres, j'espère que tu me donneras envie d'y rester", email: Faker::Internet.email, password: "coucou", avatar: "bitmoji12.jpg", birth_date: "1991-10-10", gender: "Femme", localisation: "Paris")
+User.create!(user_name: Faker::Artist.unique.name, description: "Agressive, sauvage, je suis néanmoins capable de douceur. Je déposerai des baisers sur les marques que je te laisserai.", email: Faker::Internet.email, password: "coucou", avatar: "bitmoji13.jpg", birth_date: "1991-10-10", gender: "Femme", localisation: "Paris")
+User.create!(user_name: Faker::Artist.unique.name, description: "J'aime beaucoup jouer au chat, veux-tu être mon gros minet?", email: Faker::Internet.email, password: "coucou", avatar: "bitmoji14.jpg", birth_date: "1991-10-10", gender: "Femme", localisation: "Paris")
+User.create!(user_name: Faker::Artist.unique.name, description: "Rien à dire, tout à prouver.", email: Faker::Internet.email, password: "coucou", avatar: "bitmoji15.jpg", birth_date: "1991-10-10", gender: "Femme", localisation: "Paris")
+User.create!(user_name: Faker::Artist.unique.name, description: "Un peu aventurière, je deviendrai ton Indiana Jones ce soir...", email: Faker::Internet.email, password: "coucou", avatar: "bitmoji16.png", birth_date: "1991-10-10", gender: "Femme", localisation: "Paris")
+User.create!(user_name: Faker::Artist.unique.name, description: "Je suis romantique et un peu kinky. Je suis ouverte à tout, même aux histoires d'amour!", email: Faker::Internet.email, password: "coucou", avatar: "bitmoji17.png", birth_date: "1991-10-10", gender: "Femme", localisation: "Paris")
+User.create!(user_name: Faker::Artist.unique.name, description: "Je n'ai jamais aimé les grands discours, mais je suis très douée en travaux pratiques. Alors dis-moi oui!", email: Faker::Internet.email, password: "coucou", avatar: "bitmoji2.jpg", birth_date: "1991-10-10", gender: "Femme", localisation: "Paris")
 
 
 # 20.times do
@@ -138,7 +138,7 @@ zentai = Fetish.create(name: "Zentai", description:"Zentai", image:"zentai.jpg")
 # UserFetish.create(user_id: 98, fetish_id: 64)
 
 # USER_FETISH
-puts "Creation des fétichess"
+puts "Creation des fétiches"
 ids = Fetish.all.ids
 User.all.each do |user|
   user_fetish = UserFetish.create(
@@ -171,13 +171,26 @@ end
 #   criterium.save!
 # end
 puts "Creation des matchs"
-Match.create!(user_1_id: 1, user_2_id: 2)
+Match.create!(user_1_id: 1, user_2_id: 3)
+Match.create!(user_1_id: 1, user_2_id: 4)
 Match.create!(user_1_id: 2, user_2_id: 3)
+Match.create!(user_1_id: 2, user_2_id: 4)
+Match.create!(user_1_id: 3, user_2_id: 5)
+Match.create!(user_1_id: 3, user_2_id: 6)
+Match.create!(user_1_id: 3, user_2_id: 7)
+Match.create!(user_1_id: 3, user_2_id: 8)
 Match.create!(user_1_id: 3, user_2_id: 4)
 Match.create!(user_1_id: 4, user_2_id: 5)
 Match.create!(user_1_id: 5, user_2_id: 6)
+Match.create!(user_1_id: 5, user_2_id: 11)
 Match.create!(user_1_id: 6, user_2_id: 7)
-Match.create!(user_1_id: 7, user_2_id: 7)
 Match.create!(user_1_id: 7, user_2_id: 8)
+Match.create!(user_1_id: 7, user_2_id: 12)
+Match.create!(user_1_id: 8, user_2_id: 9)
+Match.create!(user_1_id: 9, user_2_id: 10)
+Match.create!(user_1_id: 10, user_2_id: 11)
+Match.create!(user_1_id: 11, user_2_id: 12)
+Match.create!(user_1_id: 11, user_2_id: 10)
+
 
 puts 'Finished!'

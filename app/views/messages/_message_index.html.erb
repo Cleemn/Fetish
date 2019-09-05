@@ -1,6 +1,5 @@
 <div class="my-chat">
-  <h5>Votre conversation avec <%= @user.user_name.capitalize %> :</h5>
-  <!-- enlever ca de la version definitive -->
+<!--   <h5>Votre conversation avec <%= @user.user_name.capitalize %> :</h5> -->
       <% if @messages.empty? %>
         <p>Débutez votre conversation avec <%= @user.user_name.capitalize %></p>
       <% end %>
@@ -19,11 +18,8 @@
 
         <div class="message-icones">
           <div class="message-icones-right">
-            <!--%= link_to do %-->
-              <!--i class="fas fa-microphone"></i-->
-            <!--% end %-->
             <%= link_to match_end_path(match_id: @match.id), :method => :patch do %>
-               <i class="fas fa-hand-paper"></i>
+               <i class="fas fa-ban"></i>
             <% end %>
             <%= link_to user_reports_path(user_id: @user.id), :method => :post do %>
                <i class="fas fa-exclamation-triangle"> </i>

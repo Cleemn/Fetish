@@ -8,3 +8,6 @@ const scrollLastMessageIntoView = () => {
 }
 
 export { scrollLastMessageIntoView };
+
+
+// a revoir

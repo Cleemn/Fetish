@@ -1,5 +1,5 @@
 #body-content {
-  min-height: calc(100vh - 170px);
+  min-height: calc(100vh - 120px);
 }
 
 .user_description {
@@ -9,7 +9,14 @@
 
 .user_random h2 {
   font-size: 32px;
-  margin-bottom: 25px;
+}
+
+.user-random {
+  position: relative;
+
+  img {
+    width: 80%;
+  }
 }
 
 .precision-fetish {
@@ -17,16 +24,31 @@
 }
 
 .fetish_card {
-  justify-content: center;
-  position: absolute;
-  margin-top: 60px;
-  margin-left: 6px;
+    justify-content: center;
+    position: absolute;
+    /* margin-top: 60px; */
+    /* margin-left: 6px; */
+    bottom: 110px;
+    left: 108px;
+    border-radius: 237px;
+    z-index: 28;
+    border: solid 1px #fa8072;
+    background-color: white;
+    width: 7.5pc;
+    height: 7.5pc;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .fetish_card small {
   justify-content: center;
   position: relative;
-  font-size: 10px;
+  font-size: 20px;
+  color: black;
+  font-family: 'Signika', sans-serif;
 }
 
 .question {
@@ -34,4 +56,10 @@
   color: blue;
   margin-bottom: 0px;
 }
+
+.user-description {
+  font-size: 20px;
+}
+
+
 

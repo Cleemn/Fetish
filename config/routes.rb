@@ -23,11 +23,13 @@ Rails.application.routes.draw do
 
   resources :users do
 
-    patch "accept"
-    patch "decline"
+    get "accept"
+    # patch "accept"
+    get "decline"
+    # patch "decline"
     resources :reports, only: [:create]
     resources :criteria, only: [:index, :new, :create, :edit, :update]
-    resources :user_fetishes, only: [:index, :new, :create, :destroy]
+    resources :user_fetishes, only: [:index, :new, :create, :edit, :update, :destroy]
   end
 
   mount ActionCable.server => "/cable"
