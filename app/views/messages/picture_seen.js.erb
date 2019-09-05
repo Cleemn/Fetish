@@ -6,7 +6,7 @@ function closeModal() {
 }
 
 function showModal() {
-modal_photo.setAttribute('class', 'modal fade show');
+modal_photo.setAttribute('class', 'modal modal_fade show');
 modal_photo.setAttribute('style', 'display: block; padding-right: 15px;');
 modal_photo.setAttribute('aria-modal', 'true');
 }
@@ -23,8 +23,7 @@ showModal()
 setTimeout(function() {
   closeModal();
   removeLink();
-}, 3000);
-
+}, 5000);
 
 
 //TimeOut = setTimeOut(modal_photo.setAttribute('class' ,'modal fade'), 3000);

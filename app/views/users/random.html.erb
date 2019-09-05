@@ -1,38 +1,68 @@
-
-<div class="random">
-  <div class="card-trip random">
+<div id="swipe" class="random" data-user-id="<%= @user&.id %>">
+  <div id="not-to-be-seen-left"></div>
+  <div id="contains-swipe-card">
     <% if @user == nil %>
-    <div class="lonely">
-      <h6>Aucun utilisateur ne correspond à votre recherche... 😢</h6>
-      <%= image_tag "lonely.jpg", width: 200, height: 200, crop: :fill, class:"animated swing"%>
-      <h6>Modifiez vos critères ou rééssayez prochainement.</h6>
-    </div>
-    <% else %>
-       <div class="fetish_card">
-          <%= image_tag @user.fetishes.where(fetishes: { name: current_user.fetishes.pluck(:name)}).order("RANDOM()").first[:image], width: 25, height: 50,  data: {toggle: "tooltip", placement: "top"}, class:"avatar-square"%>
-          <small class="precision-fetish"> <%= @user.fetishes.where(fetishes: { name: current_user.fetishes.pluck(:name)}).order("RANDOM()").first[:name]%> </small>
-          <% if (@user.fetishes.count - 1) == 0 %>
-              <p></p>
-          <% elsif (@user.fetishes.count -1)  == 1 %>
-           <%= image_tag "question.jpg" %>
-               <small><%= @user.fetishes.count -1 %> autre fetiche </small>
-          <% else %>
-          <%= image_tag "question.jpg", width: 35, height: 35,  data: {toggle: "tooltip", placement: "top"}, class:"question" %>
-               <small><%= @user.fetishes.count -1 %> autres fetiches </small>
-          <% end %>
+      <div class="card-trip random">
+        <div class="lonely">
+          <h6>Aucun utilisateur ne correspond à votre recherche... 😢</h6>
+        <%= image_tag "lonely.jpg", width: 200, height: 200, crop: :fill, class:"animated swing"%>
+        <h6>Modifiez vos critères ou rééssayez prochainement.</h6>
+        <% if current_user.matches.empty? %>
+        <%= link_to "Modifier mes critères", dashboard_path, class: "btn-home" %>
+        <% else %>
+        <% end %>
+      </div>
+        <div class="d-flex justify-content-center align-items-center">
+          <%= link_to "Modifier mes critères", dashboard_path, class: "btn-home w-50", style:"font-size: 21px;font-family: 'Signika', sans-serif;"%>
+          <%= link_to "Voir mes messages", match_messages_path(current_user, @user_last_match), class: "btn-log w-50", style:"font-size: 21px;font-family: 'Signika', sans-serif;" %>
         </div>
-          <div class="user_random">
-            <h2><%=@user.user_name%></h2>
-            <%= image_tag @user.avatar %>
-            <div class="card-trip-infos">
-              <p class="user_description"><%=@user.description%></p>
-            </div>
-            <div class="choice">
-              <button class="btn btn-no"><%= link_to "No",user_decline_path(user_id: @user.id), method: :patch %></button>
-              <button class="btn btn-ok"><%= link_to "Ok", user_accept_path(user_id: @user.id),  method: :patch, remote: true %></button>
-            </div>
+    <% else %>
+      <div class="card-trip random" style="margin-left: 10px; margin-right: 10px; margin-top: 20px; margin-bottom: 10px">
+        <div class="fetish_card">
+          <%= image_tag @user.fetishes.where(fetishes: { name: current_user.fetishes.pluck(:name)}).order("RANDOM()").first[:image], width: 25, height: 50,  data: {toggle: "tooltip", placement: "top"}, class:"avatar-random"%>
+          <small class="precision-fetish"> <%= @user.fetishes.where(fetishes: { name: current_user.fetishes.pluck(:name)}).order("RANDOM()").first[:name]%> </small>
+        </div>
+        <div class="user_random">
+          <h2><%=@user.user_name%></h2>
+          <%= image_tag @user.avatar %>
+          <div class="card-trip-infos">
+            <p class="user_description"><%=@user.description%></p>
           </div>
+        </div>
+      </div>
+      <div class="choice d-flex align-items-center justify-content-center">
+        <%= link_to user_decline_path(user_id: @user.id) do %><i class="far fa-times-circle fa-4x px-5 pt-3", style="color:#FA8072"></i><% end %>
+        <%= link_to user_accept_path(user_id: @user.id), id: "accept-button", remote: true do %>
+          <i class="fas fa-heart fa-4x px-5 pt-3", style="color:#4ecdc4"></i>
+        <% end %>
+      </div>
     <% end %>
   </div>
+  <div id="not-to-be-seen-right"></div>
 </div>
+  
+<% if user_signed_in? %>
+  <div class="nav_bottom d-flex align-items-center justify-content-around border-top">
 
+    <%= link_to dashboard_path do %><i class="fas fa-user fa-2x py-3" style="color:#FA8072"></i><% end %>
+
+    <%= link_to random_path do %><i class="fas fa-feather-alt fa-2x py-3" style="color:#4ecdc4"></i><% end %>
+
+<% if user_signed_in? %>
+  <div class="nav_bottom d-flex align-items-center justify-content-around border-top">
+    <%= link_to root_path do %><i class="fas fa-home fa-2x py-3"></i><% end %>
+    <%= link_to random_path do %><i class="fas fa-feather-alt fa-2x py-3" style="color:#4ecdc4"></i><% end %>
+
+    <% if !current_user.matches.empty? %>
+      <% if current_user.match_as_u1.where(checked_by_u1: false).size > 0 || current_user.match_as_u2.where(checked_by_u2: false).size > 0 %>
+        <%= link_to match_messages_path(current_user, @user_last_match), class: "the-bell" do %>
+          <div id="bell" class="animated infinite tada"><i class="fas fa-heart fa-2x py-3"></i></div></%><% end %>
+      <% else %>
+        <%= link_to match_messages_path(current_user, @user_last_match) do %><i class="fas fa-heart fa-2x py-3"></i><% end %>
+      <% end %>
+    <% else %>
+      <%= link_to random_path do %><i class="fas fa-heart fa-2x py-3"></i><% end %>
+    <% end %>
+    <%= link_to dashboard_path do %><i class="fas fa-user fa-2x py-3" style="color:#FA8072"></i><% end %>
+  </div>
+<% end %>

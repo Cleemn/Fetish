@@ -17,6 +17,7 @@ function addMessage(messageHTML) {
 <% else %>
   addMessage('<%= j render "messages/message_content", message: @message.reload, user: current_user %>');
   refreshForm('<%= j render "messages/form", match: @match, message: Message.new %>');
+  //scrollToBottom();
   sendMessageAutomatically();
 <% end %>
 

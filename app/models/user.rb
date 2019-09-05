@@ -39,4 +39,8 @@ class User < ApplicationRecord
   def set_default_avatar
     self.avatar = "logo2.png" if !self.avatar
   end
+
+  def newmess?
+    self.matches.map{|m| m.messages.where(newnotification: true) if m.messages.where(newnotification: true).count > 0}.reject{|m| m == nil}.size
+  end
 end
