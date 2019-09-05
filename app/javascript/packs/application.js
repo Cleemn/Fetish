@@ -30,3 +30,5 @@ initSortable();
 uploadBtn();
 sendBtn();
 scrollToBottom();
+
+window.scrollToBottom = scrollToBottom;

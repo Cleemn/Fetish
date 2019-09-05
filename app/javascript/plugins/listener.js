@@ -1,5 +1,5 @@
 const pressEnter = (event) => {
-  const btnSend = document.getElementById("send-btn");
+  const btnSend = document.getElementById("btn-submit-hidden");
   if (event.key === 'Enter') {
     // messageContent;
     btnSend.click();

@@ -1,4 +1,4 @@
-<div class="my-chat">
+<div class="my-chat" id="messenger-listener">
 <!--   <h5>Votre conversation avec <%= @user.user_name.capitalize %> :</h5> -->
       <% if @messages.empty? %>
         <p>Débutez votre conversation avec <%= @user.user_name.capitalize %></p>
@@ -16,15 +16,15 @@
           <%= render "messages/form", match: @match, message: @message %>
         </div>
 
-        <div class="message-icones">
+<!--         <div class="message-icones">
           <div class="message-icones-right">
-            <%= link_to match_end_path(match_id: @match.id), :method => :patch do %>
+            <%#= link_to match_end_path(match_id: @match.id), :method => :patch do %>
                <i class="fas fa-ban"></i>
-            <% end %>
-            <%= link_to user_reports_path(user_id: @user.id), :method => :post do %>
+            <%# end %>
+            <%#= link_to user_reports_path(user_id: @user.id), :method => :post do %>
                <i class="fas fa-exclamation-triangle"> </i>
-            <% end %>
+            <%# end %>
           </div>
-        </div>
+        </div> -->
       </div>
 </div>
