@@ -22,7 +22,7 @@
   background-color: grey;
   width: fit-content;
   text-align: left;
-  padding: 7px;
+  padding: 12px;
 }
 
 .right-paragraph {
@@ -35,8 +35,10 @@
 }
 
 .left-photo-user {
-  justify-content: flex-start;
-  width: 75%;
+  width: fit-content;
+  margin-bottom: 8px;
+  border-radius: 8px;
+  overflow: hidden;
 }
 
 .right-photo-user {
@@ -198,7 +200,7 @@ a:hover {
 
 .my-matches {
   text-align: left;
-  margin-right: 20px;
+  // margin-right: 20px;
 }
 
 .match-message-notification {

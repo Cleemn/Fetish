@@ -1,6 +1,6 @@
 <div class="small-box messenger-list messenger-font">
     <h6 class="d-flex justify-content-center small mb-1">
-  <%= message.created_at.strftime("%b %-d %Y, %H:%M") %>
+  <%= message.created_at.strftime("%H:%M") %>
   <!-- else, si message cree il y a moins d'un jour :hh, mm -->
   <!-- genre daytime.now - daytime.message -->
   <!-- if/else si ce sont des messages qui de la meme personne qui se suivent, ne pas afficher le temps entretemps -->
@@ -48,4 +48,3 @@
     </div>
   </div>
 </div>
-

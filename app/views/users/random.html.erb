@@ -1,6 +1,5 @@
 <div id="<%= 'swipe' if @user %>" class="random" data-user-id="<%= @user&.id %>">
   <div id="not-to-be-seen-left"></div>
-  <div id="not-to-be-seen-right"></div>
   <div class="container">
     <div class="main-random-container">
       <div id="contains-swipe-card">
@@ -10,10 +9,6 @@
               <h6>Aucun utilisateur ne correspond à votre recherche... 😢</h6>
             <%= image_tag "lonely.jpg", width: 200, height: 200, crop: :fill, class:"animated swing"%>
             <h6>Modifiez vos critères ou rééssayez prochainement.</h6>
-            <% if current_user.matches.empty? %>
-            <%= link_to "Modifier mes critères", dashboard_path, class: "btn-home" %>
-            <% else %>
-            <% end %>
           </div>
             <div class="d-flex justify-content-center align-items-center">
               <%= link_to "Modifier mes critères", dashboard_path, class: "btn-home w-50", style:"font-size: 21px;font-family: 'Signika', sans-serif;"%>
@@ -35,21 +30,18 @@
           </div>
         <% end %>
       </div>
-      <% unless @user == nil %>
-        <div class="choice d-flex align-items-center justify-content-center">
-          <%= link_to user_decline_path(user_id: @user.id) do %><i class="far fa-times-circle fa-4x px-5 pt-3", style="color:#FA8072"></i><% end %>
-          <%= link_to user_accept_path(user_id: @user.id), id: "accept-button", remote: true do %>
-            <i class="fas fa-heart fa-4x px-5 pt-3", style="color:#4ecdc4"></i>
-          <% end %>
-        </div>
-      <% end %>
     </div>
-
   </div>
-
-
+  <div id="not-to-be-seen-right"></div>
 </div>
 
-
+<% unless @user == nil %>
+  <div class="choice d-flex align-items-center justify-content-center">
+    <%= link_to user_decline_path(user_id: @user.id) do %><i class="far fa-times-circle fa-4x px-5 pt-3", style="color:#FA8072"></i><% end %>
+    <%= link_to user_accept_path(user_id: @user.id), id: "accept-button", remote: true do %>
+      <i class="fas fa-heart fa-4x px-5 pt-3", style="color:#4ecdc4"></i>
+    <% end %>
+  </div>
+<% end %>
 
 

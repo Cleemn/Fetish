@@ -4,6 +4,8 @@ const initSortable = () => {
   const el = document.getElementById('swipe');
   if (el) {
     const sortable = Sortable.create(el, {
+      ghostClass: "random-ghost",  // Class name for the drop placeholder
+      dragClass: "random-drag",
       onEnd: (event) => {
         const test = document.getElementById('test-js');
         const option = {
