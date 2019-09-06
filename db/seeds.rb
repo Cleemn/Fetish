@@ -22,9 +22,9 @@ User.create!(user_name: "Clemcy", description: "On dira à tes parents qu'on s'e
 User.create!(user_name: "MC", description: "Bonjour toi, je suis une poète et j'aimerais te faire découvrir si jamais nous matchons..", email: "mc@caramail.com", password: "coucou", avatar: "bitmoji9.png", birth_date: "1991-10-10", gender: "Femme", localisation: "Paris")
 User.create!(user_name: "Mathou", description: "Recherche une femme qui aime le théâtre, la Grèce Antique et le bondage.", email: "mathilde@mail.com", password: "coucou", avatar: "bitmoji1.png", birth_date: "1991-10-10", gender: "Femme", localisation: "Paris")
 User.create!(user_name: "Bernie", description: "J'espère que t'aimes les mauvaises filles, parce que je suis mauvaise dans tout.", email: "bertrand@mail.com", password: "coucou", avatar: "bitmoji10.png", birth_date: "1991-10-10", gender: "Femme", localisation: "Paris")
-User.create!(user_name: "Bonnie", description: "J'ai beaucoup de fétiches, ils ne rentraient pas tous dans la liste ;)", email: "bonnie@mail.com", password: "coucou", avatar: "bitmoji11.png", birth_date: "1991-10-10", gender: "Femme", localisation: "Paris")
+User.create!(user_name: "Germaine", description: "Ouverte aux tickets ;)", email: "germaine@mail.com", password: "coucou", avatar: "bitmoji11.png", birth_date: "1991-10-10", gender: "Femme", localisation: "Paris")
 User.create!(user_name: "Eddie", description: "Je n'ai jamais osé les sites de rencontres, j'espère que tu me donneras envie d'y rester", email: "eddie@mail.com", password: "coucou", avatar: "bitmoji12.jpg", birth_date: "1991-10-10", gender: "Femme", localisation: "Paris")
-User.create!(user_name: "Jude", description: "Agressive, sauvage, je suis néanmoins capable de douceur.", email: "jude@mail.com", password: "coucou", avatar: "bitmoji13.jpg", birth_date: "1991-10-10", gender: "Femme", localisation: "Paris")
+User.create!(user_name: "Yvette", description: "Agressive, sauvage, flex, je suis néanmoins capable de douceur.", email: "yvette@mail.com", password: "coucou", avatar: "bitmoji13.jpg", birth_date: "1991-10-10", gender: "Femme", localisation: "Paris")
 User.create!(user_name: "Roxanne", description: "J'aime beaucoup jouer au chat, veux-tu être mon gros minet?", email: "roxanne@mail.com", password: "coucou", avatar: "bitmoji14.jpg", birth_date: "1991-10-10", gender: "Femme", localisation: "Paris")
 User.create!(user_name: "Belinda", description: "Rien à dire, tout à prouver.", email: "belinda@mail.com", password: "coucou", avatar: "bitmoji15.jpg", birth_date: "1991-10-10", gender: "Femme", localisation: "Paris")
 User.create!(user_name: "Eleanor", description: "Un peu aventurière, je deviendrai ton Indiana Jones ce soir...", email: "eleanor@mail.com", password: "coucou", avatar: "bitmoji16.png", birth_date: "1991-10-10", gender: "Femme", localisation: "Paris")
@@ -177,26 +177,8 @@ end
 #   criterium.save!
 # end
 puts "Creation des matchs"
-Match.create!(user_1_id: 1, user_2_id: 3)
-Match.create!(user_1_id: 1, user_2_id: 4)
-Match.create!(user_1_id: 2, user_2_id: 3)
-Match.create!(user_1_id: 2, user_2_id: 4)
-Match.create!(user_1_id: 3, user_2_id: 5)
-Match.create!(user_1_id: 3, user_2_id: 6)
-Match.create!(user_1_id: 3, user_2_id: 7)
-Match.create!(user_1_id: 3, user_2_id: 8)
-Match.create!(user_1_id: 3, user_2_id: 4)
-Match.create!(user_1_id: 4, user_2_id: 5)
-Match.create!(user_1_id: 5, user_2_id: 6)
-Match.create!(user_1_id: 5, user_2_id: 11)
-Match.create!(user_1_id: 6, user_2_id: 7)
-Match.create!(user_1_id: 7, user_2_id: 8)
-Match.create!(user_1_id: 7, user_2_id: 12)
-Match.create!(user_1_id: 8, user_2_id: 9)
-Match.create!(user_1_id: 9, user_2_id: 10)
-Match.create!(user_1_id: 10, user_2_id: 11)
-Match.create!(user_1_id: 11, user_2_id: 12)
-Match.create!(user_1_id: 11, user_2_id: 10)
+Match.create!(user_1_id: 1, user_2_id: 17)
+Match.create!(user_1_id: 1, user_2_id: 18)
 
 
 puts 'Finished!'
