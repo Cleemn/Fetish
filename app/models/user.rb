@@ -37,7 +37,7 @@ class User < ApplicationRecord
   end
 
   def set_default_avatar
-    self.avatar = "logo2.png" if !self.avatar
+    self.avatar = "user.png" if !self.avatar
   end
 
   def newmess?
