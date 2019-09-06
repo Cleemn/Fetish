@@ -1,23 +1,23 @@
 <div id="dashboard" style="padding-bottom: 100px;">
-  <ul class="list-inline tabs-underlined p-2 d-flex justify-content-center align-items-center">
-    <li>
-        <a href="#" id="profil_btn" class="tab-underlined active">Profil</a>
-    </li>
-    <li>
-        <a href="#" id="criteres_btn"class="tab-underlined">Critères</a>
-    </li>
-    <li>
-        <a href="#" id="fetiches_btn"class="tab-underlined">Fétiches</a>
-    </li>
-    <li>
-      <%= link_to destroy_user_session_path, method: :delete do %><i class="fas fa-power-off fa-2x"></i><% end %>
-    </li>
-  </ul>
+  <div class="dashboard-nav">
+    <ul class="list-inline tabs-underlined p-2">
+        <li>
+            <a href="#" id="profil_btn" class="tab-underlined active">Profil</a>
+        </li>
+        <li>
+            <a href="#" id="criteres_btn"class="tab-underlined">Critères</a>
+        </li>
+        <li>
+            <a href="#" id="fetiches_btn"class="tab-underlined">Fétiches</a>
+        </li>
+    </ul>
+    <%= link_to destroy_user_session_path, method: :delete do %><i class="fas fa-power-off fa-2x"></i><% end %>
+  </div>
 
   <div id="profil">
     <div class="container">
       <div class="row">
-        <div class="col-lg-5 offset-lg-1 pl-4 py-2">
+        <div class="col-lg-5 offset-lg-1 py-2">
           <div class="user-infos">
             <div class="title d-flex align-items-center border-bottom py-2">
               <% if @user.avatar.present? %>
@@ -25,19 +25,22 @@
               <% else %>
                 <%= image_tag "user-circle-solid.svg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
               <% end %>
-              <h4 class="px-3"><%= @user.user_name %> - <%= ((Time.zone.now - @user.birth_date.to_time) / 1.year.seconds).floor %> ans</h4>
+              <h4 class="px-3 main-user-quote"><%= @user.user_name %><br/><span><%= ((Time.zone.now - @user.birth_date.to_time) / 1.year.seconds).floor %> ans</span></h4>
             </div>
 
             <div class="content">
-            <h4 class="form-title text-center py-3">Ma description </h4>
               <p class="user-description"><em>"<%= @user.description %>"</em></p>
             </div>
-             <h4 class="form-title text-center py-3">Mes critères</h4>
+            <div class="subtitle-dashboard">
+              <h4 class="form-title text-center">Mes critères</h4>
+              <%= link_to @criterium.nil? ? new_user_criterium_path(@user) : user_criteria_path(@user), class: "card-pencil" do %>
+                <i class="fas fa-pencil-alt fa-1x" style="color:$fetish"></i>
+              <% end %>
+            </div>
             <% if @criterium.nil? %>
               <p>Vous n'avez pas encore de critères !</p>
-              <p><%= link_to "En ajouter ?", new_user_criterium_path(@user), class:"btn btn-home" %></p>
             <% else %>
-              <div class="card-product criteria d-flex align-items-center pr-2">
+              <div class="card-product criteria d-flex align-items-center">
                 <% if @criterium.gender == "Homme" %>
                   <img src="https://previews.123rf.com/images/martialred/martialred1605/martialred160500002/56300924-ic%C3%B4ne-homme-ou-salle-de-bains-signe-de-toilettes-des-hommes-plat-pour-les-applications-et-les-sites-web.jpg" class="p-3">
                 <% elsif @criterium.gender == "Femme" %>
@@ -48,35 +51,36 @@
                     Je suis intéressé(e) par les <%= @criterium.gender.downcase %>s qui habitent près de <%= @criterium.localisation %> et qui ont <%= @criterium.age %> ans.
                   </h2>
                 </div>
-                <%= link_to user_criteria_path(@user) do %>
-                  <i class="fas fa-pencil-alt fa-1x card-pencil" style="color:$fetish"></i>
-                <% end %>
               </div>
             <% end %>
           </div>
         </div>
         <div class="d-flex flex-column col-lg-6 border-left">
           <div class="user-fetishes">
-            <div class="title d-flex justify-content-center p-3">
-              <h4 class="px-3">Mes fétiches</h4>
-              <% if @user.user_fetishes.empty? %>
-              <% else %>
-                <%= link_to user_user_fetishes_path(@user) do %>
-                  <i class="fas fa-pencil-alt fa-1x" style="color:$fetish"></i>
+              <div class="subtitle-dashboard">
+                <h4 class="px-3">Mes fétiches</h4>
+                <% if @user.user_fetishes.empty? %>
+                <% else %>
+                  <%= link_to user_user_fetishes_path(@user) do %>
+                    <i class="fas fa-pencil-alt fa-1x" style="color:$fetish"></i>
+                  <% end %>
                 <% end %>
-              <% end %>
-            </div>
+              </div>
+
             <% if @user.user_fetishes.empty? %>
               <p class="px-3">Vous n'avez pas encore de fétiches !</p>
               <p><%= link_to "En ajouter ?", new_user_user_fetish_path(@user), class:"btn btn-home" %></p>
             <% else %>
-              <div class="content-fetishes-profil">
+              <div class="dashboard-fetishes-list">
                 <% @user.user_fetishes.each do |user_fetish| %>
-                  <div class="clickable-profil">
-                    <%= image_tag user_fetish.fetish.image, width: 30, height: 30, crop: :fill %>
-                    <p><%= user_fetish.fetish.name %></p>
+                  <div class="clickable">
+                    <div class="clickable-content">
+                      <%= image_tag user_fetish.fetish.image, width: 30, height: 30, crop: :fill %>
+                      <p><%= user_fetish.fetish.name %></p>
+                    </div>
                   </div>
                 <% end %>
+
               </div>
             <% end %>
           </div>
@@ -111,7 +115,7 @@
             </div>
           </div>
           <div class="contenu col-12 col-lg-6">
-            <h2 class="form-title text-center py-3">Modifier mes critères</h2>
+            <h2 class="subtitle-dashboard form-title text-center py-3">Modifier mes critères</h2>
             <%= simple_form_for [@user, @criterium] do |f| %>
               <%= f.input :gender, collection: ["Homme", "Femme"] %>
               <%= f.input :age, collection: 18..60 %>
