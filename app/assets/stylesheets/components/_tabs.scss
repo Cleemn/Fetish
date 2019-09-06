@@ -1,16 +1,20 @@
 .tabs-underlined {
   display: flex;
   align-items: center;
+  font-size: 20px;
 }
 
 .tabs-underlined .tab-underlined {
   color: black;
-  padding: 8px;
+  padding: 8px 8px 8px 0px;
   margin: 8px 16px;
   opacity: .4;
   cursor: pointer;
   text-decoration: none;
   border-bottom: 4px solid transparent;
+  &:first-child {
+    margin-left: 0px;
+  }
 }
 
 .tabs-underlined .tab-underlined.active {

@@ -1,7 +1,6 @@
 <div style="padding-bottom: 50px;">
     <div class="container">
       <h2 class="form-title my-4">Ajouter mes fétiches</h2>
-
       <%= simple_form_for [@user, @user_fetish] do |f| %>
       <div class="fetish-choices">
         <% Fetish.all.each do |fetish|  %>
