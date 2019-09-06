@@ -14,16 +14,21 @@
           <h4 class="my-4">Mes fétiches</h4>
           <%= link_to "Ajouter d'autres fétiches", new_user_user_fetish_path, class:"btn-home" %>
         </div>
-        <div class="my-5 d-flex justify-content-center flex-wrap">
+        <!-- <div class="my-5 d-flex justify-content-center flex-wrap"> -->
+        <div class="fetishes-list">
           <% @user.user_fetishes.each do |user_fetish| %>
             <div class="clickable">
-              <%= image_tag user_fetish.fetish.image, width: 30, height: 30, crop: :fill %>
-              <p><%= user_fetish.fetish.name %></p>
-              <%= link_to user_user_fetish_path(@user, user_fetish), method: :delete, data: { confirm: "Are you sure?" }, class:"p-2" do %><i class="fas fa-trash fa-1x trash" style="color:#878C8D"></i>
+              <div class="clickable-content">
+                <%= image_tag user_fetish.fetish.image, width: 30, height: 30, crop: :fill %>
+                <p><%= user_fetish.fetish.name %></p>
+              </div>
+              <%= link_to user_user_fetish_path(@user, user_fetish), method: :delete, data: { confirm: "Are you sure?" } do %><i class="fas fa-trash fa-1x trash" style="color:#878C8D"></i>
               <% end %>
             </div>
           <% end %>
+
         </div>
+
       </div>
     </div>
   <% end %>

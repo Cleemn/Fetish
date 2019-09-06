@@ -1,0 +1,63 @@
+.main-user-quote {
+  font-size: 30px;
+  span {
+    font-size: 25px;
+    opacity: 0.9;
+  }
+}
+
+.subtitle-dashboard {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  h4 {
+    font-size: 22px;
+    background: $fetish;
+    width: fit-content;
+    padding: 11px 20px;
+    color: white;
+  }
+  a {
+    background: white;
+    box-shadow: 0px 4px 6px rgba(0,0,0,0.2);
+    border-radius: 50%;
+    width: 46px;
+    height: 46px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: -5px;
+  }
+}
+
+.user-fetishes {
+  margin-top: 20px;
+}
+
+.dashboard-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 15px;
+}
+
+.user-fetishes .content-fetishes-index {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: transparent;
+}
+
+.dashboard-fetishes-list {
+  display: flex;
+  justify-content: flex-start;
+  overflow-x: scroll;
+  margin: 0px 0px 40px;
+  padding-bottom: 30px;
+  .clickable {
+    height: 175px;
+    min-width: 50%;
+    margin-right: 52px;
+  }
+}
