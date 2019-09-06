@@ -18,24 +18,30 @@ Match.destroy_all
 #USERS
 puts 'Creating 12 fake users...'
 
-User.create!(user_name: Faker::Artist.unique.name, description: "On dira à tes parents qu'on s'est rencontrées dans le TGV.", email: "clementine@laposte.net", password: "coucou", avatar: "bitmoji4.png", birth_date: "1991-10-10", gender: "Femme", localisation: "Paris")
-User.create!(user_name: Faker::Artist.unique.name, description: "Bonjour toi, je suis une poète et j'aime beaucoup de choses que j'aimerais te faire découvrir si jamais nous matchons..", email: "mc@caramail.com", password: "coucou", avatar: "bitmoji9.png", birth_date: "1991-10-10", gender: "Femme", localisation: "Paris")
-User.create!(user_name: Faker::Artist.unique.name, description: "Recherche une femme qui aime le théâtre, la Grèce Antique et le bondage.", email: Faker::Internet.email, password: "coucou", avatar: "bitmoji1.png", birth_date: "1991-10-10", gender: "Femme", localisation: "Paris")
-User.create!(user_name: Faker::Artist.unique.name, description: "J'espère que t'aimes les mauvaises filles, parce que je suis mauvaise dans tout.", email: Faker::Internet.email, password: "coucou", avatar: "bitmoji10.png", birth_date: "1991-10-10", gender: "Femme", localisation: "Paris")
-User.create!(user_name: Faker::Artist.unique.name, description: "J'ai beaucoup de fétiches, ils ne rentraient pas tous dans la liste. Accepte-moi si tu veux les découvrir...", email: Faker::Internet.email, password: "coucou", avatar: "bitmoji11.png", birth_date: "1991-10-10", gender: "Femme", localisation: "Paris")
-User.create!(user_name: Faker::Artist.unique.name, description: "Je n'ai jamais osé les sites de rencontres, j'espère que tu me donneras envie d'y rester", email: Faker::Internet.email, password: "coucou", avatar: "bitmoji12.jpg", birth_date: "1991-10-10", gender: "Femme", localisation: "Paris")
-User.create!(user_name: Faker::Artist.unique.name, description: "Agressive, sauvage, je suis néanmoins capable de douceur. Je déposerai des baisers sur les marques que je te laisserai.", email: Faker::Internet.email, password: "coucou", avatar: "bitmoji13.jpg", birth_date: "1991-10-10", gender: "Femme", localisation: "Paris")
-User.create!(user_name: Faker::Artist.unique.name, description: "J'aime beaucoup jouer au chat, veux-tu être mon gros minet?", email: Faker::Internet.email, password: "coucou", avatar: "bitmoji14.jpg", birth_date: "1991-10-10", gender: "Femme", localisation: "Paris")
-User.create!(user_name: Faker::Artist.unique.name, description: "Rien à dire, tout à prouver.", email: Faker::Internet.email, password: "coucou", avatar: "bitmoji15.jpg", birth_date: "1991-10-10", gender: "Femme", localisation: "Paris")
-User.create!(user_name: Faker::Artist.unique.name, description: "Un peu aventurière, je deviendrai ton Indiana Jones ce soir...", email: Faker::Internet.email, password: "coucou", avatar: "bitmoji16.png", birth_date: "1991-10-10", gender: "Femme", localisation: "Paris")
-User.create!(user_name: Faker::Artist.unique.name, description: "Je suis romantique et un peu kinky. Je suis ouverte à tout, même aux histoires d'amour!", email: Faker::Internet.email, password: "coucou", avatar: "bitmoji17.png", birth_date: "1991-10-10", gender: "Femme", localisation: "Paris")
-User.create!(user_name: Faker::Artist.unique.name, description: "Je n'ai jamais aimé les grands discours, mais je suis très douée en travaux pratiques. Alors dis-moi oui!", email: Faker::Internet.email, password: "coucou", avatar: "bitmoji2.jpg", birth_date: "1991-10-10", gender: "Femme", localisation: "Paris")
+User.create!(user_name: "Clemcy", description: "On dira à tes parents qu'on s'est rencontrées dans le TGV.", email: "clementine@laposte.net", password: "coucou", avatar: "bitmoji4.png", birth_date: "1991-10-10", gender: "Femme", localisation: "Paris")
+User.create!(user_name: "MC", description: "Bonjour toi, je suis une poète et j'aimerais te faire découvrir si jamais nous matchons..", email: "mc@caramail.com", password: "coucou", avatar: "bitmoji9.png", birth_date: "1991-10-10", gender: "Femme", localisation: "Paris")
+User.create!(user_name: "Mathou", description: "Recherche une femme qui aime le théâtre, la Grèce Antique et le bondage.", email: "mathilde@mail.com", password: "coucou", avatar: "bitmoji1.png", birth_date: "1991-10-10", gender: "Femme", localisation: "Paris")
+User.create!(user_name: "Bernie", description: "J'espère que t'aimes les mauvaises filles, parce que je suis mauvaise dans tout.", email: "bertrand@mail.com", password: "coucou", avatar: "bitmoji10.png", birth_date: "1991-10-10", gender: "Femme", localisation: "Paris")
+User.create!(user_name: "Bonnie", description: "J'ai beaucoup de fétiches, ils ne rentraient pas tous dans la liste ;)", email: "bonnie@mail.com", password: "coucou", avatar: "bitmoji11.png", birth_date: "1991-10-10", gender: "Femme", localisation: "Paris")
+User.create!(user_name: "Eddie", description: "Je n'ai jamais osé les sites de rencontres, j'espère que tu me donneras envie d'y rester", email: "eddie@mail.com", password: "coucou", avatar: "bitmoji12.jpg", birth_date: "1991-10-10", gender: "Femme", localisation: "Paris")
+User.create!(user_name: "Jude", description: "Agressive, sauvage, je suis néanmoins capable de douceur.", email: "jude@mail.com", password: "coucou", avatar: "bitmoji13.jpg", birth_date: "1991-10-10", gender: "Femme", localisation: "Paris")
+User.create!(user_name: "Roxanne", description: "J'aime beaucoup jouer au chat, veux-tu être mon gros minet?", email: "roxanne@mail.com", password: "coucou", avatar: "bitmoji14.jpg", birth_date: "1991-10-10", gender: "Femme", localisation: "Paris")
+User.create!(user_name: "Belinda", description: "Rien à dire, tout à prouver.", email: "belinda@mail.com", password: "coucou", avatar: "bitmoji15.jpg", birth_date: "1991-10-10", gender: "Femme", localisation: "Paris")
+User.create!(user_name: "Eleanor", description: "Un peu aventurière, je deviendrai ton Indiana Jones ce soir...", email: "eleanor@mail.com", password: "coucou", avatar: "bitmoji16.png", birth_date: "1991-10-10", gender: "Femme", localisation: "Paris")
+User.create!(user_name: "Michelle", description: "Je suis romantique et un peu kinky.", email: "michelle@mail.com", password: "coucou", avatar: "bitmoji17.png", birth_date: "1991-10-10", gender: "Femme", localisation: "Paris")
+User.create!(user_name: "Jolene", description: "Je déposerai des baisers sur les marques que je te laisserai.", email: "jolene@mail.com", password: "coucou", avatar: "bitmoji18.png", birth_date: "1991-10-10", gender: "Femme", localisation: "Paris")
+User.create!(user_name: "Lolita", description: "Je suis ouverte à tout, même aux histoires d'amour!", email: "lolita@mail.com", password: "coucou", avatar: "bitmoji19.png", birth_date: "1991-10-10", gender: "Femme", localisation: "Paris")
+User.create!(user_name: "Carmen", description: "Accepte-moi si tu veux découvrir mes plus grands secrets...", email: "carmen@mail.com", password: "coucou", avatar: "bitmoji20.png", birth_date: "1991-10-10", gender: "Femme", localisation: "Paris")
+User.create!(user_name: "Marilou", description: "Curieuse de découvrir de nouveaux horizons, à toi de jouer !", email: "marilou@mail.com", password: "coucou", avatar: "bitmoji21.png", birth_date: "1991-10-10", gender: "Femme", localisation: "Paris")
+User.create!(user_name: "Arabella", description: "Swipe à droite, je suis sûre qu'on a des choses à se dire...", email: "arabella@mail.com", password: "coucou", avatar: "bitmoji22.png", birth_date: "1991-10-10", gender: "Femme", localisation: "Paris")
+User.create!(user_name: "Félicie", description: "« La vie, c’est comme le ping-pong : on joue mieux à deux. » Ramène ta raquette !", email: "felicie@mail.com", password: "coucou", avatar: "bitmoji23.png", birth_date: "1991-10-10", gender: "Femme", localisation: "Paris")
+User.create!(user_name: "Rose", description: "À la recherche de quelqu’un pour pleurer avec moi devant les films romantiques", email: "rose@mail.com", password: "coucou", avatar: "bitmoji24.png", birth_date: "1991-10-10", gender: "Femme", localisation: "Paris")
 
 
 # 20.times do
 #   users = User.new(
 #     user_name: Faker::Artist.unique.name,
-#     email: Faker::Internet.email,
+#     leo@mail.com,
 #     password: "coucou",
 #     description:Faker::Hipster.sentence,
 #     avatar: Faker::Avatar.image,
@@ -49,7 +55,7 @@ User.create!(user_name: Faker::Artist.unique.name, description: "Je n'ai jamais 
 # 20.times do
 #   users = User.new(
 #     user_name: Faker::Artist.unique.name,
-#     email: Faker::Internet.email,
+#     leo@mail.com,
 #     password: "coucou",
 #     description:Faker::Hipster.sentence,
 #     avatar: Faker::Avatar.image,
@@ -151,7 +157,7 @@ end
 #USER_CRITERIA
 
 puts "Creation des critères"
-User.first(12).each do |user|
+User.first(18).each do |user|
   criterium = Criterium.create(
     user_id: user.id,
     gender: "Femme",
