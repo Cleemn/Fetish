@@ -11,6 +11,8 @@ class MessagesController < ApplicationController
     @user_matches = current_user.matches
     @user_last_match = @user_matches.last.id if !@match.nil?
     @messages = @match.messages
+    # bug to fix here (notification disappear for both users)
+    @messages.where(newnotification: true).each { |m| m.update(newnotification: false ) }
     @myself = current_user
     if @match.user_1 != current_user
       @user = @match.user_1

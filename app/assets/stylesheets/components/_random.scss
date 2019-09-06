@@ -35,6 +35,14 @@ div#swipe {
 .main-random-container {
   display: flex;
   flex-direction: column;
-  height: calc(100vh - 141px);
+  height: 65vh;
   justify-content: center;
+}
+
+.random-ghost {
+  opacity: 0;
+}
+
+.random-drag {
+  opacity: 1;
 }

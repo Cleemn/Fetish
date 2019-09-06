@@ -7,7 +7,9 @@
     <% if match.user_1 != current_user %>
         <div class="match-message-notification p-2">
           <div class="image">
-            <%= image_tag match.user_1.avatar, class: "avatar-bordered-match mx-2", width: 50 %>
+            <%= link_to match_messages_path(match) do %>
+              <%= image_tag match.user_1.avatar, class: "avatar-bordered-match mx-2", width: 50 %>
+            <% end %>
             <% if mess.where(newnotification: true).count > 0 %>
             <div class="notif">
               <span class="notif-number">
@@ -16,14 +18,12 @@
             </div>
           <% end %>
           </div>
-          <div class="name">
-            <%= link_to match.user_1.user_name.capitalize, match_messages_path(match) %>
-          </div>
         </div>
       <% else %>
         <div class="match-message-notification p-2">
-          <%= image_tag match.user_2.avatar, class: "avatar-bordered-match mx-2", width: 50 %>
-          <%= link_to match.user_2.user_name.capitalize, match_messages_path(match) %>
+          <%= link_to match_messages_path(match) do %>
+            <%= image_tag match.user_2.avatar, class: "avatar-bordered-match mx-2", width: 50 %>
+          <% end %>
           <% if mess.where(newnotification: true).count > 0 %>
             <div class="notif">
               <span class="notif-number">

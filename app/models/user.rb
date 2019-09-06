@@ -3,6 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   has_many :messages
   has_many :matches
+  has_many :received_messages, through: :matches, source: :messages
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :user_fetishes
@@ -41,6 +42,6 @@ class User < ApplicationRecord
   end
 
   def newmess?
-    self.matches.map{|m| m.messages.where(newnotification: true) if m.messages.where(newnotification: true).count > 0}.reject{|m| m == nil}.size
+    self.matches.map(&:messages).flatten.select { |message| message.newnotification == true }.size
   end
 end
