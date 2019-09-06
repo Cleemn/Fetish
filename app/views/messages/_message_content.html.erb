@@ -9,23 +9,21 @@
     <!-- Colonne droite - msgs envoyés -->
     <% unless message.picture.url.nil? %>
       <li class="messenger-photo right-photo-user">
-        <%= cl_image_tag message.picture, width: 240, height: 180, crop: :fill%>
+        <%= cl_image_tag message.picture, width: 240, height: 180, crop: :fill %>
       </li>
     <% end %>
     <li class="right-paragraph"><%= message.content %></li>
   <% else %>
     <!-- Colonne gauche - msgs reçus - flouté si lu - logo pour lecture non lus -->
     <% unless message.picture.url.nil? %>
-      <li class="messenger-photo left-photo-user">
+      <li class="messenger-photo left-photo-user" style="filter: blur(5px) grayscale(1);">
         <% if message.seen && false %>
-          <%= cl_image_tag message.picture, width: 240, height: 180, :background=>"#110e0e", :effect=>"blur:700", :opacity=>67, crop: :fill%>
+          <%= cl_image_tag message.picture, width: 240, height: 180, crop: :fill %>
         <% else %>
           <!-- Photo non vue : floutée et logo en sur impression -->
           <%= link_to message_picture_seen_path(message_id: message), method: :patch, remote: true do  %>
             <div id="photo-id<%= message.id %>" >
-              <%= cl_image_tag message.picture, :transformation=>[
-              {:effect=>"blur:700", :height=>180, :opacity=>67, :quality=>100, :width=>240, :crop=>"scale"},
-              {:color=>"#ffffff", :gravity=>"center", :overlay=>"fetish_logo", :width=>48, :x=>90, :y=>60, :crop=>"limit"}], data: { toggle: "modal", target: "#photo-Modal#{message.id}"} %>
+              <%= cl_image_tag message.picture, width: 240, height: 180, crop: :fill, data: { toggle: "modal", target: "#photo-Modal#{message.id}"} %>
             </div>
           <% end %>
         <% end %>

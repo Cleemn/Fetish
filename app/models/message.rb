@@ -12,7 +12,7 @@ class Message < ApplicationRecord
     ActionCable.server.broadcast("matches_chat_#{match.id}", {
       message_partial: ApplicationController.renderer.render(
         partial: "messages/message_content",
-        locals: { message: self.reload, user: user.id }
+        locals: { message: self, user: user.id }
       ),
       message_user_id: user.id
     })
