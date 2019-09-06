@@ -26,10 +26,9 @@
 .fetish_card {
     justify-content: center;
     position: absolute;
-    /* margin-top: 60px; */
-    /* margin-left: 6px; */
     bottom: 110px;
-    left: 108px;
+    left: 50%;
+    transform: translateX(-50%);
     border-radius: 237px;
     z-index: 28;
     border: solid 1px #fa8072;

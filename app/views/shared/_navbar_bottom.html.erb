@@ -1,5 +1,5 @@
 <% if user_signed_in? %>
-  <div class="nav_bottom d-flex align-items-center justify-content-around border-top">
+  <div class="nav_bottom d-flex align-items-center justify-content-around border-top <%= "nav-bottom-random" if params[:action] == 'random'  %>">
 
     <%= link_to root_path, class: "#{ 'bottom-link-active' if params['action'] == 'home' }" do %><i class="fas fa-home fa-2x py-3"></i><% end %>
 
