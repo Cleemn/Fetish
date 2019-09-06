@@ -1,7 +1,11 @@
 // Affichage left - right
-.messenger-font {
+.messenger-font li {
   color: white;
   font-weight: bold;
+}
+
+.small-box.messenger-list.messenger-font {
+  margin-top: 4px;
 }
 
 .messenger-photo {
@@ -16,7 +20,7 @@
 .left-paragraph {
   justify-content: flex-start;
   background-color: grey;
-  width: 75%;
+  width: fit-content;
   text-align: left;
   padding: 7px;
 }
@@ -24,7 +28,8 @@
 .right-paragraph {
   justify-content: flex-end;
   background-color: $fetish;
-  margin-left: 25%;
+  margin-left: auto;
+  width: fit-content;
   text-align: right;
   padding: 12px;
 }
@@ -36,7 +41,10 @@
 
 .right-photo-user {
   margin-left: auto;
-  justify-content: flex-end;
+  width: fit-content;
+  margin-bottom: 8px;
+  border-radius: 8px;
+  overflow: hidden;
 }
 
 
@@ -58,9 +66,17 @@
 
 // nom du champ donné par le simple_form_for
 #message_content {
-  height: 30px;
-  width: 235px;
-  margin:  5px 0;
+  height: 40px;
+  width: calc(100% - 20px);
+  margin: 0 10px;
+  border: 0;
+  box-shadow: none !important;
+
+
+}
+
+.form-group.text.required.message_content {
+  flex-grow: 1;
 }
 
 .messenger-input {
@@ -97,11 +113,11 @@
   .match-list {
     width: 100%;
   }
-  .messages {
-    width: 100%;
-    overflow: scroll;
-    flex: 1;
-  }
+  // .messages {
+  //   width: 100%;
+  //   overflow: scroll;
+  //   flex: 1;
+  // }
 }
 
 .message-icones {
@@ -127,6 +143,9 @@
 //  flex: 1;
   display: flex;
   flex-direction: column;
+  height: 64vh;
+  overflow: scroll;
+  padding-right: 8px;
 }
 
 
@@ -148,8 +167,11 @@
 
 .chat-zone {
   position: fixed;
-  bottom: 94px;
+  bottom: 65px;
   background-color: white;
+  width: 100%;
+  left: 0;
+  padding: 8px;
 }
 
 ul {
