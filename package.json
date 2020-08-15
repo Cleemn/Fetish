@@ -12,6 +12,7 @@
     "kind-of": "^6.0.3",
     "minimist": "^1.2.3",
     "popper.js": "^1.15.0",
+    "serialize-javascript": "^3.1.0",
     "sortablejs": "^1.10.0-rc3"
   },
   "devDependencies": {
